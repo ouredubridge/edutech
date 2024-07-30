@@ -2,11 +2,7 @@
 Edubridge
 
 ## Description
-An educational platform that offers various courses based on different aspects such as:
-- Business
-- IT & Software Development
-- Design
-- Finance, and so many more.
+EduBridge is an innovative online platform tailored to support business owners and aspiring entrepreneurs, particularly those with limited or no formal education
 
 ## Prerequisites
 You can find the software requirements in the [requirements.txt](https://github.com/ouredubridge/edutech/blob/main/requirements.txt) file
