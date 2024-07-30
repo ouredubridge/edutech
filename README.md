@@ -39,3 +39,15 @@ Once the virtual environment is activated, you can install the required packages
 ```
 pip install -r requirements.txt
 ```
+- Run any necessary migrations with:
+```
+python manage.py migrate
+```
+
+## Usage
+To run the project on your local machine
+- While you are in the root directory, run the command:
+```
+python manage.py runserver
+```
+- Then you can access the application in your web browser (usually ```http://127.0.0.1:8000/```)  
