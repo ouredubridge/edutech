@@ -1,0 +1,40 @@
+# Python byte-code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyx
+*.so
+
+# Python IDE files
+.idea/
+.vscode/
+
+# Local development settings
+local_settings.py
+
+# Test output
+**/test*.log
+**/coverage*
+
+# Django-specific
+db.sqlite3
+*.log
+
+# Virtual environment
+venv/
+env/
+
+# Media files
+media/
+
+# Static files (if not collected)
+# static/
+
+# IDE-specific user settings
+*.suo
+*.user
+*.jscsrc
+*.jshintrc
+*.tern-project
+*.sass-cache
