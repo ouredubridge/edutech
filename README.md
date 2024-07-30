@@ -9,7 +9,7 @@ An educational platform that offers various courses based on different aspects s
 - Finance, and so many more.
 
 ## Prerequisites
-You can find the software requirements in the [requirements.txt]() file
+You can find the software requirements in the [requirements.txt](https://github.com/ouredubridge/edutech/blob/main/requirements.txt) file
 
 ## Installation
 - Clone the repository using the command:
