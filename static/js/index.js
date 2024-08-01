@@ -13,5 +13,4 @@ document.addEventListener('DOMContentLoaded', function() {
     menuIcon.addEventListener('click', function() {
 	nav.classList.toggle('active');
     });
-    alert("I'm working")
 });
