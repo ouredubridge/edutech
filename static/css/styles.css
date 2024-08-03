@@ -27,7 +27,7 @@ h5 {
 }
 
 h6 {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* Poppins CSS classes */
@@ -215,8 +215,7 @@ nav ul li a {
 /* Dropdown content styles */
 .dropdown-content {
   display: contents;
-  position: absolute;
-  opacity: 0;
+  position:static;
   transition: max-height 0.3s ease-out, opacity 0.3s ease-in-out;
   /*left: auto;*/
   width: 100%;
@@ -230,7 +229,7 @@ nav ul li a {
   list-style: none;
   /*overflow: hidden;*/
   transition: max-height 0.3s ease-out;
-  z-index: 999;
+  z-index: 9999;
   display: none;
 }
 
@@ -274,6 +273,146 @@ nav ul li a {
     font-style: normal;
     font-weight: 400;
 }
+
+/********************************
+***********FOOTER STYLE**********
+**********(GENERAL)**************/
+footer {
+  background-color: #0D1020;
+  color: #FFF;
+  font-size: 14px;
+  width: 100%;
+  /*position: absolute;*/
+  padding:20px 0;
+
+}
+
+footer>section {
+  margin: 5em 0;
+  padding: 0 3em;
+}
+.edubridge-main-div p {
+  margin: 0;
+  line-height: 24px;
+}
+
+.edubridge-div {
+  margin: 0;
+}
+
+.edubridge-div  h4{
+  margin-bottom: 0;
+  /*line-height: 48px;*/
+  padding: 0;
+}
+
+.edubridge-div img {
+  margin-top: 0;
+  padding: 2px;
+  max-width: 128px;
+  position: relative;
+  top: -8px;
+}
+
+.enroll-button {
+  background: #141E61A6;
+  border-radius: 20px;
+  color: #FFF;
+  cursor: pointer;
+  padding: 10px 25px;
+  text-decoration: none;
+  
+}
+
+ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin-left: 0;
+}
+ul li a {
+  font-weight: normal;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.company-div h6 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.support-div h6 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+} 
+
+.legal-div h6 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.company-div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.company-support-legal-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.company-div ul li {
+  margin: 0.5em 0;
+}
+
+.support-div ul li {
+  margin: 0.5em 0;
+}
+
+.legal-div ul li {
+  margin: 0.5em 0;
+}
+
+/* Media div styles */
+.media-div {
+  max-width: fit-content;
+}
+
+.media-div h6{
+  margin-bottom: 0.5em;
+}
+
+/* media links style */
+.media-div a {
+  cursor: pointer;
+}
+.media-div a img {
+  width: 33.75px;
+  height: 30px;
+}
+
+.copyright-div {
+  display: block;
+  background-color: #141E61;
+  max-width: auto;
+  padding: 18px 0;
+  margin: 3em 3em;
+  border-radius: 10px;
+  text-align: center;
+}
+/*
+*
+*
+*
+*
+*
+*
+/
 /* Responsive styles */
 /* Very small devices */
 @media only screen and (max-width: 420px){
@@ -293,6 +432,21 @@ nav ul li a {
   header>nav {
     display: block;
     width: 100%;
+    z-index: 9999;
+    background-color: #FFF;
+  }
+
+  /**footer styles**/
+  footer {
+    text-align: center;
+  }
+  .company-support-legal-div {
+    display: block;
+  }
+
+  .media-div {
+    display: block;
+    text-align: center;
   }
 }
 /* For mobile devices */
@@ -333,6 +487,8 @@ nav ul li a {
     position: absolute;
     top: -60px;
     right: 0px;
+    z-index: 999;
+    background-color: white;
     /*animation: slideOut 0.3s ease-in-out;*/
   }
 	
@@ -340,7 +496,7 @@ nav ul li a {
     opacity: 1;
     display: block;
     transform: translateX(0);
-    animation: slideIn 0.3s ease-in-out;  
+    animation: slideIn 0.3s ease-in-out;
   }
 
   nav>ul {
@@ -447,6 +603,34 @@ nav ul li a {
 
 }
 
+/***************This media query is specifically for the responsiveness
+of the footer section *********************************************/
+@media (min-width: 850px) {
+  /*******************
+  *******FOOTER*******
+  ******STYLES********/
+  footer>section {
+    display: flex;
+    justify-content:flex-start;
+    align-items: first baseline;
+  }
+
+  .edubridge-main-div {
+    flex-grow: 0;
+  }
+
+  .company-support-legal-div {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+  }
+
+  .media-div {
+    flex-grow: 0;
+  }
+
+}
+
 /* For tablets */
 @media only screen and (min-width: 601px) and (max-width: 768px) {
   nav ul li a {
@@ -473,5 +657,15 @@ nav ul li a {
 @media only screen and (min-width: 1025px) {
     body {
 	    font-size: 18px;
+    }
+
+    footer>section {
+      margin: 5em 0;
+      padding: 0 10em;
+    }
+
+    .copyright-div {
+      padding: 18px 0;
+      margin: 2em 10em;
     }
 }
