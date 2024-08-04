@@ -3,6 +3,7 @@ body {
     padding: 0px;
     font-family: 'Poppins', sans-serif;
     color: black;
+    overflow-x: hidden;
 }
 
 /* heading sytles h1 - h6 */
@@ -314,12 +315,12 @@ footer>section {
   top: -8px;
 }
 
-.enroll-button {
+.footer-enroll-button {
   background: #141E61A6;
   border-radius: 20px;
   color: #FFF;
   cursor: pointer;
-  padding: 10px 25px;
+  padding: 10px 24px 10px 24px;
   text-decoration: none;
   
 }
@@ -380,7 +381,7 @@ ul li a {
 
 /* Media div styles */
 .media-div {
-  max-width: fit-content;
+  max-width: inherit;
 }
 
 .media-div h6{
@@ -394,6 +395,8 @@ ul li a {
 .media-div a img {
   width: 33.75px;
   height: 30px;
+  position: relative;
+  left: -4px;
 }
 
 .copyright-div {
@@ -416,6 +419,10 @@ ul li a {
 /* Responsive styles */
 /* Very small devices */
 @media only screen and (max-width: 420px){
+  body {
+    overflow-x: auto;
+  }
+  
   header {
     display: block;
   }
@@ -661,11 +668,11 @@ of the footer section *********************************************/
 
     footer>section {
       margin: 5em 0;
-      padding: 0 10em;
+      padding: 0 8em;
     }
 
     .copyright-div {
       padding: 18px 0;
-      margin: 2em 10em;
+      margin: 2em 8em;
     }
 }
