@@ -1,0 +1,132 @@
+main {
+    padding: 2em 5em;
+}
+
+.home-enroll-button {
+    background-color: #141E61;
+    border-radius: 20px;
+    padding: 10px 24px 10px 24px;
+    text-decoration: none;
+    color: #FFF;
+    width: 119px;
+    height: 41px;
+    cursor: pointer;
+}
+
+.home-button-div {
+    margin: 3em 0;
+}
+
+.home-welcome-div h1 span {
+    color: #141E61;
+}
+
+.home-welcome-image-div {
+    text-align: center;
+}
+
+.home-welcome-image-div img {
+    width: auto;
+    height: 298px;
+}
+
+/* Stats Styles */
+.stats-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 6em;
+}
+
+/* Style the odd stats-box elements */
+.stats-section .stats-box:nth-child(odd) {
+    border: none;
+    margin: auto;
+}
+.stats-number {
+    color: #141E61;
+    position: relative;
+    top: -0.9em;
+}
+.stats-box {
+    width: 200px;
+    height: 30px;
+    border-top: none;
+    border-bottom: none;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-width: 1px;
+    color: #6F6F6F;
+    text-align: center;
+    margin: 3em 0;
+}
+
+.stats-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21.79px;
+    color: #6F6F6F;
+    position: relative;
+    top: -0.8em;
+}
+
+.stats-number {
+    margin: 0;
+}
+
+.stats-description {
+    margin: 0;
+}
+
+
+
+/**
+* Media queries to handle responsiveness
+*
+*/
+
+/* Styles for very small devices */
+@media only screen and (max-width: 420px) {
+
+}
+
+/* Styles for phones and tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* For small laptops and large desktops */
+@media only screen and (min-width: 769px) {
+    main {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .home-welcome-image-div img {
+        width: auto;
+        height: 564px;
+    }
+
+}
+
+/* For tablets */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    
+}
+  
+/* For small laptops */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+/* For desktops */
+@media only screen and (min-width: 1025px) {
+    .stats-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0 4em;
+    }
+}
