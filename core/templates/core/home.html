@@ -1,1 +1,77 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'core/css/home.css'%}">
+{% endblock %}
+
+{% block content %}
+<!--
+******************
+******************
+Main section
+******************
+******************
+-->
+<main>
+    <div class="home-welcome-div">
+        <h1>Welcome To <span>EduBridge</span></h1>
+        <p>Develop your skills in a new and unique way.
+            Explore a transformative approach to skill development on our
+            online learning platform. Uncover a new realm of learning
+            experiences.
+        </p>
+        <div class="home-button-div">
+            <a class="home-enroll-button" href="">Enroll now</a>
+        </div>
+        
+    </div>
+    
+    <div class="home-welcome-image-div">
+        <img src="{% static 'core/img/main-section_img.png' %}" alt="welcome image">
+    </div>
+</main>
+
+
+<!--
+******************
+******************
+Stats section
+******************
+******************
+-->
+<section class="stats-section">
+    <div class="stats-box">
+        <h3 class="stats-number">100</h3>
+        <p class="stats-description">Online Students</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">20</h3>
+        <p class="stats-description">Expert Mentors</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">20+</h3>
+        <p class="stats-description">Courses</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">10</h3>
+        <p class="stats-description">Online videos</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">20+</h3>
+        <p class="stats-description">Business tools</p>
+    </div>
+</section>
+
+
+<!--
+******************
+******************
+Our courses section
+******************
+******************
+-->
+{% endblock %}
