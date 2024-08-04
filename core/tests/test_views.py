@@ -12,12 +12,12 @@ class HomePageTests(TestCase):
     # Confirms the correct template is used for rendering the homepage
     def test_homepage_template(self):
         response = self.client.get(reverse('home'))
-        self.assertTemplatedUsed(response, 'home.html')
+        self.assertTemplateUsed(response, 'core/home.html')
 
     # Checks that specific HTML content is present in the homepage
     def test_homepage_contains_correct_html(self):
         response = self.client.get(reverse('home'))
-        self.assertContains(response, '<h1>Welcome to EduBridge</h1>')
+        self.assertContains(response, '<h1>Welcome To <span>EduBridge</span></h1>')
 
 
     # Verifies that certain HTML content is not present in the homepage
