@@ -6,6 +6,7 @@ main {
     background-color: #141E61;
     border-radius: 20px;
     padding: 10px 24px 10px 24px;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
     text-decoration: none;
     color: #FFF;
     width: 119px;
@@ -79,6 +80,116 @@ main {
     margin: 0;
 }
 
+/***
+* Courses section div
+*
+*/
+.our-courses-section {
+    background: linear-gradient(#141E61, #A5DFFF);
+    padding: 2em;
+}
+
+.our-courses-header {
+    text-align: center;
+    color: #FFF;
+    margin-top: 3em;
+}
+
+.our-courses-header img {
+    position: relative;
+    top: -1em;
+    width: 190px;
+}
+
+.our-courses-header h3 {
+    margin: 0;
+}
+
+.our-courses-header p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27.24px;
+}
+
+
+/* Sub section div for courses */
+.courses-section-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.course-section {
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width:min-content;
+    height: 459px;
+    background-color: #FFF;
+    padding: 0.8em;
+    margin: 2em 0;
+}
+
+.course-section img {
+    width: auto;
+}
+
+.course-title-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-title-rating p {
+    color: #6F6F6F;
+}
+
+.course-section h6 {
+    margin: 0;
+    width: 100%;
+}
+
+/* star icon style */
+.course-rating img{
+    position: relative;
+    bottom: -2px;
+    right: 4px;
+}
+
+/* lessons style */
+.lessons-number img {
+    position: relative;
+    bottom: -5px;
+    margin-right: 10px;
+}
+.lessons-number span{
+    color: #6F6F6F;
+}
+
+/* For courses div horizontal line */
+.bottom-line {
+    margin: 1em 0;
+}
+
+/* Course status and duration */
+.course-status-duration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #6F6F6F;
+}
+
+/* View all courses button */
+.view-courses-button {
+    border-radius: 30px;
+    padding: 12px 48px 12px 48px;
+    background-color: #141E61;
+    color: #FFF;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    position: relative;
+    right: -100px;
+}
 
 
 /**
@@ -107,6 +218,14 @@ main {
     .home-welcome-image-div img {
         width: auto;
         height: 564px;
+    }
+
+    .courses-section-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        overflow-x: auto;
+    
     }
 
 }
