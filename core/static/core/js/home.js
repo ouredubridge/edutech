@@ -21,4 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /*// Show Scrollbar on Hover
+  container.addEventListener('mouseover', () => {
+    container.style.overflowX = 'scroll';
+  });
+
+  // Hide the scrollbar on mouseout
+  container.addEventListener('mouseout', () => {
+    container.style.overflowX = 'hidden';
+  });*/
+
 })
