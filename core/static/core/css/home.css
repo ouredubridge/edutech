@@ -240,6 +240,87 @@ hr.bottom-line {
 *********************
 *********************
 */
+.top-categories-section {
+    margin: 5em 2em;
+}
+
+.top-categories-header {
+    text-align: center;
+    color: #141E61;
+}
+
+.top-categories-header h3 {
+    margin: 0;
+}
+
+.top-categories-header img {
+    margin: 0;
+    width: 222px;
+    position: relative;
+    top: -16px;
+}
+
+.top-categories-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: 10px;
+    /*scrollbar-color: red;*/
+    flex-wrap: nowrap;
+    margin: 15px auto;
+}
+
+
+/* Style the children of the `top-categories-div` */
+.top-categories-div .top-category-div:nth-child(1) .top-category-rec {
+    background: #46FFA7;
+}
+.top-categories-div .top-category-div:nth-child(2) .top-category-rec {
+    background: #A5DFFF;
+
+}
+.top-categories-div .top-category-div:nth-child(3) .top-category-rec {
+    background: #FFE01E;
+}
+
+.top-category-div {
+    width: 190px;
+    height: 117px;
+    text-align: center;
+    margin: 0 6px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.top-category-rec {
+    height: 72px;
+    /*background-color:#A5DFFF;*/
+    text-align: center;
+    border:1px solid #888;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.top-category-ellipse-div {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.top-category-ellipse {
+    border: 1px solid #888;
+    max-width: fit-content;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 10px;
+    position: relative;
+    top: -30px;
+    background-color: #EEE;
+}
 
 
 /**
@@ -297,20 +378,26 @@ hr.bottom-line {
         overflow-y: hidden;
         scrollbar-width: 10px;
         scrollbar-color: #A5DFFF;
-        ::-webkit-scrollbar {
-            height: 10px;
-          }
-          
-          ::-webkit-scrollbar-thumb {
-            background: #141E61;
-          }
-    
+        transition: 0.5s;   
     }
+
+    .courses-section-div::-webkit-scrollbar {
+        height: 3px;
+        color: #A5DFFF;
+    }
+      
+    .courses-section-div::-webkit-scrollbar-thumb {
+        background: #141E61;
+      }
 
     .course-section {
         white-space: nowrap; /* Prevent text wrapping */
         margin-right: 10px;
     }
+
+    .top-category-div {
+        width: 348px;
+        height: 162px;
 
 }
 
