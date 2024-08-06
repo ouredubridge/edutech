@@ -82,75 +82,130 @@ Our courses section
             to meet the demands of today's learners.
         </p>
     </div>
-
-    <div class="courses-section-div">
-
-        <!--START COURSE SECTION-->
-        <div class="course-section">
-            <div class="course-thumbnail">
-                <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
-            </div>
-            <div class="course-title-rating">
-                <p class="course-title">Web Design</p>
-                <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
-            </div>
-            <h6>Web Design and Development</h6>
-            <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
-            <hr class="bottom-line">
-            <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
-            <div class="course-status-duration">
-                <p>Free</p>
-                <p>45hrs</p>
-            </div>
+    
+    <!--****************
+    ********************
+    ((((((((NB: Only for screen sizes > 768px))))))))))))))
+    ((For lesser screen size, set the each arrow display
+    to none.
+    ))
+    This section will contain left and right arrows
+    for sliding the course section across the horizontal
+    x-axis.
+    -->
+    <div class="courses-section-with-arrows">
+        <!--Container for the chevron left arrow -->
+        <div>
+            <img class="arrow-left" alt="chevron left" src="{% static 'core/img/icons/chevron-left.png' %}">
         </div>
-        <!--END COURSE SECTION-->
 
+        <!--Container for the courses section -->
+        <div class="courses-section-div">
 
-        <!--START COURSE SECTION-->
-        <div class="course-section">
-            <div class="course-thumbnail">
-                <img src="{% static 'core/img/pics/course-thumbnail_2.png' %}">
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+            <div class="course-section">
+                <div class="course-thumbnail">
+                    <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
+                </div>
+                <div class="course-title-rating">
+                    <p class="course-title">Web Design</p>
+                    <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                </div>
+                <h6>Web Design and Development</h6>
+                <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                <hr class="bottom-line">
+                <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                <div class="course-status-duration">
+                    <p>Free</p>
+                    <p>45hrs</p>
+                </div>
             </div>
-            <div class="course-title-rating">
-                <p class="course-title">Web Design</p>
-                <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+            </a>
+            <!--END COURSE SECTION-->
+    
+    
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+            <div class="course-section">
+                <div class="course-thumbnail">
+                    <img src="{% static 'core/img/pics/course-thumbnail_2.png' %}">
+                </div>
+                <div class="course-title-rating">
+                    <p class="course-title">Business</p>
+                    <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                </div>
+                <h6>Business Development</h6>
+                <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                <hr class="bottom-line">
+                <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                <div class="course-status-duration">
+                    <p>Free</p>
+                    <p>45hrs</p>
+                </div>
             </div>
-            <h6>Business Development</h6>
-            <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
-            <hr class="bottom-line">
-            <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
-            <div class="course-status-duration">
-                <p>Free</p>
-                <p>45hrs</p>
+            </a>
+            <!--END COURSE SECTION-->
+    
+    
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+            <div class="course-section">
+                <div class="course-thumbnail">
+                    <img src="{% static 'core/img/pics/course-thumbnail_3.png' %}">
+                </div>
+                <div class="course-title-rating">
+                    <p class="course-title">Web Design</p>
+                    <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                </div>
+                <h6>Web Design and Development</h6>
+                <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                <hr class="bottom-line">
+                <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                <div class="course-status-duration">
+                    <p>Free</p>
+                    <p>45hrs</p>
+                </div>
             </div>
+            </a>
+            <!--END COURSE SECTION-->
         </div>
-        <!--END COURSE SECTION-->
 
-
-        <!--START COURSE SECTION-->
-        <div class="course-section">
-            <div class="course-thumbnail">
-                <img src="{% static 'core/img/pics/course-thumbnail_3.png' %}">
-            </div>
-            <div class="course-title-rating">
-                <p class="course-title">Web Design</p>
-                <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
-            </div>
-            <h6>Web Design and Development</h6>
-            <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
-            <hr class="bottom-line">
-            <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
-            <div class="course-status-duration">
-                <p>Free</p>
-                <p>45hrs</p>
-            </div>
+        <!--Container for the chevron right arrow -->
+        <div>
+            <img class="arrow-right" alt="chevron left" src="{% static 'core/img/icons/chevron-right.png' %}">
         </div>
-        <!--END COURSE SECTION-->
+    </div>
+    
 
+    <div class="view-courses-button-div">
         <a class="view-courses-button" href="">View all</a>
     </div>
+</section>
 
-
+<!--
+******************
+******************
+Top categories section
+******************
+******************
+-->
+<section class="top-categories-section">
+    <div class="top-categories-header">
+        <h3>Top Categories</h3>
+        <img src="{% static 'core/img/icons/horizontal_line.png' %}" alt="horizontal line">
     </div>
 </section>
+
+<!--
+******************
+******************
+Our plans section
+******************
+******************
+-->
+
+
+<!--JavaScript Link-->
+<script src="{% static '/core/js/home.js' %}"></script>
 {% endblock %}

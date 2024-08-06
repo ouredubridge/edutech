@@ -81,8 +81,11 @@ main {
 }
 
 /***
+*********************
+*********************
 * Courses section div
-*
+*********************
+*********************
 */
 .our-courses-section {
     background: linear-gradient(#141E61, #A5DFFF);
@@ -95,6 +98,9 @@ main {
     margin-top: 3em;
 }
 
+/* The horizontal line below
+*  the `Our Courses` header
+*/
 .our-courses-header img {
     position: relative;
     top: -1em;
@@ -111,14 +117,36 @@ main {
     line-height: 27.24px;
 }
 
+.arrow-left, .arrow-right {
+    display: none;
+}
 
 /* Sub section div for courses */
 .courses-section-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: nowrap;
 
 }
+
+/* Course section link styles */
+.course-section-link {
+    text-decoration: none;
+    transition: 0.4s;
+    color:#6F6F6F;
+
+}
+
+.course-section h6 {
+    color: black;
+}
+
+.course-section-link:hover {
+    opacity: 0.8;
+}
+/* End of course section link styles */
+
 
 .course-section {
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -157,7 +185,7 @@ main {
 }
 
 /* lessons style */
-.lessons-number img {
+.lessons-number img { /* open book icon style */
     position: relative;
     bottom: -5px;
     margin-right: 10px;
@@ -167,9 +195,14 @@ main {
 }
 
 /* For courses div horizontal line */
-.bottom-line {
+hr.bottom-line {
     margin: 1em 0;
+    border-color: #6F6F6F;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
+
 
 /* Course status and duration */
 .course-status-duration {
@@ -179,6 +212,11 @@ main {
     color: #6F6F6F;
 }
 
+.view-courses-button-div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 25px;
+}
 /* View all courses button */
 .view-courses-button {
     border-radius: 30px;
@@ -188,8 +226,20 @@ main {
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
     text-decoration: none;
     position: relative;
-    right: -100px;
+    top: 5px;
+    right: auto;
+    display: inline-block;
 }
+
+
+
+/***
+*********************
+*********************
+* Top categories section div
+*********************
+*********************
+*/
 
 
 /**
@@ -220,12 +270,46 @@ main {
         height: 564px;
     }
 
-    .courses-section-div {
+    .courses-section-with-arrows {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .arrow-left, .arrow-right {
+        cursor: pointer;
+        display: block;
+        padding: 6px 2px;
+    }
+
+    .arrow-left:hover, .arrow-right:hover {
+        background-color: #141E61;
+        opacity: 0.2;
+        transition: 0.3s;
+    }
+
+    .courses-section-div {
+        display:flex;
+        flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
-        overflow-x: auto;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-width: 10px;
+        scrollbar-color: #A5DFFF;
+        ::-webkit-scrollbar {
+            height: 10px;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background: #141E61;
+          }
     
+    }
+
+    .course-section {
+        white-space: nowrap; /* Prevent text wrapping */
+        margin-right: 10px;
     }
 
 }
