@@ -368,20 +368,21 @@ hr.bottom-line {
     margin-top: 5em;
     white-space: nowrap;
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: hidden;
     margin-left: 5px;
     margin-right: 5px;
-    scrollbar-width: 2px;
+    scrollbar-width: 0.5px;
 }
 
 .plans-div::-webkit-scrollbar {
     background-color: #FFF;
-    width: 2px;
+    width: 0.5px;
 }
 
 .plans-div::-webkit-scrollbar-thumb {
     background-color: #141E61;
+    border-radius: 10px;
 }
 
 .plan-div {
@@ -522,10 +523,6 @@ hr.bottom-line {
 .why-choose-us-contents-div {
     text-align: left;
     max-height: min-content;
-    /*justify-content: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-grow: 1;*/
 }
 
 .why-choose-us-contents-div div {
