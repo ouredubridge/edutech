@@ -241,7 +241,7 @@ hr.bottom-line {
 *********************
 */
 .top-categories-section {
-    margin: 5em 2em;
+    margin: 5em 1em;
 }
 
 .top-categories-header {
@@ -260,17 +260,29 @@ hr.bottom-line {
     top: -16px;
 }
 
+.top-categories-scrollable-div {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: 5px;
+    scrollbar-color: #FFF;
+    text-align: center;
+}
+
+.top-categories-scrollable-div::-webkit-scrollbar {
+    height: 5px;
+    color: #FFF;   
+}
+
 .top-categories-div {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content:center;
-    overflow-x: scroll;
-    overflow-y: hidden;
     scrollbar-width: 10px;
     /*scrollbar-color: red;*/
     flex-wrap: nowrap;
     margin: 15px auto;
+    width: auto;
 }
 
 
@@ -291,7 +303,7 @@ hr.bottom-line {
     height: 117px;
     text-align: center;
     margin: 0 6px;
-    display: inline-block;
+    display:block;
     white-space: nowrap;
 }
 
@@ -305,7 +317,7 @@ hr.bottom-line {
 }
 
 .top-category-ellipse-div {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     display: flex;
     justify-content: center;
 }
@@ -320,6 +332,157 @@ hr.bottom-line {
     position: relative;
     top: -30px;
     background-color: #EEE;
+}
+
+
+/**Plans section styles****
+***************************
+***************************/
+.plans-section {
+    margin-bottom: 8em;
+}
+
+.plans-header {
+    text-align: center;
+    color: #141E61;
+}
+
+.plans-header h3{
+    margin-bottom: 0;
+}
+
+.plans-header img {
+    width: 95px;
+    position: relative;
+    top: -18px;
+}
+
+.plans-header p {
+    margin: 0;
+}
+
+.plans-div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5em;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-left: 5px;
+    margin-right: 5px;
+    scrollbar-width: 2px;
+}
+
+.plans-div::-webkit-scrollbar {
+    background-color: #FFF;
+    width: 2px;
+}
+
+.plans-div::-webkit-scrollbar-thumb {
+    background-color: #141E61;
+}
+
+.plan-div {
+    text-align: center;
+    width: 280px;
+    height: 430px;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #B6B4B4;
+    border-style: solid;
+    margin: 0 7px;
+    padding: 0 10px;
+}
+
+/* Second child of the `plans-div` styles */
+.plans-div .plan-div:nth-child(2) {
+    height: 469px;
+    background: linear-gradient(151.48deg, #A5DFFF -28.92%, #141E61 103.35%);
+    border: none;
+}
+
+.plans-div .plan-div:nth-child(2) .plan-desc {
+    color: #FFF;
+    margin-bottom: 4em;
+}
+
+.plans-div .plan-div:nth-child(2) .plan-price {
+    color: #FFF;
+}
+
+.plans-div .plan-div:nth-child(2) .plan-period {
+    color: #FFF;
+}
+
+.plans-div .plan-div:nth-child(2) .plan-per-period {
+    color: #FFF;
+}
+
+.plans-div .plan-div:nth-child(2) .plan-enroll-now-button {
+    background-color: #FFF;
+    box-shadow: 0px 3px 4px 0px #00000040;
+    color: #141E61;
+    margin-top: 10px;
+
+}
+/* End styling of second plan div */
+
+
+.plan-period {
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+
+.plan-price {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.plan-per-period {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #333;
+}
+
+.plan-enroll-now-button {
+    border-radius: 30px;
+    border-width: 1px;
+    border-color: #141E61;
+    border-style: solid;
+    padding: 12px 24px 10px 24px;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #141E61;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.plan-div .plan-period {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 56.87px;
+    color: #333;
+}
+
+.plan-div .plan-price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 80px;
+    color: #141E61;
+}
+
+
+.plan-desc {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    color: #000;
 }
 
 
@@ -388,7 +551,8 @@ hr.bottom-line {
       
     .courses-section-div::-webkit-scrollbar-thumb {
         background: #141E61;
-      }
+    
+    }
 
     .course-section {
         white-space: nowrap; /* Prevent text wrapping */
@@ -398,6 +562,50 @@ hr.bottom-line {
     .top-category-div {
         width: 348px;
         height: 162px;
+    }
+
+    /* Plan section styles */
+    .plans-div {
+        justify-content: center;
+        /*overflow-x: hidden;*/
+    }
+
+    .plan-div {
+        height: 483px;
+    }
+
+    /* Second child of the `plans-div` styles */
+    .plans-div .plan-div:nth-child(2) {
+        height: 541px;
+        background: linear-gradient(151.48deg, #A5DFFF -28.92%, #141E61 103.35%);
+        border: none;
+    }
+
+    .plans-div .plan-div:nth-child(2) .plan-desc {
+        color: #FFF;
+        margin-bottom: 4em;
+    }
+
+    .plans-div .plan-div:nth-child(2) .plan-price {
+        color: #FFF;
+    }
+
+    .plans-div .plan-div:nth-child(2) .plan-period {
+        color: #FFF;
+    }
+
+    .plans-div .plan-div:nth-child(2) .plan-per-period {
+        color: #FFF;
+    }
+
+    .plans-div .plan-div:nth-child(2) .plan-enroll-now-button {
+        background-color: #FFF;
+        box-shadow: 0px 3px 4px 0px #00000040;
+        color: #141E61;
+        margin-top: 10px;
+
+    }
+    /* End styling of second plan div */
 
 }
 
@@ -408,7 +616,10 @@ hr.bottom-line {
   
 /* For small laptops */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-
+    /* Top categories style */
+    .top-categories-div {
+        width: 100%;
+    }
 }
 
 /* For desktops */
@@ -419,4 +630,23 @@ hr.bottom-line {
         justify-content: space-around;
         margin: 0 4em;
     }
+
+    /* Plan section styles */
+    .plans-div {
+        overflow-x: hidden;
+    }
+
+    /* Top categories style */
+    .top-categories-div {
+        width: 100%;
+    }
+
+    .plan-desc {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 32px;
+        color: #000;
+    }
+
 }
