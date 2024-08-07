@@ -486,6 +486,64 @@ hr.bottom-line {
 }
 
 
+/*********************
+*Why choose us styles*
+*********************/
+.why-choose-us-header {
+    text-align: center;
+    color: #141E61;
+}
+
+.why-choose-us-header h3 {
+    margin-bottom: 0;
+}
+
+.why-choose-us-header img {
+    width: 230px;
+    position: relative;
+    top: -13px;
+}
+
+.why-choose-us-div {
+    display: block;
+    text-align: center;
+    margin: 0 20px;
+    /*align-items: center;
+    justify-content: center;
+    flex-direction: column;*/
+}
+
+.why-choose-us-image-div img {
+    width: auto;
+    height: 330px;
+    flex-grow: 6;
+}
+
+.why-choose-us-contents-div {
+    text-align: left;
+    max-height: min-content;
+    /*justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;*/
+}
+
+.why-choose-us-contents-div div {
+    margin: 2em 0;
+}
+
+.why-choose-us-contents-div div h6 {
+    margin: 0;
+}
+
+.why-choose-us-contents-div div p {
+    font-family: 'Opens Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.07px;
+    color: #6F6F6F;
+}
+
 /**
 * Media queries to handle responsiveness
 *
@@ -607,11 +665,41 @@ hr.bottom-line {
     }
     /* End styling of second plan div */
 
+
+    /* Why choose us section */
+    .why-choose-us-div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: nowrap;
+
+    }
+
+    .why-choose-us-image-div {
+        width: 50%;
+    }
+
+
+    .why-choose-us-contents-div {
+        width: 40%;
+    }
+
+    .why-choose-us-contents-div div p {
+        font-family: 'Opens Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21.79px;
+        color: #6F6F6F;
+    }
+
 }
 
 /* For tablets */
 @media only screen and (min-width: 601px) and (max-width: 768px) {
-    
+    .why-choose-us-div img {
+        width: 421px;
+        height: 421px;
+    }
 }
   
 /* For small laptops */
@@ -647,6 +735,13 @@ hr.bottom-line {
         font-size: 16px;
         line-height: 32px;
         color: #000;
+    }
+
+    /* Why choose us styles */
+
+    .why-choose-us-image-div img {
+        width: auto;
+        height: 521px;
     }
 
 }
