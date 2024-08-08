@@ -645,8 +645,14 @@ hr.bottom-line {
     font-size: 14px;
     line-height: 19.07px;
     color: #A0A2B2;
+    background: none;
 
 }
+
+.form-div input[type="text"],
+.form-div input[type="email"]:focus {
+    outline: none;
+} 
 
 
 .form-div input[type="submit"] {
