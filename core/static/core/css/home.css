@@ -127,6 +127,7 @@ main {
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
+    padding: 5px;
 
 }
 
@@ -135,6 +136,7 @@ main {
     text-decoration: none;
     transition: 0.4s;
     color:#6F6F6F;
+    margin-bottom: 2em;
 
 }
 
@@ -155,7 +157,7 @@ main {
     height: 459px;
     background-color: #FFF;
     padding: 0.8em;
-    margin: 2em 0;
+    margin: 0;
 }
 
 .course-section img {
@@ -807,6 +809,12 @@ hr.bottom-line {
         font-size: 16px;
         line-height: 21.79px;
         color: #6F6F6F;
+    }
+
+    /****************
+    ****Contact us section***/
+    .contact-us-div {
+        width: 80%;
     }
 
 }
