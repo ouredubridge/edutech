@@ -427,6 +427,7 @@ Contact us section
             </div>
         </div>
         <form class="form-div" method="post">
+            {% csrf_token %}
             <input type="text" name="full-name" placeholder="Full name">
             <input type="email" name="email" placeholder="Email">
             <input type="text" name="message" placeholder="Message">
