@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'edubridge_website.urls'
@@ -123,6 +124,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles' # Optional for deployment
 STATICFILES_DIRS = [
         BASE_DIR / 'static', # Project-level static files
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
