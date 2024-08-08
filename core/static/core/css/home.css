@@ -541,6 +541,126 @@ hr.bottom-line {
     color: #6F6F6F;
 }
 
+/**************
+*Contact us styles*
+*******************/
+.contact-us-section {
+    display: flex;
+    justify-content: center;
+    margin: 5em 0;
+}
+
+.contact-us-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color:#141E61;
+}
+
+.contact-us-innerdiv {
+    display: flex;
+    justify-content: end;
+}
+
+.contact-us-innerdiv>div{
+    width: 70%;
+    height: 151px;
+    background: linear-gradient(270deg, #A5DFFF -49.43%, #141E61 104.33%);
+    border-radius: 20px 0 0 20px;
+    text-align: left;
+    color: #FFF;
+    padding-left: 2em;
+}
+
+.contact-us-div {
+    width: 330px;
+    height: 632px;
+    box-shadow: 0px 2px 6px 3px #00000040;
+    border-radius: 10px;
+    margin: 0 6px;
+}
+
+.contact-us-header-div {
+    padding: 20px;
+}
+
+.contact-us-header-div>h5 {
+    margin-bottom: 3px;
+    color: #141E61;
+}
+
+.contact-us-header-div p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.07px;
+    color: #6F6F6F;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+.email-div {
+    margin: 0;
+}
+
+.phone-div {
+    margin-top: 0;
+}
+.email-div .icon, .phone-div .icon {
+    margin-right: 10px;
+}
+
+.email-div, .phone-div {
+    display: flex;
+    align-items: center;
+}
+
+.social-div a {
+    margin-right: 8px;
+}
+
+.form-div {
+    margin-top: 2em;
+    padding: 20px;
+    width: auto;
+}
+
+/* Style of form inputs */
+.form-div input[type="text"],
+.form-div input[type="email"] {
+    margin-bottom: 2em;
+    border: none;
+    border-bottom: 1px solid #888;
+    width: 95%;
+    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.07px;
+    color: #A0A2B2;
+
+}
+
+
+.form-div input[type="submit"] {
+    background: none;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 120px 10px 120px;
+    background-color: #141E61;
+    box-shadow: 0px 3px 4px 0px #00000040;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    width: 100%;
+    cursor: pointer;
+}
 /**
 * Media queries to handle responsiveness
 *

@@ -381,6 +381,52 @@ Why choose us section
     </div>
 </section>
 
+
+<!--
+******************
+******************
+Contact us section
+******************
+******************
+-->
+<section class="contact-us-section">
+    <div class="contact-us-div">
+        <div class="contact-us-header-div">
+            <span class="contact-us-heading">Contact Us</span>
+            <p>Feel free to reach out to us anytime.
+                We will get back to you as soon as we can!
+            </p>
+        </div>
+
+        <div class="contact-us-innerdiv">
+            <div>
+                <div class="email-div">
+                    <img class="icon" src="{% static '/core/img/icons/mail.png'%}">
+                    <p>edubridge@gmail.com</p>
+                </div>
+
+                <div class="phone-div">
+                    <img class="icon" src="{% static '/core/img/icons/phone.png'%}">
+                    <p>08065345545</p>
+                </div>
+                <div class="social-div">
+                    <a href=""><img class="icon" src="{% static '/img/icons/Facebook.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static '/img/icons/Instagram.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static '/img/icons/LinkedIn.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static '/img/icons/TwitterX.png'%}"></a><br>
+                </div>
+            </div>
+        </div>
+        <form class="form-div" method="post">
+            <input type="text" name="full-name" placeholder="Full name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="message" placeholder="Message">
+            <br>
+            <input type="submit" name="submit" value="Send">
+        </form>
+    </div>
+</section>
+
 <!--JavaScript Link-->
 <script src="{% static '/core/js/home.js' %}"></script>
 {% endblock %}
