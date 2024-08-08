@@ -2,6 +2,9 @@
 {% load static %}
 {% block link %}
 <link rel="stylesheet" href="{% static 'core/css/home.css'%}">
+
+<!--AOS (Animate on Scroll)-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 {% endblock %}
 
 {% block content %}
@@ -39,7 +42,7 @@ Stats section
 ******************
 ******************
 -->
-<section class="stats-section">
+<section data-aos="fade-right" class="stats-section">
     <div class="stats-box">
         <h3 class="stats-number">100</h3>
         <p class="stats-description">Online Students</p>
@@ -391,6 +394,7 @@ Contact us section
 -->
 <section class="contact-us-section">
     <div class="contact-us-div">
+        <div class="header-form-div"><!--Div test-->
         <div class="contact-us-header-div">
             <span class="contact-us-heading">Contact Us</span>
             <p>Feel free to reach out to us anytime.
@@ -424,9 +428,36 @@ Contact us section
             <br>
             <input type="submit" name="submit" value="Send">
         </form>
+        </div><!--End div test-->
+
+        <!--For laptops and Desktops-->
+        <div class="contact-us-innerdiv-desktop">
+            <div>
+                <p>Info</p>
+                <div class="email-div">
+                    <img class="icon" src="{% static '/core/img/icons/mail.png'%}">
+                    <p>edubridge@gmail.com</p>
+                </div>
+
+                <div class="phone-div">
+                    <img class="icon" src="{% static '/core/img/icons/phone.png'%}">
+                    <p>08065345545</p>
+                </div>
+                <div class="social-div">
+                    <a href=""><img class="icon" src="{% static '/img/icons/Facebook.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static '/img/icons/Instagram.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static '/img/icons/LinkedIn.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static '/img/icons/TwitterX.png'%}"></a><br>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!--JavaScript Link-->
 <script src="{% static '/core/js/home.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!--Scroll reveal-->
+<script src="https://unpkg.com/scrollreveal"></script>
 {% endblock %}

@@ -675,7 +675,9 @@ hr.bottom-line {
 
 /* Styles for phones and tablets */
 @media only screen and (max-width: 768px) {
-
+    .contact-us-innerdiv-desktop {
+        display: none;
+    }
 }
 
 /* For small laptops and large desktops */
@@ -814,7 +816,50 @@ hr.bottom-line {
     /****************
     ****Contact us section***/
     .contact-us-div {
-        width: 80%;
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .contact-us-innerdiv {
+        display: none;
+    }
+
+    .header-form-div {
+        width: 50%;
+        margin-left: 2em;
+        margin-top: 2em;
+        margin-bottom: 3em;
+    }
+
+    .contact-us-innerdiv-desktop {
+        width: 30%;
+        height: auto;
+        background: linear-gradient(270deg, #A5DFFF -49.43%, #141E61 104.33%);
+        border-radius: 20px 0 0 20px;
+        text-align: left;
+        color: #FFF;
+        padding-left: 2em;
+    }
+
+    .social-div {
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
+
+    .social-div .icon {
+        width: 33.75px;
+        height: 30px;
+    }
+
+    .contact-us-heading {
+        line-height: 54px;
+    }
+
+    input[type="submit"] {
+        margin-top: 5em;
     }
 
 }
