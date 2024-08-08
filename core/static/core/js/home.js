@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+  /* Initialize AOS */
+  AOS.init({
+    duration: 1200,
+    offset: 200,
+    /*once: true*/
+  });
+
+  /* ScrollReveal */
+  ScrollReveal().reveal('.reveal', {
+    distance: '50px',
+    duration: 1000,
+    easing: 'ease-in-out',
+    origin: 'bottom',
+    reset: true // Optional: Reset animation when element leaves viewport
+  }); 
+
   /* JS Functionality for the courses div section */
   const container = document.querySelector('.courses-section-div');
   const leftArrow = document.querySelector('.arrow-left');
