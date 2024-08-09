@@ -2,6 +2,19 @@ main {
     padding: 2em 5em;
 }
 
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 43.2px;
+}
+
+main div p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
 .home-enroll-button {
     background-color: #141E61;
     border-radius: 20px;
@@ -12,6 +25,9 @@ main {
     width: 119px;
     height: 41px;
     cursor: pointer;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
 }
 
 .home-button-div {
@@ -689,10 +705,27 @@ hr.bottom-line {
 
 /* For small laptops and large desktops */
 @media only screen and (min-width: 769px) {
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 57.6px;
+    }
+
     main {
         display: flex;
         justify-items: center;
         align-items: center;
+    }
+
+    main div p {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .home-enroll-button {
+        font-size: 18px;
+        line-height: 27px;
     }
 
     .home-welcome-image-div img {
