@@ -714,7 +714,14 @@ hr.bottom-line {
 
 /* Styles for very small devices */
 @media only screen and (max-width: 420px) {
+    .stats-section .stats-box{
+        display: none;
+    }
 
+    .stats-section .stats-box:nth-child(-n+3) {
+        /* Styles for all children up to the third */
+        display: block;
+    }
 }
 
 /* Styles for phones and tablets */
