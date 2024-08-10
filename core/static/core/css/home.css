@@ -65,7 +65,10 @@ main div p {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 6em;
+    margin-top: 74.63px;
+    margin-bottom: 80px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 /* Style the odd stats-box elements */
@@ -77,10 +80,14 @@ main div p {
     color: #141E61;
     position: relative;
     top: -0.9em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700px;
+    font-size: 24px;
+    line-height: 32.68px;
 }
 .stats-box {
-    width: 200px;
-    height: 30px;
+    width: 130px;
+    height: 20px;
     border-top: none;
     border-bottom: none;
     border-left-style: solid;
@@ -93,9 +100,10 @@ main div p {
 }
 
 .stats-description {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 21.79px;
+    font-size: 14px;
+    line-height: 19.07px;
     color: #6F6F6F;
     position: relative;
     top: -0.8em;
@@ -758,6 +766,40 @@ hr.bottom-line {
         height: 564px;
     }
 
+    /* Stats section */
+    .stats-box {
+        width: 200px;
+        height: 30px;
+        border-top: none;
+        border-bottom: none;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-right-style: solid;
+        border-right-width: 1px;
+        color: #6F6F6F;
+        text-align: center;
+        margin: 3em 0;
+    }
+
+    .stats-number {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 49.03px;
+        /*text-align: left;*/
+
+    }
+
+    .stats-description {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21.79px;
+        color: #6F6F6F;
+        position: relative;
+        top: -0.8em;
+    }
+
     .courses-section-with-arrows {
         display: flex;
         justify-content: space-between;
@@ -991,7 +1033,10 @@ hr.bottom-line {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        margin: 0 4em;
+        margin-top: 147.13px;
+        margin-bottom: 110px;
+        margin-left: 273px;
+        margin-right: 273px;
     }
 
     /* Plan section styles */
@@ -1019,4 +1064,17 @@ hr.bottom-line {
         height: 521px;
     }
 
+}
+
+
+
+/** Other media queries **
+** while inspecting the **
+** responsiveness of certain**
+** divs *********************/
+@media only screen and (min-width: 1025px) and (max-width: 1300px) {
+    .stats-section {
+        margin-left: 170px;
+        margin-right: 170px;
+    }
 }
