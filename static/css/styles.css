@@ -609,11 +609,25 @@ footer>section {
     }
 
     nav ul li {
-	      margin-left: 20px;
+	      margin-left: 30px;
+    }
+
+    nav ul li a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 30px;
+    }
+    
+    /* For courses dropdown */
+    .button-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 30px;  
     }
 
     nav ul li .login {
-      margin-left: 65px;
+      margin-left: 35px;
       border: 1px solid;
       border-color: #141E61;
       color: #141E61;
@@ -622,13 +636,18 @@ footer>section {
     .login, .signup {
       border-radius: 30px;
       padding: 12px 48px 12px 48px;
+      box-shadow: 0px 3px 4px 0px #00000040;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;
     }
 
     .signup {
       background-color: #141E61;
       color: #FFF;
-      font-weight: 400;
+      margin-left: 20px;
     }
+    
 
     .menu-icon {
 	      display: none;
@@ -720,9 +739,66 @@ of the footer section *********************************************/
       width: auto;
       overflow-x: hidden;
     }
+
     nav ul li a {
 	    font-size: 14px;
     }
+
+    nav ul {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-left: 10px;
+    }
+
+    nav ul li:nth-child(1) {
+      margin-left: 0;
+    }
+
+    nav ul li a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 30px;
+    }
+
+  /* For courses dropdown */
+    .button-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 30px;  
+    }
+
+    nav ul li .login {
+      margin-left: 5px;
+      border: 1px solid;
+      border-color: #141E61;
+      color: #141E61;
+    }
+
+    .login, .signup {
+      border-radius: 30px;
+      padding: 12px 48px 12px 48px;
+      box-shadow: 0px 3px 4px 0px #00000040;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;
+    }
+
+    .login {
+      margin-left: 20px;
+    }
+
+    .signup {
+      background-color: #141E61;
+      color: #FFF;
+      margin-left: 5px;
+    }
+
+
     .dropdown-button, .dropdown-content {
       font-size: 14px;
     }
@@ -751,6 +827,49 @@ of the footer section *********************************************/
     }
 }
 
+@media only screen and (min-width: 1200px) {
+  /* Styles for large desktops */
+  nav ul li {
+    margin-left: 30px;
+  }
+
+  nav ul li a {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+
+  /* For courses dropdown */
+  .button-text {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;  
+  }
+
+  nav ul li .login {
+    margin-left: 113px;
+    border: 1px solid;
+    border-color: #141E61;
+    color: #141E61;
+  }
+
+  .login, .signup {
+    border-radius: 30px;
+    padding: 12px 48px 12px 48px;
+    box-shadow: 0px 3px 4px 0px #00000040;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .signup {
+    margin-left: 20px;
+  }
+
+}
+
+/*
 @media only screen and (min-width: 768px) and (max-width: 866px) {
   nav ul li a.login {
     margin-left: 5px;
@@ -759,4 +878,4 @@ of the footer section *********************************************/
     margin-left: 2px;
 }
 
-}
+}*/
