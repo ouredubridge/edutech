@@ -22,13 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Menu icon behavior
     menuIcon.addEventListener('click', function() {
 	    nav.classList.toggle('active');
-        menuIcon.classList.toggle('rotate-hamburger')
+        menuIcon.classList.toggle('open')
     });
 
     // Hide the menu when clicking outside the menu
     document.addEventListener('click', (event) => {
         if (!nav.contains(event.target) && !menuIcon.contains(event.target)) {
           nav.classList.remove('active');
+          menuIcon.classList.remove('open')
         }
     });
 });
