@@ -24,4 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	    nav.classList.toggle('active');
         menuIcon.classList.toggle('rotate-hamburger')
     });
+
+    // Hide the menu when clicking outside the menu
+    document.addEventListener('click', (event) => {
+        if (!nav.contains(event.target) && !menuIcon.contains(event.target)) {
+          nav.classList.remove('active');
+        }
+    });
 });
