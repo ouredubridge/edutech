@@ -126,13 +126,16 @@ main div p {
 */
 .our-courses-section {
     background: linear-gradient(#141E61, #A5DFFF);
-    padding: 2em;
+    padding-top: 0;
 }
 
 .our-courses-header {
     text-align: center;
     color: #FFF;
-    margin-top: 3em;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 /* The horizontal line below
@@ -146,12 +149,18 @@ main div p {
 
 .our-courses-header h3 {
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 42px;
 }
 
 .our-courses-header p {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 27.24px;
+    font-size: 14px;
+    line-height: 19.07px;
+    margin: 0;
 }
 
 .arrow-left, .arrow-right {
@@ -164,8 +173,11 @@ main div p {
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    padding: 5px;
-
+    white-space: nowrap;
+    margin-left: 42px;
+    margin-right: 42px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Course section link styles */
@@ -173,8 +185,12 @@ main div p {
     text-decoration: none;
     transition: 0.4s;
     color:#6F6F6F;
-    margin-bottom: 2em;
+    margin-bottom: 40px;
+    padding: 0;
+}
 
+.course-section-link:nth-child(3) {
+    margin-bottom: 30px;
 }
 
 .course-section h6 {
@@ -190,21 +206,32 @@ main div p {
 .course-section {
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    width:min-content;
-    height: 459px;
+    width:305px;
+    height: 417px;
     background-color: #FFF;
     padding: 0.8em;
-    margin: 0;
 }
 
 .course-section img {
-    width: auto;
+    width: fit-content;
+}
+
+.course-thumbnail img {
+    width: 100%;
+}
+.course-section h6 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+    margin-top: 10px;
 }
 
 .course-title-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: fit-content;
 }
 
 .course-title-rating p {
@@ -224,10 +251,15 @@ main div p {
 }
 
 /* lessons style */
+.lessons-number {
+    margin-top: 26px;
+    margin-bottom: 20px
+}
+
 .lessons-number img { /* open book icon style */
     position: relative;
     bottom: -5px;
-    margin-right: 10px;
+    margin-right: 7px;
 }
 .lessons-number span{
     color: #6F6F6F;
@@ -251,25 +283,31 @@ hr.bottom-line {
     color: #6F6F6F;
 }
 
-.view-courses-button-div {
-    display: flex;
+.view-courses-button-mobile-div {
+    width: max-content;
+    margin-left: 42px;
+    margin-right: 42px;
+    display: inline-flex;
+    width: 325px;
     justify-content: flex-end;
-    margin: 25px;
 }
+
 /* View all courses button */
-.view-courses-button {
-    border-radius: 30px;
-    padding: 12px 48px 12px 48px;
+.view-courses-mobile-button {
+    border-radius: 20px;
+    padding: 10px 24px 10px 24px;
     background-color: #141E61;
     color: #FFF;
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
     text-decoration: none;
-    position: relative;
-    top: 5px;
-    right: auto;
     display: inline-block;
+    margin-bottom: 49px;
 }
 
+/* Hide view all button for laptops and desktops */
+.view-courses-button-div {
+    display: none;
+}
 
 
 /***
@@ -807,10 +845,55 @@ hr.bottom-line {
         top: -0.8em;
     }
 
+    /* Courses section styles */
+    .our-courses-header {
+        padding-top: 78px;
+    }
+
+    .our-courses-header h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 54px;
+    }
+
+    .our-courses-header img {
+        width: 230px;
+    }
+
+    .our-courses-header p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 27.24px;
+        margin-top: 27px;
+        margin-bottom: 40px;
+    }
+
+    .course-section {
+        box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 347px;
+        height: 459px;
+        background-color: #FFF;
+        padding: 0.8em;
+        margin-right: 50px;
+    }
+
     .courses-section-with-arrows {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .arrow-left {
+        margin-right: 22px;
+    }
+
+    .arrow-right {
+        margin-left: 22px;
     }
 
     .arrow-left, .arrow-right {
@@ -834,7 +917,8 @@ hr.bottom-line {
         overflow-y: hidden;
         scrollbar-width: 10px;
         scrollbar-color: #A5DFFF;
-        transition: 0.5s;   
+        transition: 0.5s; 
+        margin: 0;  
     }
 
     .courses-section-div::-webkit-scrollbar {
@@ -848,10 +932,51 @@ hr.bottom-line {
     }
 
     .course-section {
+        width: 347px;
+        height: 459px;
+        border-radius: 20px;
         white-space: nowrap; /* Prevent text wrapping */
         margin-right: 10px;
     }
 
+    .course-section-link {
+        margin-left: 50px;
+    }
+
+    .course-section-link:first-child {
+        margin-left: 0;
+    }
+
+    
+    /* Hide the `view all` on mobile */
+    .view-courses-button-mobile-div {
+        display: none;
+    }
+
+    /* View all courses button */
+    .view-courses-button-div {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 42px;
+        margin-top: 10px;
+        margin-right: 150px;
+    }
+
+    .view-courses-button {
+        border-radius: 30px;
+        padding: 12px 48px 12px 48px;
+        background-color: #141E61;
+        color: #FFF;
+        box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+        text-decoration: none;
+        position: relative;
+        top: 5px;
+        right: auto;
+        display: inline-block;
+        margin-bottom: 49px;
+    }
+
+    /* Top category styles */
     .top-category-div {
         width: 348px;
         height: 162px;
@@ -1012,6 +1137,14 @@ hr.bottom-line {
     .home-welcome-image-div img {
         width: 100%;
         height: 100%;
+    }
+
+    .courses-section-with-arrows {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 75px;
+        margin-right: 75px;
     }
 }
 
