@@ -1146,6 +1146,12 @@ hr.bottom-line {
         margin-left: 75px;
         margin-right: 75px;
     }
+
+    /* View all courses button */
+    .view-courses-button-div {
+        margin-right: 125px;
+        background-color: orange;
+    }
 }
 
 /* For desktops */
