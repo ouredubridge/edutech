@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  alert("Welcome to EduBridge")
   /* Initialize AOS */
   AOS.init({
     duration: 1200,
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* JS functionality for top categories div section */
   scrollContainer.addEventListener('scroll', () => {
-    alert("Inside the if statement")
     scrollItems.forEach(item => {
       const rect = item.getBoundingClientRect();
       const containerRect = scrollContainer.getBoundingClientRect();
