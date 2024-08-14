@@ -671,7 +671,7 @@ hr.bottom-line {
 .contact-us-section {
     display: flex;
     justify-content: center;
-    margin: 5em 0;
+    margin: 5em 30px;
 }
 
 .contact-us-heading {
@@ -729,10 +729,12 @@ hr.bottom-line {
 
 .email-div {
     margin: 0;
+    color: #FFF;
 }
 
 .phone-div {
     margin-top: 0;
+    color: #FFF;
 }
 .email-div .icon, .phone-div .icon {
     margin-right: 10px;
@@ -767,6 +769,7 @@ hr.bottom-line {
     line-height: 19.07px;
     color: #A0A2B2;
     background: none;
+    border-radius: none;
 
 }
 
@@ -1237,12 +1240,32 @@ hr.bottom-line {
 
     /****************
     ****Contact us section***/
+    .contact-us-section {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
     .contact-us-div {
         width: auto;
         height: auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .contact-us-header-div p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21.79px;
+        color: #6F6F6F;
+    }
+
+    .contact-us-heading {
+        font-family: Poppins;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 54px;
     }
 
     .contact-us-innerdiv {
@@ -1278,6 +1301,14 @@ hr.bottom-line {
 
     .contact-us-heading {
         line-height: 54px;
+    }
+
+    input[type="text"], input[type="email"] {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24.51px;
+        text-align: left;
     }
 
     input[type="submit"] {
@@ -1343,6 +1374,12 @@ hr.bottom-line {
 
     /* Why choose us section */
     .why-choose-us-section {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    /* Contact us section */
+    .contact-us-section {
         margin-left: 30px;
         margin-right: 30px;
     }
