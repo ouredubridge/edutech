@@ -318,15 +318,20 @@ hr.bottom-line {
 *********************
 */
 .top-categories-section {
-    margin: 5em 1em;
+    margin-top: 80px;
 }
 
 .top-categories-header {
     text-align: center;
     color: #141E61;
+    margin-bottom: 21px;
 }
 
 .top-categories-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 42px;
     margin: 0;
 }
 
@@ -343,6 +348,9 @@ hr.bottom-line {
     scrollbar-width: 5px;
     scrollbar-color: #FFF;
     text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    max-width: 100%;
 }
 
 .top-categories-scrollable-div::-webkit-scrollbar {
@@ -380,8 +388,18 @@ hr.bottom-line {
     height: 117px;
     text-align: center;
     margin: 0 6px;
-    display:block;
+    display: inline-block;
     white-space: nowrap;
+    color: black;
+    flex: 0 0 auto;
+}
+
+/*.top-category-div:focus {
+    background-color: pink;
+}*/
+
+.scrolled {
+    background-color: green;
 }
 
 .top-category-rec {
@@ -393,13 +411,23 @@ hr.bottom-line {
     align-items: center;
 }
 
+.top-category-rec p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    position: relative;
+    top: -7px;
+    /*top: -20px;*/
+}
+
 .top-category-ellipse-div {
     /*border: 1px solid red;*/
     display: flex;
     justify-content: center;
 }
 
-.top-category-ellipse {
+.top-category-ellipse {sdfsd
     border: 1px solid #888;
     max-width: fit-content;
     width: 30px;
@@ -977,10 +1005,70 @@ hr.bottom-line {
     }
 
     /* Top category styles */
-    .top-category-div {
-        width: 348px;
-        height: 162px;
+    .top-categories-section {
+        margin-top: 120px;
     }
+    
+    .top-categories-header {
+        /*margin-bottom: 54.11px; actual */
+        margin-bottom: 24.11px;
+    }
+    
+    .top-categories-header h3 {
+        font-family: 'Poppins';
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 54px;
+        margin: 0;
+    }
+    
+    .top-categories-header img {
+        margin: 0;
+        width: 280px;
+        position: relative;
+        top: -16px;
+    }
+    
+    .top-categories-scrollable-div {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .top-category-div {
+        max-width: 346px;
+        max-height: 162px;
+        padding: 0;
+    }
+
+    .top-category-div:nth-child(2) {
+        max-width: 396px;
+    }
+
+    .top-category-rec {
+        max-width: 346px;
+        max-height: 127px;
+    }
+
+    .top-category-rec p {
+        font-family: 'Poppins';
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 42px;
+        position: relative;
+        top: -10px;
+    }
+
+    /*.top-category-ellipse {
+        border: 1px solid #888;
+        max-width: fit-content;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        padding: 10px;
+        position: relative;
+        top: -30px;
+        background-color: #EEE;
+    }*/
 
     /* Plan section styles */
     .plans-div {
@@ -1150,6 +1238,12 @@ hr.bottom-line {
     /* View all courses button */
     .view-courses-button-div {
         margin-right: 125px;
+    }
+
+    /* Top categories */
+    .top-categories-scrollable-div {
+        margin-left: 75px;
+        margin-right: 75px;
     }
 }
 

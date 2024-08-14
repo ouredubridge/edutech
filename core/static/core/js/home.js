@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  alert("Welcome to EduBridge")
   /* Initialize AOS */
   AOS.init({
     duration: 1200,
@@ -15,12 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
     reset: true // Optional: Reset animation when element leaves viewport
   }); 
 
-  /* JS Functionality for the courses div section */
+  /* Parameters for the courses div section */
   const container = document.querySelector('.courses-section-div');
   const leftArrow = document.querySelector('.arrow-left');
   const rightArrow = document.querySelector('.arrow-right');
 
+  /* Parameters for top categories div section */
+  const scrollContainer = document.querySelector('.top-categories-scrollable-div');
+  const scrollItems = document.querySelectorAll('.top-category-div');
 
+  /* JS Functionality for the courses div section */
   const scrollAmount = 300;
 
   leftArrow.addEventListener('click', () => {
@@ -37,6 +42,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* JS functionality for top categories div section */
+  scrollContainer.addEventListener('scroll', () => {
+    alert("Inside the if statement")
+    scrollItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const containerRect = scrollContainer.getBoundingClientRect();
+
+      if (rect.left >= containerRect.left && rect.right <= containerRect.right) {
+        item.classList.add('scrolled');
+        
+      } else {
+        item.classList.remove('scrolled');
+      }
+    });
+  });
   /*// Show Scrollbar on Hover
   container.addEventListener('mouseover', () => {
     container.style.overflowX = 'scroll';
