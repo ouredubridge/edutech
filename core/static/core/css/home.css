@@ -444,7 +444,7 @@ hr.bottom-line {
 ***************************
 ***************************/
 .plans-section {
-    margin-bottom: 8em;
+    margin-bottom: 100px;
 }
 
 .plans-header {
@@ -453,17 +453,29 @@ hr.bottom-line {
 }
 
 .plans-header h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 42px;
     margin-bottom: 0;
 }
 
 .plans-header img {
-    width: 95px;
+    width: 90px;
     position: relative;
     top: -18px;
 }
 
 .plans-header p {
-    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23.8px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: black;
 }
 
 .plans-div {
@@ -779,7 +791,7 @@ hr.bottom-line {
 */
 
 /* Styles for very small devices */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 480px) {
     .stats-section .stats-box{
         display: none;
     }
@@ -787,6 +799,27 @@ hr.bottom-line {
     .stats-section .stats-box:nth-child(-n+3) {
         /* Styles for all children up to the third */
         display: block;
+    }
+
+    .plans-div {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5em;
+        margin-left: 30px;
+        margin-right: 30px;
+        /*white-space: nowrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin-left: 5px;
+        margin-right: 5px;
+        scrollbar-width: none;*/
+    }
+
+    .plan-div {
+        margin-bottom: 2em;
     }
 }
 
@@ -1071,6 +1104,33 @@ hr.bottom-line {
     }*/
 
     /* Plan section styles */
+    .plans-section {
+        margin-bottom: 60px;
+    }
+
+    /*.plans-header {
+
+    }*/
+
+    .plans-header h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 54px;
+    }
+
+    .plans-header img {
+        width: 110px;
+    }
+
+    .plans-header p {
+        font-family: 'Poppins';
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 34px;
+        text-align: center;
+    }
+
     .plans-div {
         justify-content: center;
         /*overflow-x: hidden;*/
