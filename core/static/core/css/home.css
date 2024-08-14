@@ -398,10 +398,6 @@ hr.bottom-line {
     background-color: pink;
 }*/
 
-.scrolled {
-    background-color: green;
-}
-
 .top-category-rec {
     height: 72px;
     /*background-color:#A5DFFF;*/
@@ -831,6 +827,12 @@ hr.bottom-line {
     .plan-div {
         margin-bottom: 2em;
     }
+
+    /*
+    .scrolled {
+        background-color: green;
+    }
+    */
 }
 
 /* Styles for phones and tablets */
