@@ -164,3 +164,33 @@ label {
     width: 28px;
     height: 28px;
 }
+
+/* Styles for very small devices */
+@media only screen and (max-width: 480px) {
+
+}
+
+/* Styles for phones and tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* For small laptops and large desktops */
+@media only screen and (min-width: 769px) {
+
+}
+
+/* For tablets */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+
+}
+
+/* For small laptops */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+/* For desktops */
+@media only screen and (min-width: 1025px) {
+
+}
