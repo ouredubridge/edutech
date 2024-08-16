@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,42 +19,53 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+-->
+{% block link %}
+<link rel="stylesheet" href=
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; margin: 0;">
     <div id="signup-box">
         <div id="blue-half">
             <h2 id="join-us">Join us and unlock Endless possibilities at @ EduBridge</h2>
-            <img id="signup-img" src="assets/image-removebg-preview.png" />
+            <img id="signup-img" src="{% static 'users/img/assets/image-removebg-preview.png' %}" />
         </div>
         
         <div id="white-half">
-            <img id="logo" src="assets/edubridge-logo.png" alt="Logo">
+            <img id="logo" src="{% static 'users/img/assets/edubridge-logo.png' %}" alt="Logo">
             <h3 id="create">Create Account</h3>
             <p id="welcome">Welcome, create an account and unlock endless possibilities</p>
             
         
-            <forms>
-                <input id="form-input" type="text" placeholder="Full name" /> 
-                <input id="form-input" type="text" placeholder="Email" />
-                <input id="form-input" type="password" placeholder="Password" />
-                <input id="form-input" type="password" placeholder="Conform Password" />
+            <forms method="post">
+                <input class="form-input" type="text" placeholder="Full name" name="full name" autocomplete="name"  required/> 
+                <input class="form-input" type="text" placeholder="Email" name="email" autocomplete="email"  required/>
+                <input class="form-input" type="password" placeholder="Password" name="password" required/>
+                <input class="form-input" type="password" placeholder="Confirm Password" name="password1" required/>
                 <label class="container">
                     <input type="checkbox">
-                    <span class="checkmark"></span>
-                    I agree to terms and conditions
-                  </label>
+                    <span class="checkmark">I agree to terms and conditions</span>
+                </label>
 
-                  <button id="signup-button">Sign Up</button>
+                <input type="submit" value="Sign Up" id="signup-button">
             </forms>
           
              
-             
-             <div id="butttons-section">
-                <img id="short-line" src="assets/Line 48.png" alt=""> <p id="continue">or continue with</p>  <img id="short-line" src="assets/Line 48.png" alt=""> 
-                <button id="acc-button"> <img id="inbox-icon" src="assets/google_logo.png" alt=""> Google</button>
-                <button id="acc-button"> <img id="inbox-icon" src="assets/facebook_icon.png" alt=""> Facebook</button>
+            <div class="continue-with">
+                <img id="short-line" src="{% static 'users/img/assets/Line 48.png' %}" alt="">
+                <p id="continue">or continue with</p>
+                <img id="short-line" src="{% static 'users/img/assets/Line 48.png' %}" alt="">
             </div>
-             <p id="continue">Do you have an account? <span id="login-span">Login</span></p>
+             
+             <div id="buttons-section"> 
+                <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</button>
+                <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</button>
+            </div>
+             <p id="continue">Do you have an account? <a href="" id="login-span">Login</a></p>
         </div>
     </div>
-</body>
-</html>
+    </div>
+{% endblock %}
