@@ -28,11 +28,10 @@
 </head>
 
 <body>
-    <div  data-aos="fade-up
-    " style="display: flex; justify-content: center; margin: 0;">
+    <main class="main-outer-div"  data-aos="fade-up">
         <div id="signup-box">
             <div id="blue-half">
-                <h2 id="join-us">Join us and unlock Endless possibilities at @ EduBridge</h2>
+                <h2 id="join-us">Join us and unlock Endless possibilities at EduBridge</h2>
                 <img id="signup-img" src="{% static 'users/img/assets/image-removebg-preview.png' %}" />
             </div>
             
@@ -42,7 +41,7 @@
                 <p id="welcome">Welcome, create an account and unlock endless possibilities</p>
                 
             
-                <forms method="post">
+                <form method="post">
                     <input class="form-input" type="text" placeholder="Full name" name="full name" autocomplete="name"  required/> 
                     <input class="form-input" type="text" placeholder="Email" name="email" autocomplete="email"  required/>
                     <input class="form-input" type="password" placeholder="Password" name="password" required/>
@@ -69,5 +68,5 @@
                  <p id="continue">Do you have an account? <a href="" id="login-span">Login</a></p>
             </div>
         </div>
-    </div>
+    </main>
 </body>
