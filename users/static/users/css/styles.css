@@ -290,7 +290,7 @@ input[type="checkbox"] {
     cursor: pointer;
     padding: 0;
     background: none;
-    background-color: black;
+    color: black;
 }
 
 .inbox-icon {
@@ -308,6 +308,10 @@ input[type="checkbox"] {
 
 #login-span {
     text-decoration: none;
+}
+
+.eye-icon {
+    z-index: 9999;
 }
 
 /* Styles for very small devices */
