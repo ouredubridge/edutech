@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <!--<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,27 +44,27 @@
             
                 <form method="post">
                     <div class="input-container">
-                        <i class="fa fa-user icon"></i>
+                        <i class="fa-regular fa-user icon"></i>
                         <input  class="form-input" type="text" placeholder="Full name" name="full name" autocomplete="name"  required/> 
                         <i class="eye-icon-text fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i>
                     </div>
                     
                     <div class="input-container">
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <i class="fa-regular fa-envelope-o" aria-hidden="true"></i>
                         <input class="form-input" type="text" placeholder="Email" name="email" autocomplete="email"  required/>
                         <i class="eye-icon-text fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i>
                     </div>
                     
                     <div class="input-container">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input class="form-input" type="password" placeholder="Password" name="password" required/>
-                        <i class="eye-icon fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i>
+                        <input id="password" class="form-input" type="password" placeholder="Password" name="password" required/>
+                        <i class="togglePassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
                     
                     <div class="input-container">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input class="form-input" type="password" placeholder="Confirm Password" name="password1" required/>
-                        <i class="eye-icon fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i>
+                        <input id="confirmPassword" class="form-input" type="password" placeholder="Confirm Password" name="password1" required/>
+                        <i class="toggleConfirmPassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
 
 
@@ -92,4 +91,7 @@
             </div>
         </div>
     </main>
+
+    <!--JavaScript Link-->
+    <script src="{% static 'users/js/index.js' %}"></script>
 </body>
