@@ -840,6 +840,11 @@ hr.bottom-line {
 
 /* Styles for phones and tablets */
 @media only screen and (max-width: 768px) {
+    .plans-div {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
     .contact-us-innerdiv-desktop {
         display: none;
     }
