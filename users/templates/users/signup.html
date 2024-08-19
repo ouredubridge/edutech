@@ -43,6 +43,7 @@
                 
             
                 <form method="post">
+                    {% csrf_token %}
                     <div class="input-container">
                         <i class="fa-regular fa-user icon"></i>
                         <input  class="form-input" type="text" placeholder="Full name" name="fullname" autocomplete="name"  required/> 
@@ -74,7 +75,18 @@
                     </label>
     
                     <input type="submit" value="Sign Up" id="signup-button">
-                </forms>
+                </form>
+
+                <!--Form errors-->
+                {% if form.errors %}
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
               
                  
                 <div class="continue-with">
