@@ -24,7 +24,12 @@
             <li><a href="">Pricing</a></li>
             <li><a href="">Community</a></li>
 
+            {% if user.is_authenticated %}
+            <li><a class="login" href="">Logout</a></li>
+            {% else %}
             <li><a class="login" href="">Login</a></li>
+            {% endif %}
+
             <li><a class="signup" href="{% url 'signup' %}">Signup</a></li>
         
         </ul>
