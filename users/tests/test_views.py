@@ -14,3 +14,18 @@ class SignupViewTest(TestCase):
     def test_signup_page_contains_correct_html(self):
         response = self.client.get(reverse('signup'))
         self.assertContains(response, 'Create Account')
+
+    def test_signup_redirects_after_POST(self):
+        url = reverse('signup')
+        data = {
+            'fullname': 'testuser newuser',
+            'email': 'testuser@gmail.com',
+            'password1': 'testuser123',
+            'password2': 'testuser123',
+        }
+
+        response = self.client.post(url, data)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn(reverse('login'), response.url)
+
