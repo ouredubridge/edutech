@@ -7,7 +7,18 @@ class SignupFormTest(TestCase):
         form = CustomUserCreationForm(data = {
             'fullname': 'testuser newuser',
             'email': 'testuser@gmail.com',
+            'password': 'newpassword123',
             'password1': 'newpassword123',
-            'password2': 'newpassword123',
         })
         self.assertTrue(form.is_valid())
+
+    def test_signup_form_invalid_data(self):
+        form_data = {
+            'fullname': '',
+            'email': 'invalid_email',
+            'password': '',
+            'password1': 'invalid_password'
+        }
+
+        form = CustomUserCreationForm(data=form_data)
+        self.assertFalse(form.is_valid())

@@ -35,10 +35,15 @@ class SignupViewTest(TestCase):
 # ***************
 class LoginViewTest(TestCase):
 
-    def test_signup_view_status_code(self):
+    def test_login_view_status_code(self):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
 
-    def test_signup_view_template(self):
+    def test_login_view_template(self):
         response = self.client.get(reverse('login'))
         self.assertTemplateUsed(response, 'users/login.html')
+
+    def test_login_page_contains_correct_html(self):
+        response = self.client.get(reverse('login'))
+        self.assertContains(response, 'Login')
+        self.assertContains(response, 'Create Account')
