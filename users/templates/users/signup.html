@@ -42,31 +42,103 @@
                 <p id="welcome">Welcome, create an account and unlock endless possibilities</p>
                 
             
-                <form method="post">
+                <form action="/register/" method="POST">
                     {% csrf_token %}
+
+                    <!--Non field errors -->
+                    {{ form.non_field_errors }}
+
+                    <!--
+                    ***************
+                    Fullname field
+                    ****************
+                    -->
+                    <!--<label for="{{ form.fullname.id_for_label }}">Full Name:</label>-->
                     <div class="input-container">
                         <i class="fa-regular fa-user icon"></i>
-                        <input  class="form-input" type="text" placeholder="Full name" name="fullname" autocomplete="name"  required/> 
-                        <i class="eye-icon-text fa fa-user" aria-hidden="true" id="togglePassword"></i>
+                        <input  class="form-input" type="text" placeholder="Full name" name="{{ form.fullname.name}}" value="{{ form.fullname.value|default:''}}" id="{{ form.fullname.id_for_label}}"  autocomplete="name"  required/> 
+                        <i class="eye-icon-text fa fa-user" aria-hidden="true"></i>
                     </div>
+                    {% if form.fullname.errors %}
+                    <ul>
+                    {% for error in form.fullname.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <!--
+                    ***************
+                    Username field
+                    ****************
+                    -->
+                    <!--<label for="{{ form.fullname.id_for_label }}">Full Name:</label>-->
+                    <!--
+                    <div class="input-container">
+                        <i class="fa-regular fa-user icon"></i>
+                        <input  class="form-input" type="text" placeholder="Username" name="{{ form.username.name}}" value="{{ form.username.value|default:''}}" id="{{ form.username.id_for_label}}"  autocomplete="username"  required/> 
+                        <i class="eye-icon-text fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    {% if form.fullname.errors %}
+                    <ul>
+                    {% for error in form.fullname.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                -->
                     
+
+                    <!--
+                    *****************
+                    Email input field
+                    *****************
+                    -->
                     <div class="input-container">
                         <i class="fa-regular fa-envelope-o" aria-hidden="true"></i>
-                        <input class="form-input" type="text" placeholder="Email" name="email" autocomplete="email"  required/>
-                        <i class="eye-icon-text fa fa-envelope-o" aria-hidden="true" id="togglePassword"></i>
+                        <input class="form-input" type="text" placeholder="Email" name="{{ form.email.name}}" value="{{ form.email.value|default:''}}" id="{{ form.email.id_for_label}}" autocomplete="email"  required/>
+                        <i class="eye-icon-text fa fa-envelope-o" aria-hidden="true"></i>
                     </div>
+                    {% if form.email.errors %}
+                    <ul>
+                    {% for error in form.email.errors %}
+                        <li style="color: pink;">{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
                     
+
+                    <!--
+                    ******************
+                    Password1 input field
+                    ********************
+                    -->
                     <div class="input-container">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input id="password" class="form-input" type="password" placeholder="Password" name="password1" required/>
+                        <input id="password" class="form-input" type="password" placeholder="Password" name="{{ form.password.name }}" value="{{ form.password.value|default:'' }}" id="{{ form.password.id_for_label }}" required/>
                         <i class="togglePassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
+                    {% if form.password.errors %}
+                    <ul>
+                    {% for error in form.password.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
                     
+                    <!--Password2 input field-->
                     <div class="input-container">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input id="confirmPassword" class="form-input" type="password" placeholder="Confirm Password" name="password2" required/>
+                        <input id="confirmPassword" class="form-input" type="password" placeholder="Confirm Password" name="{{ form.password1.name }}" value="{{ form.password1.value|default:'' }}" id="{{ form.password1.id_for_label }}" required/>
                         <i class="toggleConfirmPassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
+                    {% if form.password1.errors %}
+                    <ul style="list-style-type: none; text-align: left;">
+                    {% for error in form.password1.errors %}
+                        <li style="color: red;">{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
 
 
                     <label class="container">
@@ -76,22 +148,11 @@
     
                     <input type="submit" value="Sign Up" id="signup-button">
                 </form>
-
-                <!--Form errors-->
-                {% if form.errors %}
-                    <ul>
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <li>{{ error }}</li>
-                            {% endfor %}
-                        {% endfor %}
-                    </ul>
-                {% endif %}
               
                  
                 <div class="continue-with">
                     <img id="short-line" src="{% static 'users/img/assets/Line 48.png' %}" alt="">
-                    <p id="continue">or continue with</p>
+                    <p id="continue-with">or continue with</p>
                     <img id="short-line" src="{% static 'users/img/assets/Line 48.png' %}" alt="">
                 </div>
                  
@@ -99,7 +160,7 @@
                     <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</button>
                     <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</button>
                 </div>
-                 <p id="continue">Do you have an account? <a href="" id="login-span">Login</a></p>
+                 <p id="continue">Do you have an account? <a href="{% url 'login' %}" id="login-span">Login</a></p>
             </div>
         </div>
     </main>
