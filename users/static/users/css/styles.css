@@ -155,6 +155,9 @@ input[type="text"], input[type="password"] {
     font-size: 14px;
     font-weight: 400;
     line-height: 19.07px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 ::placeholder {
@@ -177,8 +180,8 @@ input[type="checkbox"] {
     left: 70px;
     gap: 0px;
     border-radius: 5px;
-    border: 2px solid #6F6F6F;
-    background-color: red;
+    /*border: 2px solid #6F6F6F;*/
+    margin-top: 0;
 }
 
 #signup-button {
@@ -225,9 +228,18 @@ input[type="checkbox"] {
 }
 
 .container {
-    padding-left: 45px;
+    /*padding-left: 45px;*/
     /*padding-right: 20px;*/
-    text-align: left;
+    text-align: center;
+}
+
+.container-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #continue {
@@ -415,6 +427,11 @@ input[type="checkbox"] {
         font-weight: 400;
         line-height: 24px;
     }
+
+    #buttons-section {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
 }
 
 /* For tablets */
@@ -489,6 +506,28 @@ input[type="checkbox"] {
         padding-right: 0;
     }
 
+    /* Style for login template 
+    ***************************
+    ***************************
+    ***************************/
+    .reverse-box {
+        flex-direction: row-reverse;
+    }
+
+    .reverse-box #white-half {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 0;
+    }
+
+    .reverse-box #blue-half {
+        border-top-left-radius: 0;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 20px;
+    }
+
 
     #blue-half {
         display: block;
@@ -534,6 +573,33 @@ input[type="checkbox"] {
     input[type="submit"] {
         width: 90%;
     }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1299px) {
+    .main-outer-div {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #signup-box {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        /*margin-left: 5px;
+        margin-right: 5px;*/
+    }
+
+    #blue-half {
+        width: 45.5%;
+    }
+
+    #signup-img {
+        width: 80%;
+    }
+
+    #white-half {
+        width: 45.5%;
+    }
+
 }
 
 @media only screen and (min-width: 1300px) {
