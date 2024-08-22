@@ -247,7 +247,15 @@ input[type="checkbox"] {
     font-weight: 400;
     font-size: 18px;
     line-height: 24.51px;
-    color: black
+    color: black;
+}
+
+.continue-with {
+    margin-bottom: 10px;
+}
+
+.continue-email {
+    display: none;
 }
 
 #btn {
@@ -336,6 +344,10 @@ input[type="checkbox"] {
     transition: all 0.5s ease-in-out;
 }
 
+.eye-icon-text {
+    display: none;
+}
+
 /* Styles for very small devices */
 @media only screen and (max-width: 480px) {
 
@@ -421,6 +433,11 @@ input[type="checkbox"] {
         height: 18px;
     }
 
+    .continue-with {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+
     #continue {
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
@@ -455,13 +472,25 @@ input[type="checkbox"] {
 
     #welcome {
         text-align: center;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    #buttons-div {
+    
+    }
+
+
+    .acc-button {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     form {
-        margin-left: 96px;
-        margin-right: 96px;
+        margin-left: 40px;
+        margin-right: 40px;
         /*width: 380px;*/
-        width: 80%;
+        width: 100%;
     }
 
     .form-input {
@@ -471,13 +500,16 @@ input[type="checkbox"] {
     .continue-with {
         display: flex;
         justify-content: space-around;
-        margin-left: 0;
-        margin-right: 0;
+        width: 85%;
+        /*margin-left: 45px;
+        margin-right: 45px;*/
     }
 
     #buttons-section {
         display: flex;
         justify-content: space-around;
+        margin-left: 40px;
+        margin-right: 40px;
     }
 
     .acc-button {
@@ -490,6 +522,15 @@ input[type="checkbox"] {
         margin-left: 7px;
         margin-right: 7px;
 
+    }
+
+    .container-login {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    input[type="checkbox"] {
+        margin-left: 0;
     }
 
     
@@ -572,6 +613,10 @@ input[type="checkbox"] {
 
     input[type="submit"] {
         width: 90%;
+    }
+
+    .continue-email {
+        display: block;
     }
 }
 
