@@ -20,12 +20,25 @@ class SignupViewTest(TestCase):
         data = {
             'fullname': 'testuser newuser',
             'email': 'testuser@gmail.com',
+            'password': 'testuser123',
             'password1': 'testuser123',
-            'password2': 'testuser123',
         }
 
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertIn(reverse('login'), response.url)
+        self.assertIn(reverse('home'), response.url)
 
+
+# ***************
+# Login View Test
+# ***************
+class LoginViewTest(TestCase):
+
+    def test_signup_view_status_code(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_signup_view_template(self):
+        response = self.client.get(reverse('login'))
+        self.assertTemplateUsed(response, 'users/login.html')
