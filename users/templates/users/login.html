@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <main class="main-outer-div"  data-aos="fade-up">
+        <div id="signup-box" class="reverse-box">
+            <div id="blue-half">
+                <h2 id="join-us">Join us and unlock Endless possibilities at EduBridge</h2>
+                <img id="signup-img" src="{% static 'users/img/assets/login-image.png' %}" />
+            </div>
+            
+            <div id="white-half">
+                <img id="logo" src="{% static 'users/img/assets/edubridge-logo.png' %}" alt="Logo">
+                <h3 id="create">Login</h3>
+                <p id="welcome">Welcome back, select method to login</p>
+                 
+                 <div id="buttons-section"> 
+                    <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</button>
+                    <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</button>
+                </div>
+
+                <div class="continue-with">
+                    <img id="short-line" src="{% static 'users/img/assets/Line 48.png' %}" alt="">
+                    <p id="continue">or continue with email</p>
+                    <img id="short-line" src="{% static 'users/img/assets/Line 48.png' %}" alt="">
+                </div>
+                
+            
+                <form action="/login_view/" method="POST">
+                    {% csrf_token %}
+
+                    <!--Non field errors -->
+                    {{ form.non_field_errors }}
+                    <!--
+                    ***************
+                    Username field
+                    ****************
+                    -->
+                    <!--<label for="{{ form.fullname.id_for_label }}">Full Name:</label>-->
+                    <!--
+                    <div class="input-container">
+                        <i class="fa-regular fa-user icon"></i>
+                        <input  class="form-input" type="text" placeholder="Username" name="{{ form.username.name}}" value="{{ form.username.value|default:''}}" id="{{ form.username.id_for_label}}"  autocomplete="username"  required/> 
+                        <i class="eye-icon-text fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    {% if form.fullname.errors %}
+                    <ul>
+                    {% for error in form.fullname.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                -->
+                    
+
+                    <!--
+                    *****************
+                    Email input field
+                    *****************
+                    -->
+                    <div class="input-container">
+                        <i class="fa-regular fa-envelope-o" aria-hidden="true"></i>
+                        <input class="form-input" type="text" placeholder="Email" name="{{ form.email.name}}" value="{{ form.email.value|default:''}}" id="{{ form.email.id_for_label}}" autocomplete="email"  required/>
+                        <i class="eye-icon-text fa fa-envelope-o" aria-hidden="true"></i>
+                    </div>
+                    {% if form.email.errors %}
+                    <ul>
+                    {% for error in form.email.errors %}
+                        <li style="color: pink;">{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    
+
+                    <!--
+                    ******************
+                    Password1 input field
+                    ********************
+                    -->
+                    <div class="input-container">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input id="password" class="form-input" type="password" placeholder="Password" name="{{ form.password.name }}" value="{{ form.password.value|default:'' }}" id="{{ form.password.id_for_label }}" required/>
+                        <i class="togglePassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
+                    </div>
+                    {% if form.password.errors %}
+                    <ul>
+                    {% for error in form.password.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    
+
+                    <label class="container container-login">
+                        <div>
+                            <input type="checkbox">
+                            <span class="checkmark">Remember me</span>
+                        </div>
+                        <div>
+                            <a href="">Forgot password?</a>
+                        </div>
+                    </label>
+    
+                    <input type="submit" value="Login" id="signup-button">
+                </form>
+              
+                 
+                 <p id="continue">Don't have an account? <a href="{% url 'signup' %}" id="login-span">Create Account</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!--JavaScript Link-->
+    <script src="{% static 'users/js/index.js' %}"></script>
+</body>
