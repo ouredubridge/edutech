@@ -13,6 +13,12 @@ Welcome to EduBridge
 {% endblock %}
 
 {% block content %}
+{% for message in messages %}
+    
+    <div>
+        {{ message }}
+    </div>
+{% endfor %}
 <!--
 ******************
 ******************
