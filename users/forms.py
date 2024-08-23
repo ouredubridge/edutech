@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth import authenticate
 
 from .models import CustomUser
 
@@ -34,3 +35,25 @@ class CustomUserCreationForm(forms.ModelForm):
             raise forms.ValidationError("Passwords don't match")
 
         return cleaned_data
+
+class CustomUserLoginForm(forms.Form):
+    email = forms.EmailField(label='Email', max_length=255)
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        password = self.cleaned_data.get('password')
+
+        if email and password:
+            self.user = authenticate(email=email, password=password)
+
+            if self.user is None:
+                raise forms.ValidationError("Invalid email or password.")
+
+            elif not self.user.is_active:
+                raise forms.ValidationError("This account is inactive. ")
+
+        return self.cleaned_data
+
+    def get_user(self):
+        return self.user
