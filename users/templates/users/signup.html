@@ -56,7 +56,7 @@
                     <!--<label for="{{ form.fullname.id_for_label }}">Full Name:</label>-->
                     <div class="input-container">
                         <i class="fa-regular fa-user icon"></i>
-                        <input  class="form-input" type="text" placeholder="Full name" name="{{ form.fullname.name}}" value="{{ form.fullname.value|default:''}}" id="{{ form.fullname.id_for_label}}"  autocomplete="name"  required/> 
+                        <input  class="{% if form.fullname.errors %}error{% endif %} form-input" type="text" placeholder="Full name" name="{{ form.fullname.name}}" value="{{ form.fullname.value|default:''}}" id="{{ form.fullname.id_for_label}}"  autocomplete="name"  required/> 
                         <i class="eye-icon-text fa fa-user" aria-hidden="true"></i>
                     </div>
                     {% if form.fullname.errors %}
@@ -96,7 +96,7 @@
                     -->
                     <div class="input-container">
                         <i class="fa-regular fa-envelope-o" aria-hidden="true"></i>
-                        <input class="form-input" type="text" placeholder="Email" name="{{ form.email.name}}" value="{{ form.email.value|default:''}}" id="{{ form.email.id_for_label}}" autocomplete="email"  required/>
+                        <input class="{% if form.email.errors %}error{% endif %} form-input" type="text" placeholder="Email" name="{{ form.email.name}}" value="{{ form.email.value|default:''}}" id="{{ form.email.id_for_label}}" autocomplete="email"  required/>
                         <i class="eye-icon-text fa fa-envelope-o" aria-hidden="true"></i>
                     </div>
                     {% if form_errors.email %}
@@ -115,7 +115,7 @@
                     -->
                     <div class="input-container">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input id="password" class="form-input" type="password" placeholder="Password" name="{{ form.password.name }}" value="{{ form.password.value|default:'' }}" id="{{ form.password.id_for_label }}" required/>
+                        <input id="password" class="{% if form.password.errors %}error{% endif %} form-input" type="password" placeholder="Password" name="{{ form.password.name }}" value="{{ form.password.value|default:'' }}" id="{{ form.password.id_for_label }}" required/>
                         <i class="togglePassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
                     {% if form_errors.password %}
@@ -129,7 +129,7 @@
                     <!--Password2 input field-->
                     <div class="input-container">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input id="confirmPassword" class="form-input" type="password" placeholder="Confirm Password" name="{{ form.password1.name }}" value="{{ form.password1.value|default:'' }}" id="{{ form.password1.id_for_label }}" required/>
+                        <input id="confirmPassword" class="{% if form.password1.errors %}error{% endif %} form-input" type="password" placeholder="Confirm Password" name="{{ form.password1.name }}" value="{{ form.password1.value|default:'' }}" id="{{ form.password1.id_for_label }}" required/>
                         <i class="toggleConfirmPassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
                     {% if form_errors.password1 %}

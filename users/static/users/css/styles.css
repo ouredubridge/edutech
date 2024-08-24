@@ -151,6 +151,10 @@ form ul li {
     text-align: left;
 }
 
+.error {
+    border-bottom: 1px solid red;
+}
+
 input:first-child {
     margin-top: 27px;
 }
@@ -730,6 +734,6 @@ input[type="checkbox"] {
     }
 
     .form-input {
-        width: 90%;
+        width: 85%;
     }
 }
