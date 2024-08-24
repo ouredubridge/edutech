@@ -22,22 +22,17 @@ def signup(request):
 
             user = form.save()
             login(request, user)
+            # form.save()
             return redirect('home')
 
         else:
-            # If the form is invalid, re-render the form with entered data
-            return render(request, 'users/signup.html', {'form': form})
-            # Store form data in session
-            # request.session['registration_data'] = request.POST
+            # Handle form errors here
+            form_errors = form.errors
     else:
-        # Retrieve form data from session if available
-        # initial_data = request.session.get('registration_data', {})
-
         form = CustomUserCreationForm()
+        form_errors = None
 
-        # Clear session data to prevent repopulation on subsequent requests
-        # request.session.pop('registration_data', None)
-    return render(request, 'users/signup.html', {'form': form})
+    return render(request, 'users/signup.html', {'form': form, 'form_errors': form_errors})
 
 
 """The login view function
