@@ -654,6 +654,35 @@ input[type="checkbox"] {
         width: 45.5%;
     }
 
+    #create {
+        margin-left: 40px;
+    }
+
+    #welcome {
+        margin-left: 40px;
+    }
+
+    .continue-with {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    #buttons-section {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    form {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .form-input {
+        width: 90%;
+    }
+
 }
 
 @media only screen and (min-width: 1300px) {
