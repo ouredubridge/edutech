@@ -146,11 +146,16 @@ form ul li {
     box-sizing: border-box;
 }
 
+.form-errors {
+    margin-top: 0;
+    text-align: left;
+}
+
 input:first-child {
     margin-top: 27px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -600,7 +605,7 @@ input[type="checkbox"] {
     form {
         margin-left: 35px;
         margin-right: 20px;
-        width: 380px;
+        width: 50%px;
     }
 
     .form-input {
@@ -617,6 +622,10 @@ input[type="checkbox"] {
 
     .continue-email {
         display: block;
+    }
+
+    #buttons-section {
+        
     }
 }
 
