@@ -46,7 +46,7 @@
                     {% csrf_token %}
 
                     <!--Non field errors -->
-                    {{ form.non_field_errors }}
+                    <!--{{ form.non_field_errors }}-->
 
                     <!--
                     ***************
@@ -60,7 +60,7 @@
                         <i class="eye-icon-text fa fa-user" aria-hidden="true"></i>
                     </div>
                     {% if form.fullname.errors %}
-                    <ul>
+                    <ul class="form-errors">
                     {% for error in form.fullname.errors %}
                         <li>{{ error }}</li>
                     {% endfor %}
@@ -99,10 +99,10 @@
                         <input class="form-input" type="text" placeholder="Email" name="{{ form.email.name}}" value="{{ form.email.value|default:''}}" id="{{ form.email.id_for_label}}" autocomplete="email"  required/>
                         <i class="eye-icon-text fa fa-envelope-o" aria-hidden="true"></i>
                     </div>
-                    {% if form.email.errors %}
-                    <ul>
-                    {% for error in form.email.errors %}
-                        <li style="color: pink;">{{ error }}</li>
+                    {% if form_errors.email %}
+                    <ul class="form-errors">
+                    {% for error in form_errors.email %}
+                        <li>{{ error }}</li>
                     {% endfor %}
                     </ul>
                     {% endif %}
@@ -118,9 +118,9 @@
                         <input id="password" class="form-input" type="password" placeholder="Password" name="{{ form.password.name }}" value="{{ form.password.value|default:'' }}" id="{{ form.password.id_for_label }}" required/>
                         <i class="togglePassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
-                    {% if form.password.errors %}
-                    <ul>
-                    {% for error in form.password.errors %}
+                    {% if form_errors.password %}
+                    <ul class="form-errors">
+                    {% for error in form_errors.password %}
                         <li>{{ error }}</li>
                     {% endfor %}
                     </ul>
@@ -132,10 +132,10 @@
                         <input id="confirmPassword" class="form-input" type="password" placeholder="Confirm Password" name="{{ form.password1.name }}" value="{{ form.password1.value|default:'' }}" id="{{ form.password1.id_for_label }}" required/>
                         <i class="toggleConfirmPassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
-                    {% if form.password1.errors %}
-                    <ul style="list-style-type: none; text-align: left;">
-                    {% for error in form.password1.errors %}
-                        <li style="color: red;">{{ error }}</li>
+                    {% if form_errors.password1 %}
+                    <ul class="form-errors">
+                    {% for error in form_errors.password1 %}
+                        <li>{{ error }}</li>
                     {% endfor %}
                     </ul>
                     {% endif %}
