@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
 
 from .models import CustomUser
 
@@ -43,6 +44,14 @@ class CustomUserCreationForm(forms.ModelForm):
             raise forms.ValidationError('Email already in use.')
 
         return email
+
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+
+        # Validate the password using Django's built-in validators
+        validate_password(password, self.instance)
+
+        return password
 
     def clean_password1(self):
         password = self.cleaned_data.get("password")
