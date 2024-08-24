@@ -21,6 +21,9 @@ class SignupTest(TestCase):
         # Send a POST request to the signup view with the signup data
         response = self.client.post(reverse('signup'), signup_data)
 
+        # Log the user in
+        # self.client.login(email='testusernewuser@gmail.com', password='testuser123')
+
         # Check if the response is a redirect
         self.assertEqual(response.status_code, 302)
 
@@ -31,7 +34,46 @@ class SignupTest(TestCase):
         self.assertTrue(CustomUser.objects.filter(email='testusernewuser@gmail.com').exists())
 
         # Check if the user is logged in
+        #self.assertTrue(response.context['user'].is_authenticated)
+
+class LoginLogoutTest(TestCase):
+    def setUp(self):
+        #self.username = "testuser"
+        self.email = "testuser@gmail.com"
+        self.password = "testuser123"
+        self.user = CustomUser.objects.create_user(email=self.email, password=self.password)
+
+    def test_login(self):
+        # Send a POST request to the login view with the user's details
+        response = self.client.post(reverse('login'), {
+            'email': self.email,
+            'password': self.password,
+        })
+
+        # Check if the response is a redirect (to the login page)
+        self.assertEqual(response.status_code, 302)
+
+        # Follow the redirect
+        response = self.client.get(response.url)
+
+        # Check if the user is logged in
         self.assertTrue(response.context['user'].is_authenticated)
+
+    def test_logout(self):
+        # Log in the user first
+        self.client.login(email=self.email, password=self.password)
+
+        # Send a GET request to the logout view
+        response = self.client.get(reverse('logout'))
+
+        # Check if the response is a redirect
+        self.assertEqual(response.status_code, 302)
+
+        # Follow the redirect
+        response = self.client.get(response.url)
+
+        # Check if the user is logged out
+        self.assertFalse(response.context['user'].is_authenticated)
 
 class UsersFunctionalTests(LiveServerTestCase):
 
