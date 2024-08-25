@@ -149,6 +149,9 @@ form ul li {
 .form-errors {
     margin-top: 0;
     text-align: left;
+    padding: 0;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .error {
@@ -514,6 +517,14 @@ input[type="checkbox"] {
         width: 80%;
     }
 
+    .form-errors {
+        margin-top: 0;
+        text-align: left;
+        padding: 0;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
     .continue-with {
         display: flex;
         justify-content: space-around;
@@ -628,6 +639,14 @@ input[type="checkbox"] {
         width: 80%;
     }
 
+    .form-errors {
+        margin-top: 0;
+        text-align: left;
+        padding: 0;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
     input[type="submit"] {
         width: 90%;
     }
@@ -735,5 +754,13 @@ input[type="checkbox"] {
 
     .form-input {
         width: 85%;
+    }
+
+    .form-errors {
+        margin-top: 0;
+        text-align: left;
+        padding: 0;
+        margin-left: 40px;
+        margin-right: 40px;
     }
 }
