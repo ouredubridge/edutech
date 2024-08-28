@@ -8,7 +8,7 @@ class CourseModelTests(TestCase):
             title="Introduction to Python",
             category=Category.objects.create(name="Programming", description="Learn how to program"),
             description="Learn the basics of Python",
-            instructor="Kadel Code"
+            instructor=CustomUser.objects.create(fullname="Test User", email="testuser@gmail.com")
         )
         self.assertEqual(course.title, "Introduction to Python")
 

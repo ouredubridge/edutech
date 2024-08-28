@@ -13,7 +13,7 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    instructor = models.CharField(max_length=100)
+    instructor = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='courses')
     published_data = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(CustomUser, related_name='enrolled_courses')
 
