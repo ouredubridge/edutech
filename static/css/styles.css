@@ -230,7 +230,8 @@ footer>section {
 }
 
 .footer-enroll-button {
-  background: #141E61A6;
+  background: #141E61;
+  ;
   border-radius: 20px;
   color: #FFF;
   cursor: pointer;
