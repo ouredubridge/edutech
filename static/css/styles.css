@@ -77,11 +77,14 @@ nav ul li a {
     line-height: 27px;
 }
 
+.active {
+  margin-top: 20px;
+}
+
 .active ul{
-  background-color: orange;
-  color: blue;
-  margin-top: 0;
-  top: 10px;
+  position: relative;
+  top: 0px;
+  color: red;
 }
 
 .dropdown-button {
@@ -377,6 +380,10 @@ footer>section {
     background-color: white;
   }
 
+  nav ul {
+    
+  }
+
   /**footer styles**/
   footer {
     text-align: center;
@@ -393,13 +400,25 @@ footer>section {
 }
 /* For mobile devices */
 @media only screen and (max-width: 768px) {
-    body {
+  body {
 	    font-size: 14px;
-    }
+  }
 
   header {
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    background-color: white;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .menu-button-div {
+    padding-left: 5px;
+    padding-right: 10px;
   }
 
   /* Add an animation to the nav */
@@ -423,25 +442,25 @@ footer>section {
 
   nav {
 	  width: 50%;
-    /*margin: 0 100px;*/
     display: none;
     transition: opacity 1s;
-    position: absolute;
-    top: -70px;
+    top: 82px;
     right: 0px;
     background-color: white;
-    /*animation: slideOut 0.3s ease-in-out;*/
+    position: fixed;
   }
 	
   nav.active {
     display: block;
     transform: translateX(0);
     animation: slideIn 0.3s ease-in-out;
+    margin-top: 0;
   }
 
   nav.active ul{
     z-index: 9999;
     background-color: white;
+    margin: 0;
   }
 
   nav>ul {
