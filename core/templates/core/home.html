@@ -449,7 +449,7 @@ Contact us section
             <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email">
             <input type="text" name="message" value="{{ form.subject.value|default_if_none:'' }}" placeholder="Subject">
             <textarea id="message" name="message" placeholder="Message">
-                value="{{ form.message.value|default_if_none:'' }}"
+                {{ form.message.value|default_if_none:'' }}
             </textarea>
             <br>
             <input type="submit" name="submit" value="Send">
