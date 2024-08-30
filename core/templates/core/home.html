@@ -443,14 +443,21 @@ Contact us section
                 </div>
             </div>
         </div>
-        <form class="form-div" method="post">
+        <form class="form-div" method="post" action="">
             {% csrf_token %}
-            <input type="text" name="name" value="{{ form.name.value|default_if_none:'' }}" placeholder="Full name">
-            <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email">
-            <input type="text" name="message" value="{{ form.subject.value|default_if_none:'' }}" placeholder="Subject">
-            <textarea id="message" name="message" placeholder="Message">
-                {{ form.message.value|default_if_none:'' }}
-            </textarea>
+            <p>{{ form.non_field_errors }}</p>
+            <input type="text" name="name" value="{{ form.name.value|default_if_none:'' }}" placeholder="Full name" required>
+            <span style="color: red;">{{ form.name.errors }}</span>
+
+            <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email" required>
+            <span style="color: red;">{{ form.email.errors }}</span>
+            
+            <input type="text" name="subject" value="{{ form.subject.value|default_if_none:'' }}" placeholder="Subject" required>
+            <span style="color: red;">{{ form.message.errors }}</span>
+            
+            <textarea id="message" name="message" placeholder="Message" required>{{ form.message.value|default_if_none:'' }}</textarea>
+            <span style="color: red;">{{ form.message.errors }}</span>
+            
             <br>
             <input type="submit" name="submit" value="Send">
         </form>
