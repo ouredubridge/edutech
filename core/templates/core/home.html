@@ -445,9 +445,12 @@ Contact us section
         </div>
         <form class="form-div" method="post">
             {% csrf_token %}
-            <input type="text" name="full-name" placeholder="Full name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="message" placeholder="Message">
+            <input type="text" name="name" value="{{ form.name.value|default_if_none:'' }}" placeholder="Full name">
+            <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email">
+            <input type="text" name="message" value="{{ form.subject.value|default_if_none:'' }}" placeholder="Subject">
+            <textarea id="message" name="message" placeholder="Message">
+                value="{{ form.message.value|default_if_none:'' }}"
+            </textarea>
             <br>
             <input type="submit" name="submit" value="Send">
         </form>
