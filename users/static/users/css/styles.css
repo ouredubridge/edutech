@@ -170,7 +170,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     margin-bottom: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: none;
+    border-radius: 0;
     -webkit-border-radius: none;
     -moz-border-radius: none;
 }

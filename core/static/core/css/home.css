@@ -771,7 +771,7 @@ hr.bottom-line {
     /*color: #A0A2B2;*/
     color: black;
     background: none;
-    border-radius: none;
+    border-radius: 0;
 
 }
 
@@ -810,6 +810,7 @@ textarea {
     line-height: 19.07px;
     margin-top: 20px;
     margin-bottom: 60px;
+    border-radius: 0;
 }
 
 textarea:focus {
