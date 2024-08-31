@@ -768,7 +768,8 @@ hr.bottom-line {
     font-weight: 400;
     font-size: 14px;
     line-height: 19.07px;
-    color: #A0A2B2;
+    /*color: #A0A2B2;*/
+    color: black;
     background: none;
     border-radius: none;
 
@@ -1011,7 +1012,7 @@ textarea:focus {
         box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
         width: 347px;
-        height: 459px;
+        /*height: 459px;*/
         background-color: #FFF;
         padding: 0.8em;
         margin-right: 50px;
@@ -1068,12 +1069,20 @@ textarea:focus {
     
     }
 
+    /* Additional styles for the course section */
+    /* Original above */
     .course-section {
-        width: 347px;
-        height: 459px;
+        /*width: 347px;
+        height: 459px;*/
+        max-width: 260px;
+        min-height: auto;
         border-radius: 20px;
-        white-space: nowrap; /* Prevent text wrapping */
+        white-space: wrap; /* Prevent text wrapping */
         margin-right: 10px;
+    }
+
+    .course-section h6{
+        font-size: 16px;
     }
 
     .course-section-link {
@@ -1366,10 +1375,12 @@ textarea:focus {
 
     input[type="text"], input[type="email"] {
         font-family: 'Open Sans', sans-serif;
-        font-size: 18px;
+        /*font-size: 18px;*/
+        font-size: 36px;
         font-weight: 400;
         line-height: 24.51px;
         text-align: left;
+        background-color: orange;
     }
 
     input[type="submit"] {
