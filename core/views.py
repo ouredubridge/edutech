@@ -19,11 +19,22 @@ def homepage(request):
             # Construct the email content
             email_message = f"From: {name} <{email}>\n\n{message}"
 
-            # Send the email
-            send_mail(subject, email_message, email, [settings.DEFAULT_FROM_EMAIL])
+            try:
+                # Send the email
+                send_mail(
+                    subject=subject,
+                    message=email_message,
+                    from_email=email,
+                    recipient_list=[settings.DEFAULT_FROM_EMAIL]
+                )
+
+            except Exception as e:
+                # Handle email sending failure
+                print(e)
+                return render(request, 'core/contact_success.html', {'form': form, 'error': 'Failed to send email.'})
 
             # Provide feedback to the user
-            return render(request, 'core/contact_success.html', {'form': form})
+            return render(request, 'core/contact_success.html', {'form': form, 'success': 'Email successfully sent'})
 
     else:
         form = ContactUsForm()
