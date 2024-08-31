@@ -1387,8 +1387,28 @@ textarea:focus {
         margin-top: 5em;
     }
 
+    /* Style of form inputs */
+    .form-div input[type="text"],
+    .form-div input[type="email"] {
+        margin-bottom: 2em;
+        border: none;
+        border-bottom: 1px solid #888;
+        width: 95%;
+        padding: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19.07px;
+        /*color: #A0A2B2;*/
+        color: black;
+        background: none;
+        border-radius: none;
+
+    }
+
     textarea {
         margin-bottom: 10px;
+        font-size: 16px;
     }
 
 }
