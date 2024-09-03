@@ -1,6 +1,8 @@
 from django.db import models
 from users.models import CustomUser
 
+from django.utils import timezone
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -17,24 +19,42 @@ class Course(models.Model):
     published_data = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(CustomUser, related_name='enrolled_courses')
 
-    def __str__(self):
-        return self.title
-
-class Lesson(models.Model):
-    course = models.ForeignKey(Course, related_name='lessons', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
 
-class Subsection(models.Model):
-    name = models.CharField(max_length=100)
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+class Module(models.Model):
+    course = models.ForeignKey(Course, related_name='modules', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    order = models.PositiveIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['order']
+
+
+    def __str__(self):
+        return f"{self.course.title} - {self.title}"
+
+class Lesson(models.Model):
+    module = models.ForeignKey(Module, related_name='lessons', on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=255)
     content = models.TextField()
-    order = models.IntegerField()
+    order = models.PositiveIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"{self.module.course.title} - {self.module.order} {self.module.title} - {self.module.order}.{self.order} {self.title}"
 
 class Enrollment(models.Model):
     choices=[
