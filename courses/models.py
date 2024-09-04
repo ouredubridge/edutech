@@ -12,12 +12,25 @@ class Category(models.Model):
 
 # Create your models here.
 class Course(models.Model):
+    FREE = 'free'
+    PAID = 'paid'
+    SUBSCRIPTION = 'subscription'
+
+    STATUS_CHOICES = [
+        (FREE, 'Free'),
+        (PAID, 'Paid'),
+        (SUBSCRIPTION, 'Subscription')
+    ]
+
     title = models.CharField(max_length=200)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     instructor = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='courses')
     published_date = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(CustomUser, related_name='enrolled_courses')
+
+    status = models.CharField(max_length=15, choices=STATUS_CHOICES, default=FREE)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -68,3 +81,5 @@ class Enrollment(models.Model):
     status = models.CharField(max_length=20, choices=choices)
     progress = models.IntegerField(default=0)
     enrollment_date = models.DateTimeField(auto_now_add=True)
+
+    is_paid = models.BooleanField(default=False)  # This tracks if the user has paid for the course
