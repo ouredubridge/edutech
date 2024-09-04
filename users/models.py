@@ -38,6 +38,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # Other fields (e.g., first_name, last_name)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_instructor = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
 
     objects = CustomUserManager()
