@@ -1,0 +1,28 @@
+<!-- templates/courses/course_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ course.title }}</title>
+</head>
+<body>
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+
+    <h2>Modules</h2>
+    <ul>
+        {% if course.modules.count > 0 %}
+        {% for module in course.modules.all %}
+            <li>
+                {{module.order}} {{ module.title }}
+                {% for lesson in module.lessons.all %}
+                <li>{{ module.order }}.{{ lesson.order }} {{ lesson.title }}</li>
+                {{lesson.content}}
+                {% endfor %}
+            </li>
+        {% endfor %}
+        {% else %}
+        <p>No modules found for this course</p>
+        {% endif %}
+    </ul>
+</body>
+</html>
