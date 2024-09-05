@@ -41,8 +41,9 @@
                 </div>
                 
             
-                <form action="{% url 'login' %}" method="POST">
+                <form method="POST">
                     {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
 
                     <!--Non field errors -->
                     {{ form.non_field_errors }}
