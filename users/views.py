@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomUserLoginForm
 from .models import CustomUser
 from django.views.generic.edit import FormView
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 def signup(request):
@@ -48,6 +48,7 @@ def login_view(request):
         if form.is_valid():
             #email = form.cleaned_data['email']
             #password = form.cleaned_data['password']
+            next_url = request.GET.get('next') or reverse('home')
 
             # Authenticate user
             user = form.get_user()
@@ -55,7 +56,11 @@ def login_view(request):
             if user is not None:
                 # login user
                 login(request, user)
-                return redirect('home')
+
+                # Check if a next URL is stored
+                #if next_url:
+                return redirect(next_url)
+                #return redirect('home')
 
         #else:
             #context = {'form': form, 'error_message': 'Invalid login credentials'}
