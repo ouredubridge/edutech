@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
+    'tinymce',
     'core',
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig',
@@ -140,6 +142,11 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+# File uploads config
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -160,3 +167,97 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'kadelcode@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('EDUBRIGE_EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = 'kadelcode@gmail.com'  # Replace with your default from email address
+
+# CKEditor configuration
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+            ['Format'],
+            ['Image', 'Table'],
+        ],
+    },
+}
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': [
+            'heading', '|', 'bold', 'italic', 'link', '|',
+            'bulletedList', 'numberedList', 'blockQuote', '|',
+            'undo', 'redo', '|', 'imageUpload', 'mediaEmbed'
+        ],
+        'image': {
+            'toolbar': ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+        },
+        'mediaEmbed': {
+            'previewsInData': True,
+        },
+        'fontColor': {
+            'colors': [
+                {
+                    'color': 'rgb(0, 0, 0)',  # Black color
+                    'label': 'Black'
+                },
+                {
+                    'color': 'rgb(255, 0, 0)',
+                    'label': 'Red'
+                },
+                # Add more colors as needed
+            ],
+            'columns': 5
+        },
+    },
+    'custom_config': {
+        'toolbar': [
+            'heading', 'alignment', '|', 'bold', 'italic', 'underline', '|',
+            'link', 'imageUpload', 'mediaEmbed', 'insertTable', '|',
+            'bulletedList', 'numberedList', 'outdent', 'indent', '|',
+            'undo', 'redo'
+        ],
+        'image': {
+            'toolbar': ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+        },
+        'mediaEmbed': {
+            'previewsInData': True,
+        },
+        'table': {
+            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells'],
+        },
+        'fontColor': {
+            'colors': [
+                {
+                    'color': 'rgb(0, 0, 0)',  # Black color
+                    'label': 'Black'
+                },
+                {
+                    'color': 'rgb(255, 0, 0)',
+                    'label': 'Red'
+                },
+                # Add more colors as needed
+            ],
+            'columns': 5
+        },
+        'extraPlugins': ['MediaEmbed', 'ImageUpload'],
+        'contentCss': '/static/css/ckeditor_custom.css',
+
+    }
+}
+
+# TinyMCE config
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'silver',
+    'plugins': 'table,code,link,image,lists,charmap,preview,anchor,searchreplace,visualblocks,fullscreen,insertdatetime,media,nonbreaking,paste,directionality,emoticons,textcolor,colorpicker,print,save,advlist,autolink,autosave,blockquote,clipboard,contextmenu,counter,filemanager,formatpainter,hr,imagetools,importcss,inline,keyboard_shortcuts,lists,mediaembed,mergetags,powerpaste,quickbars,spellchecker,tabfocus,table,template,templates,textpattern,visualchars,wordcount,media',
+    'toolbar': 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | styleselect | formatpainter | link image | bullist numlist outdent indent | table | code | preview fullscreen',
+    'menubar': 'file edit view insert format tools table help',
+    'statusbar': True,
+    'height': '400px',
+    'width': '100%',
+    'file_browser_callback': 'tinymce_file_browser',
+}
