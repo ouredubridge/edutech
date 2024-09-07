@@ -33,3 +33,11 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'input')
 
     # Ensures that the view passes the correct context data to the template
+
+class AboutUsPageTests(TestCase):
+
+    def setUp(self):
+        self.response = self.client.get(reverse('about'))
+
+    def test_about_us_page_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
