@@ -56,6 +56,7 @@ def login_view(request):
             if user is not None:
                 # login user
                 login(request, user)
+                messages.success(request, 'Login successfull!')
 
                 # Check if a next URL is stored
                 #if next_url:
