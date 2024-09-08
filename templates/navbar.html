@@ -1,11 +1,12 @@
 {% load static %}
 <!--Navigation Structure-->
 <header>	
-	<a class="logo" href=""><img src="{% static 'img/logo/logo.png' %}" alt="logo"></a>
+	<a class="logo nav-link" href="{% url 'home' %}" data-url="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt="logo"></a>
+    <!--<li><a href="#" class="nav-link" data-url="{% url 'home' %}">Home</a></li>-->
     
     <nav>
         <ul>
-            <li><a href="">About</a></li>
+            <li><a href="{% url 'about' %}" class="nav-link" data-url="{% url 'about' %}">About</a></li>
             <li>
                 <!--Dropdown button-->
                 <button class="dropdown-button">
