@@ -1,5 +1,7 @@
 from django.db import models
 from users.models import CustomUser
+from django_ckeditor_5.fields import CKEditor5Field
+from tinymce.models import HTMLField
 
 from django.utils import timezone
 
@@ -35,6 +37,8 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return self.title
 
@@ -57,7 +61,7 @@ class Module(models.Model):
 class Lesson(models.Model):
     module = models.ForeignKey(Module, related_name='lessons', on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = HTMLField()
     order = models.PositiveIntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
