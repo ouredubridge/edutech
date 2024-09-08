@@ -16,7 +16,7 @@
                 {{module.order}} {{ module.title }}
                 {% for lesson in module.lessons.all %}
                 <li>{{ module.order }}.{{ lesson.order }} {{ lesson.title }}</li>
-                {{lesson.content}}
+                {{lesson.content|safe}}
                 {% endfor %}
             </li>
         {% endfor %}
