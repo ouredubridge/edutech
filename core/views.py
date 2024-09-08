@@ -4,6 +4,12 @@ from django.conf import settings
 
 from .forms import ContactUsForm
 
+
+from django.http import JsonResponse
+
+def is_ajax(request):
+    return request.headers.get('x-requested-with') == 'XMLHttpRequest'
+
 # Create your views here.
 def homepage(request):
 
@@ -32,11 +38,24 @@ def homepage(request):
                 # Handle email sending failure
                 print(e)
                 return render(request, 'core/contact_success.html', {'form': form, 'error': 'Failed to send email.'})
+            
+            # For normal requests, render the full base template
 
             # Provide feedback to the user
             return render(request, 'core/contact_success.html', {'form': form, 'success': 'Email successfully sent'})
-
+    
     else:
         form = ContactUsForm()
 
+        if is_ajax(request):
+                return render(request, 'core/partials/home_content.html', {'form': form })
+
     return render(request, 'core/home.html', {'form': form})
+
+def about_us(request):
+    # Check if it is an AJAX request
+    if is_ajax(request):
+        return render(request, 'core/partials/about_content.html')
+
+    # For normal requests, render the full base template
+    return render(request, 'core/about_us.html')
