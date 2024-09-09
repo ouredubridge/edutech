@@ -389,6 +389,20 @@ input[type="checkbox"] {
     line-height: 19.07px;
 }
 
+.nonfield {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nonfield li {
+    color: #721c24;
+    font-family: 'Open Sans', sans-serif;
+}
+
 /* Styles for very small devices */
 @media only screen and (max-width: 480px) {
 
