@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig',
     'payments.apps.PaymentsConfig',
+
+    # Other apps
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    # Other middleware
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # For social authentication
 ]
 
 ROOT_URLCONF = 'edubridge_website.urls'
@@ -154,8 +160,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_URL= '/home/'
+LOGIN_URL= 'login'
 LOGIN_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = '/'
 
 
 # Email configuration settings
@@ -261,3 +268,19 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': '100%',
     'file_browser_callback': 'tinymce_file_browser',
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',  # For Facebook login
+    'social_core.backends.google.GoogleOAuth2',  # For Google login
+    'django.contrib.auth.backends.ModelBackend',  # Keep your default backend
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
+
+# Optional: Allow emails to be required
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
