@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from users.models import CustomUser
 from django.urls import reverse
 
+from django.core import mail
+
 class SignupTest(TestCase):
     def test_signup(self):
         # Define the signup data
@@ -106,3 +108,12 @@ class UsersFunctionalTests(LiveServerTestCase):
         # The user is redirected to the login page
         login_text = self.browser.find_element(By.TAG_NAME, 'h3').text
         self.assertIn('Login', login_text)
+
+
+class PasswordResetInvalidEmailTests(TestCase):
+
+    def test_invalid_email_submission(self):
+        response = self.client.post(reverse('password_reset'), {'email': 'invalidemail@example.com'})
+        self.assertEqual(response.status_code, 302) # Should redirect to password reset done
+        self.assertRedirects(response, reverse('password_reset_done'))
+        self.assertEqual(len(mail.outbox), 0) # No email should be sent
