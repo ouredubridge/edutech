@@ -20,6 +20,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +31,9 @@ urlpatterns = [
     path('ckeditor5/', include('django_ckeditor_5.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
+
+    # urls for `forgot password?`` functionality
+    path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset')
 ]
 
 if settings.DEBUG:
