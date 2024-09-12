@@ -21,6 +21,7 @@ def signup(request):
             """
 
             user = form.save()
+            user.backend = 'email'
             login(request, user)
             # form.save()
             return redirect('home')
