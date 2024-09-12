@@ -77,6 +77,10 @@ nav ul li a {
     line-height: 27px;
 }
 
+.active-link {
+  color: #141E61;
+}
+
 .active {
   margin-top: 20px;
 }
