@@ -33,7 +33,8 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
 
     # urls for `forgot password?`` functionality
-    path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset')
+    path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password-reset/done', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
 ]
 
 if settings.DEBUG:
