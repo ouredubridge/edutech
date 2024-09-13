@@ -55,3 +55,11 @@ class PasswordResetViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration/password_reset_form.html')
         self.assertContains(response, 'name="email"')
+
+
+# Test Password Reset Done Page
+class PasswordResetDoneTests(TestCase):
+    def test_password_reset_done_page_renders(self):
+        response = self.client.get(reverse('password_reset_done'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/password_reset_done.html')
