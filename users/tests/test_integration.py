@@ -49,3 +49,22 @@ class PasswordResetEmailTests(TestCase):
         # Check that the reset link contains the uid64 and token
         uidb64 = urlsafe_base64_encode(force_bytes(self.user.pk))
         self.assertIn(f'/reset/{uidb64}/', email.body)
+
+
+class PasswordResetConfirmTests(TestCase):
+
+    def setUp(self):
+        self.user = CustomUser.objects.create_user(fullname="Test NewUser", email="test@example.com", password="oldpassword")
+
+    def test_valid_token_renders_reset_form(self):
+        # Generate valid uidb64 and token
+        uidb64 = urlsafe_base64_encode(force_bytes(self.user.pk))
+        token = default_token_generator.make_token(self.user)
+
+        # Send GET request to password reset confirm view
+        response = self.client.get(reverse('password_reset_confirm', kwargs={'uidb64': uidb64, 'token': token}))
+
+        # If there's a redirect, check the status code and where it redirects to
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/reset/', response.url)
+        self.assertIn('set-password', response.url)
