@@ -56,7 +56,7 @@ class PasswordResetConfirmTests(TestCase):
     def setUp(self):
         self.user = CustomUser.objects.create_user(fullname="Test NewUser", email="test@example.com", password="oldpassword")
 
-    def test_valid_token_renders_reset_form(self):
+    def test_valid_token_redirects_to_set_password(self):
         # Generate valid uidb64 and token
         uidb64 = urlsafe_base64_encode(force_bytes(self.user.pk))
         token = default_token_generator.make_token(self.user)
@@ -68,3 +68,19 @@ class PasswordResetConfirmTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn('/reset/', response.url)
         self.assertIn('set-password', response.url)
+
+    def test_invalid_token_redirects_to_error(self):
+        # Generate valid uidb64 but invalid token
+        uidb64 = urlsafe_base64_encode(force_bytes(self.user.pk))
+        invalid_token = 'invalid-token'
+
+        # Send GET request with invalid token
+        response = self.client.get(reverse('password_reset_confirm', kwargs={'uidb64': uidb64, 'token': invalid_token}))
+
+        # Check that the response status is 302
+        self.assertEqual(response.status_code, 200)
+
+        # Check for the presence of an error message about the invalid token
+        self.assertContains(response, 'The password reset link was invalid')
+
+        self.assertTemplateUsed(response, 'registration/password_reset_confirm.html')
