@@ -227,7 +227,8 @@ input[type="checkbox"] {
     height: Hug (41px)px;
     top: 580px;
     left: 57px;*/
-    padding: 10px 113.5px 10px 113.5px;
+    /*padding: 10px 113.5px 10px 113.5px;*/
+    padding: 10px 20px 20px 10px;
     gap: 10px;
     border-radius: 20px;
     opacity: 0px;
