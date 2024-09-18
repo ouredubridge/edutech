@@ -8,6 +8,10 @@ from django.contrib.auth.models import User
 from users.models import CustomUser
 from django.urls import reverse
 
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import default_token_generator
+
 class SignupTest(TestCase):
     def test_signup(self):
         # Define the signup data
@@ -106,3 +110,41 @@ class UsersFunctionalTests(LiveServerTestCase):
         # The user is redirected to the login page
         login_text = self.browser.find_element(By.TAG_NAME, 'h3').text
         self.assertIn('Login', login_text)
+
+
+class PasswordResetSetNewPasswordTests(TestCase):
+
+    def setUp(self):
+        self.user = CustomUser.objects.create_user(fullname="Test User", email='testuser@gmail.com', password='old_password')
+
+    def test_new_password_matching(self):
+        uidb64 = urlsafe_base64_encode(force_bytes(self.user.pk))
+        token = default_token_generator.make_token(self.user)
+
+        response = self.client.post(reverse('password_reset_confirm', kwargs={'uidb64': uidb64, 'token': token}), {
+            'new_password1': 'Newpassword@123',
+            'new_password2': 'Newpassword@123',
+        })
+        
+        self.assertEqual(response.status_code, 302)
+        #self.assertRedirects(response, '/reset/MQ/set-password/')
+        self.assertRedirects(response, reverse('password_reset_complete'))
+
+        #print(response.context['form'].errors)
+        #print(response.context)
+        #print(response.url)
+
+        # Check the response status code and content
+        print(f"Status Code: {response.status_code}")
+        print(f"Response Content: {response.content.decode('utf-8')}")
+
+        print(f"UIDB64: {uidb64}")
+        print(f"Token: {token}")
+
+        # Check if the form has errors
+        if response.context and 'form' in response.context:
+            print(f"Form errors: {response.context['form'].errors}")
+
+        # Ensure password has been changed
+        #self.user.refresh_from_db()
+        #self.assertTrue(self.user.check_password('new_password123'))
