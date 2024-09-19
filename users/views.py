@@ -7,6 +7,8 @@ from .models import CustomUser
 from django.views.generic.edit import FormView
 from django.urls import reverse, reverse_lazy
 
+from django.contrib.auth.views import PasswordResetView
+
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
@@ -76,3 +78,20 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
     return redirect('home')
+
+
+class CustomPasswordResetView(PasswordResetView):
+    # Your password reset form template
+    template_name = 'registration/password_reset_form.html'
+
+    # Your email template
+    email_template_name = 'registration/password_reset_email.html'
+
+    # Redirect URL after form submission
+    success_url = reverse_lazy('password_reset_done')
+
+    def form_valid(self, form):
+        # Capture the user's email and store it in the session
+        email = form.cleaned_data.get('email')
+        self.request.session['reset_email'] = email
+        return super().form_valid(form)
