@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
+from users.views import CustomPasswordResetView
 
 
 urlpatterns = [
@@ -33,7 +34,7 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
 
     # urls for `forgot password?`` functionality
-    path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'),
     path('password-reset/done', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('password-reset/complete', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
