@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
-from users.views import CustomPasswordResetView
+from users.views import CustomPasswordResetView, ResendPasswordResetEmailView
 
 
 urlpatterns = [
@@ -36,8 +36,10 @@ urlpatterns = [
     # urls for `forgot password?`` functionality
     path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'),
     path('password-reset/done', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password-reset/resend', ResendPasswordResetEmailView.as_view(), name='password_reset_resend'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('password-reset/complete', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    
 ]
 
 if settings.DEBUG:
