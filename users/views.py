@@ -8,6 +8,8 @@ from django.views.generic.edit import FormView
 from django.urls import reverse, reverse_lazy
 
 from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.forms import PasswordResetForm
+from django.views import View
 
 # Create your views here.
 def signup(request):
@@ -95,3 +97,26 @@ class CustomPasswordResetView(PasswordResetView):
         email = form.cleaned_data.get('email')
         self.request.session['reset_email'] = email
         return super().form_valid(form)
+
+class ResendPasswordResetEmailView(View):
+
+    def get(self, request, *args, **kwargs):
+        email = request.session.get('reset_email')
+
+        if email:
+            # Resend the password reset email
+            form = PasswordResetForm({'email': email})
+
+            if form.is_valid():
+                form.save(
+                    request=request,
+                    use_https=request.is_secure(),
+                    email_template_name='registration/password_reset_email.html'
+                )
+
+                messages.success(request, 'Password reset email resent successfully.')
+
+            else:
+                messages.error(request, 'There was a problem resending the email.')
+
+        return redirect(reverse_lazy('password_reset_done'))
