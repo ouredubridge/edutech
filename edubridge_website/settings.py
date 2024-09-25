@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig',
     'payments.apps.PaymentsConfig',
+    'community.apps.CommunityConfig',
 
     # Other apps
     'social_django',
