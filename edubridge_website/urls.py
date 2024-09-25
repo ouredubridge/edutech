@@ -30,6 +30,8 @@ urlpatterns = [
     path('', include('users.urls')),
     path('', include('courses.urls')),
     path('', include('payments.urls')),
+    path('', include('community.urls')),
+    
     path('ckeditor5/', include('django_ckeditor_5.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
