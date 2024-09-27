@@ -22,8 +22,8 @@
                     <hr>
                 </ul>
             </li>
-            <li><a href="{% url 'pricing_page' %}">Pricing</a></li>
-            <li><a href="">Community</a></li>
+            <li><a href="{% url 'pricing_page' %}" data-url="{% url 'pricing_page' %}">Pricing</a></li>
+            <li><a href="{% url 'community' %}" class="nav-link" data-url="{% url 'community' %}">Community</a></li>
 
             {% if user.is_authenticated %}
             <li><a class="login" href="{% url 'logout' %}">Logout</a></li>

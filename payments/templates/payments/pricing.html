@@ -7,6 +7,7 @@ Pricing
 
 {% block link %}
 <link rel="stylesheet" href="{% static 'core/css/home.css'%}">
+<link rel="stylesheet" href="{% static 'payments/css/styles.css' %}">
 
 <!--AOS (Animate on Scroll)-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -25,9 +26,6 @@ Pricing
         </ul>
     {% endif %}
 </div>
-<h2>
-    We've got a plan that's perfect for you
-</h2>
 
 
 <!--
@@ -37,18 +35,14 @@ Plans section
 ******************
 ******************
 -->
-<section data-aos="fade-up" class="plans-section">
-    <div id="plans" class="plans-header">
-        <h3>Plans</h3>
-        <img src="{% static 'core/img/icons/plans-hr.png' %}" alt="horizontal line">
-        <p>
-            Choose a plan that is right for you, and start a free trial for two weeks.
-        </p>
-    </div>
+<section style="border:1px solid red;" data-aos="fade-up" class="plans-section">
+    <h2>
+        We've got a plan that's perfect for you
+    </h2>
 
-    <div class="plans-div">
+    <div style="border: 1px solid yellow; margin-left: 0; margin-right: 0;" class="plans-div">
         <!--Start Plan Section Div-->
-        <div class="plan-div">
+        <div style="margin: 0;" class="plan-div">
             <p class="plan-period">Daily</p>
             <p class="plan-price">$5</p>
             <span class="plan-per-period">/hour</span>
