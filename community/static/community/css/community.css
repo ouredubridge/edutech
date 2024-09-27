@@ -163,7 +163,7 @@ body
     font-size: 18px;
     line-height: 30.6px;
     color: #000000;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .community-picture-area
 {
@@ -556,6 +556,7 @@ body
         /*height: 530px;*/
         width: auto;
         place-items: center;
+        margin-top: 80px;
     }
     .text-area
     {
@@ -2585,9 +2586,11 @@ body
         /*margin-left: 50px;
         margin-right: 0px;*/
         /*background-color: #ffffff;*/
-        display: grid;
-        place-items: center;
+        /*display: grid;
+        place-items: center;*/
         /*overflow-x: hidden;*/
+
+        /*overflow-x: scroll;*/
     }
     .body-eclipse2
     {
@@ -2658,7 +2661,7 @@ body
         border-radius: 20px;
         place-items: center;
     }
-    /*button
+    .button
     {
         width: 191px;
         height: 51px;
@@ -2668,7 +2671,7 @@ body
         color: #141E61;
         margin-left: 940px;
         display: flex;
-    }*/
+    }
 }
 
 @media only screen and (min-width: 1441px) and (max-width: 1600px)
@@ -2680,9 +2683,9 @@ body
         /*margin-left: 50px;
         margin-right: 0px;*/
         /*background-color: #ffffff;*/
-        display: grid;
+        /*display: grid;
         place-items: center;
-        overflow-x: hidden;
+        overflow-x: hidden;*/
     }
     .body-eclipse2
     {
@@ -2777,6 +2780,7 @@ body
         /*display: flex;*/
         /*place-items: center;*/
         /*overflow-x: hidden;*/
+        background-color: aqua;
     }
     .body-eclipse
     {
@@ -2868,6 +2872,32 @@ body
         color: #141E61;
         margin-left: 1640px;
         display: flex;
+    }
+}
+
+
+/*******Additional Styles*********
+*********************************/
+@media only screen and (min-width: 601px) {
+    .first-container {
+        margin-top: 80px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .first-container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .first-container {
+        /*margin-left: 150px;
+        margin-right: 150px;*/
     }
 }
 
