@@ -6,7 +6,8 @@
     
     <nav>
         <ul>
-            <li><a href="{% url 'about' %}" class="nav-link" data-url="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active-link{% endif %} nav-link"
+                data-url="{% url 'about' %}">About</a></li>
             <li>
                 <!--Dropdown button-->
                 <button class="dropdown-button">
@@ -23,7 +24,8 @@
                 </ul>
             </li>
             <li><a href="{% url 'pricing_page' %}" data-url="{% url 'pricing_page' %}">Pricing</a></li>
-            <li><a href="{% url 'community' %}" class="nav-link" data-url="{% url 'community' %}">Community</a></li>
+            <li><a href="{% url 'community' %}" class="{% if request.resolver_match.url_name == 'community' %}active-link{% endif %} nav-link" 
+                data-url="{% url 'community' %}">Community</a></li>
 
             {% if user.is_authenticated %}
             <li><a class="login" href="{% url 'logout' %}">Logout</a></li>
