@@ -802,6 +802,7 @@ hr.bottom-line {
     line-height: 21px;
     width: 100%;
     cursor: pointer;
+    text-align: center;
 }
 
 textarea {
