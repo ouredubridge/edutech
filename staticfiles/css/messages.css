@@ -1,0 +1,58 @@
+/* Custom styles for messages tag */
+/*********************************/
+.messages ul {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.messages ul li {
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-left: 15px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Success messages */
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  /* Error messages */
+  .alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  /* Info messages */
+  .alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+  
+  /* Warning messages */
+  .alert-warning {
+    color: #856404;
+    border-color: #fff3cd;
+    border-color: #ffeeba;
+  }
