@@ -37,8 +37,9 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    is_active = models.BooleanField(default=True)
-    is_paid = models.BooleanField(default=False)
+    
+    #is_active = models.BooleanField(default=True)
+    #is_paid = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -75,14 +76,20 @@ class Lesson(models.Model):
         return f"{self.module.course.title} - {self.module.order} {self.module.title} - {self.module.order}.{self.order} {self.title}"
 
 class Enrollment(models.Model):
+    ENROLLED = 'enrolled'
+    PENDING = 'pending'
+    COMPLETED = 'completed'
+    CANCELED = 'canceled'
+
     choices=[
-        ('enrolled', 'Enrolled'),
-        ('completed', 'Completed'),
-        ('dropped', 'Dropped')
+        (ENROLLED, 'Enrolled'),
+        (PENDING, 'Pending')
+        (COMPLETED, 'Completed'),
+        (CANCELED, 'Canceled')
     ]
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    status = models.CharField(max_length=20, choices=choices)
+    status = models.CharField(max_length=20, choices=choices, default=PENDING)
     progress = models.IntegerField(default=0)
     enrollment_date = models.DateTimeField(auto_now_add=True)
