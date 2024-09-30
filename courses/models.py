@@ -83,9 +83,9 @@ class Enrollment(models.Model):
 
     choices=[
         (ENROLLED, 'Enrolled'),
-        (PENDING, 'Pending')
+        (PENDING, 'Pending'),
         (COMPLETED, 'Completed'),
-        (CANCELED, 'Canceled')
+        (CANCELED, 'Canceled'),
     ]
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
