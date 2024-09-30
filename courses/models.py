@@ -86,5 +86,3 @@ class Enrollment(models.Model):
     status = models.CharField(max_length=20, choices=choices)
     progress = models.IntegerField(default=0)
     enrollment_date = models.DateTimeField(auto_now_add=True)
-
-    is_paid = models.BooleanField(default=False)  # This tracks if the user has paid for the course
