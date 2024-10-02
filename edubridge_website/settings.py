@@ -102,7 +102,7 @@ DATABASES = {
         'NAME': 'edubridge_db',
         'USER': 'postgres',
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': '*',
         'PORT': '5432',
     }
 }
