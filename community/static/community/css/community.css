@@ -1472,6 +1472,10 @@ body
         margin-top: 20px;
         margin-left: 210px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
 
     }
     .button span
@@ -1983,9 +1987,12 @@ body
         border-radius: 30px;
         background-color: #141E61;
         margin-top: 5px;
-        color: #141E61;
         margin-left: 640px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
     }
     .button span
     {
@@ -2429,9 +2436,12 @@ body
         border-radius: 30px;
         background-color: #141E61;
         margin-top: 5px;
-        color: #141E61;
         margin-left: 640px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
     }
     .button span
     {
@@ -2693,9 +2703,12 @@ body
         border-radius: 30px;
         background-color: #141E61;
         margin-top: 100px;
-        color: #141E61;
         margin-left: 940px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
     }
 }
 
@@ -2788,9 +2801,12 @@ body
         border-radius: 30px;
         background-color: #141E61;
         margin-top: 100px;
-        color: #141E61;
         margin-left: 1040px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
     }
 }
 
@@ -2894,9 +2910,12 @@ body
         border-radius: 30px;
         background-color: #141E61;
         margin-top: 100px;
-        color: #141E61;
         margin-left: 1640px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
     }
 }
 
@@ -2916,13 +2935,6 @@ body
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .first-container {
-        /*margin-left: 150px;
-        margin-right: 150px;*/
     }
 }
 
