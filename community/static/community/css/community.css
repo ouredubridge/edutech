@@ -305,8 +305,10 @@ body
     height: 137px;
     display: grid;
     background-color:  #f7f7f7;
+    background-color: pink;
     position: absolute;
-    top: 1550px;
+    top: 30px;
+    /*top: 1550px;*/
     border-radius: 20px;
 }
 .social2
@@ -323,10 +325,11 @@ body
     height: 51px;
     border-radius: 30px;
     background-color: #141E61;
+    background-color: orange;
     margin-top: 100px;
-    color: #141E61;
+    /*color: #141E61;
     margin-left: 1330px;
-    display: flex;
+    display: flex;*/
 }
 
 .button span
@@ -557,6 +560,8 @@ body
         width: auto;
         place-items: center;
         margin-top: 80px;
+        margin-left: 0;
+        margin-right: 0;
     }
     .text-area
     {
@@ -646,7 +651,7 @@ body
     {
         display: grid;
         height: 768px;
-        margin-top: 150px;
+        margin-top: 66.7px;
         width: auto;
         place-items: center;
     }
@@ -655,6 +660,7 @@ body
         /*height: 187px;
         width: 330px;
         display: grid;*/
+        margin-bottom: 45px;
     }
     .community
     {
@@ -688,7 +694,8 @@ body
         font-size: 14px;
         line-height: 23.8px;
         color: #000000;
-        margin-top: -20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
     .community-picture-area
     {
@@ -738,10 +745,13 @@ body
         height: 96px;
         display: grid;
         background-color:  #f7f7f7;
-        position: absolute;
-        top: 1030px;
+        /*position: absolute;
+        top: 1030px;*/
         margin: 10px;
         border-radius: 20px;
+        position: relative;
+        top: 90px;
+        left: -153px;
     }
     .name
     {
@@ -797,14 +807,14 @@ body
     .community-picture-background2
     {
         width: auto;
-        height: 335px;
+        /*height: 335px;*/
         display: flex;
         margin-top: -70px;
     }
     .community-picture-frame2
     {
         width: 233px;
-        height: 335px;
+        /*height: 335px;*/
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         border-radius: 20px;
@@ -846,8 +856,10 @@ body
         height: 96px;
         display: grid;
         background-color:  #f7f7f7;
-        position: absolute;
-        top: 1290px;
+        position: relative;
+        top: 90px;
+        left: -153px;
+        /*top: 1290px;*/
         margin: 10px;
         border-radius: 20px;
     }
@@ -865,10 +877,14 @@ body
         height: 41px;
         border-radius: 30px;
         background-color: #141E61;
-        color: #141E61;
         margin-top: 20px;
         margin-left: 210px;
         display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 30px;
 
     }
     .button span
@@ -881,7 +897,7 @@ body
     .button-arrow
     {
 
-        margin: 6px;
+        margin: 0;
     }
     .button-arrow img
     {
@@ -902,6 +918,7 @@ body
         height: 800px;
         margin-top: 80px;
         place-items: center;
+        margin-bottom: 100px;
     }
     .third-container-layout
     {
@@ -985,11 +1002,14 @@ body
         width: 131px;
         height: 145px;
         display: grid;
-        position: absolute;
-        top: 2170px;
+        /*position: absolute;
+        top: 2170px;*/
         background-color:  #f7f7f7;
         border-radius: 20px;
         margin: 10px;
+        position: relative;
+        top: 120px;
+        left: -153px;
     }
     .community-event-picture-frame
     {
@@ -1029,11 +1049,14 @@ body
         width: 131px;
         height: 145px;
         display: grid;
-        position: absolute;
-        top: 1870px;
+        /*position: absolute;
+        top: 1870px;*/
         background-color:  #f7f7f7;
         border-radius: 20px;
         margin: 10px;
+        position: relative;
+        top: 120px;
+        left: -153px;
     }
     .card-name
     {
@@ -1223,10 +1246,12 @@ body
     .second-container
     {
         display: grid;
-        height: 768px;
+        /*height: 768px;*/
         margin-top: 150px;
         width: auto;
         place-items: center;
+        margin-left: 0;
+        margin-right: 0;
     }
     .text-area2
     {
