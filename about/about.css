@@ -2142,7 +2142,7 @@ body
         height: 394px;
         border-radius: 12px;
         position: sticky;
-        margin-left: -950px;
+        margin-left: -300px;
         background: linear-gradient(to right, #141E61, #A5DFFF);
         display: grid;
     }
