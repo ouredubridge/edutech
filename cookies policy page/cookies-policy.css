@@ -69,6 +69,15 @@ ul
     text-align: justify;
     margin-top: -15px;
 }
+span
+{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400px;
+    line-height: 21.79px;
+    font-size: 16px;
+    color: #000000;
+    text-align: justify;
+}
 .mobile-responsiveness
 {
     display: none;
@@ -151,6 +160,15 @@ ul
         text-align: justify;
         margin-top: -15px;
     }
+    span
+    {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400px;
+        line-height: 19.04px;
+        font-size: 14px;
+        color: #000000;
+        text-align: justify;
+    }
 }
 
 /* mobile landscape/tablet */
@@ -229,6 +247,15 @@ ul
         color: #000000;
         text-align: justify;
         margin-top: -15px;
+    }
+    span
+    {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400px;
+        line-height: 19.04px;
+        font-size: 14px;
+        color: #000000;
+        text-align: justify;
     }
 }
 
@@ -309,6 +336,15 @@ ul
         text-align: justify;
         margin-top: -15px;
     }
+    span
+    {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400px;
+        line-height: 19.04px;
+        font-size: 14px;
+        color: #000000;
+        text-align: justify;
+    }
 }
 
 /*big tablet screen*/
@@ -387,5 +423,74 @@ ul
         color: #000000;
         text-align: justify;
         margin-top: -15px;
+    }
+    span
+    {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400px;
+        line-height: 19.04px;
+        font-size: 14px;
+        color: #000000;
+        text-align: justify;
+    }
+}
+
+/*small laptop screen*/
+@media only screen and (min-width: 1200px) and (max-width:1399px)
+{
+    body
+    {
+        margin-left: 151px;
+        margin-right: 158px;
+        display: grid;
+        place-items: center;
+        overflow-x: hidden;
+    }
+    .text-body
+    {
+        width: 880px;
+        height: 1920px;
+        display: grid;
+        place-self: center;
+    }
+}
+
+/*medium laptop screen*/
+@media only screen and (min-width: 1400px) and (max-width:1799px)
+{
+    body
+    {
+        margin-left: 151px;
+        margin-right: 158px;
+        display: grid;
+        place-items: center;
+        overflow-x: hidden;
+    }
+    .text-body
+    {
+        width: 1080px;
+        height: 1920px;
+        display: grid;
+        place-self: center;
+    }
+}
+
+/*big laptop screen and 4k screen*/
+@media only screen and (min-width: 1876px) and (max-width:2560px)
+{
+    body
+    {
+        margin-left: 151px;
+        margin-right: 158px;
+        display: grid;
+        place-items: center;
+        overflow-x: hidden;
+    }
+    .text-body
+    {
+        width: 1540px;
+        height: 1900px;
+        display: grid;
+        place-self: center;
     }
 }
