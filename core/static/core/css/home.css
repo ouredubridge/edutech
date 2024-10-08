@@ -1356,7 +1356,7 @@ textarea:focus {
     }
 
     .why-choose-us-header h3 {
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: 36px;
         font-weight: 600;
         line-height: 54px;
@@ -1632,13 +1632,16 @@ textarea:focus {
 
     /* Why choose us styles */
 
-    .why-choose-us-image-div img {
-        width: 100%;
-        height: 521px;
-    }
-
 }
 
+
+@media only screen and (min-width: 1200px) {
+    .why-choose-us-image-div img {
+        /*width: 100%;*/
+        width: 521px;
+        height: 521px;
+    }
+}
 
 
 /** Other media queries **
