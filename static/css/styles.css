@@ -80,6 +80,7 @@ nav ul li a {
 
 .active-link {
   color: #141E61;
+  font-weight: 600;
 }
 
 .active {
