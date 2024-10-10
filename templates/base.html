@@ -68,6 +68,11 @@
 
                         // Update the browser URL without reloading
                         history.pushState(null, null, url);
+
+                        // Update the active state after loading the new content
+                        $('.nav-link').removeClass('active-link');
+                        
+                        $(`.nav-link[data-url='${url}']`).addClass('active-link');
                     },
                     error: function(xhr, status, error){
                         console.log("Error Status: " + status);  // Log status
@@ -78,10 +83,11 @@
                 });
             });
         }
-
+        
         // Call the function to initialize the event handlers on the first page load
         $(document).ready(function() {
-            loadContent();  // Initialize content loading via AJAX
+            loadContent();
+            //alert("Inside the function")  // Initialize content loading via AJAX
         });
     </script>
 
