@@ -124,7 +124,7 @@ span
     .mobile-responsiveness
     {
         width: 250px;
-        height: 3000px;
+        height: 3150px;
         display: grid;
         place-self: center;
     }
@@ -194,7 +194,7 @@ span
     }
     .checkbox
     {
-        width: 217px;
+        width: 100%;
         height: 18px;
         display: flex;
         place-items: center;
@@ -305,7 +305,7 @@ span
     }
     .checkbox
     {
-        width: 217px;
+        width: 100%;
         height: 18px;
         display: flex;
         place-items: center;
@@ -416,7 +416,7 @@ span
     }
     .checkbox
     {
-        width: 217px;
+        width: 100%;
         height: 18px;
         display: flex;
         place-items: center;
@@ -527,7 +527,7 @@ span
     }
     .checkbox
     {
-        width: 217px;
+        width: 100%;
         height: 18px;
         display: flex;
         place-items: center;
