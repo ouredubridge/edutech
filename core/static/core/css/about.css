@@ -1209,7 +1209,7 @@ body
     .second-container
     {
         height: 582px;
-        width: 500px;
+        /*width: 500px;*/
         display: grid;
         margin-top: 50px;
         place-items: center;
