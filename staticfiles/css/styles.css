@@ -39,7 +39,8 @@ header {
     padding: 10px 20px;
     border: 1px solid #D8D7D7;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-    position: static;
+    position: fixed;
+    top: 0;
     width: auto;
     background-color: #FFF;
 }
@@ -77,6 +78,11 @@ nav ul li a {
     line-height: 27px;
 }
 
+.active-link {
+  color: #141E61;
+  font-weight: 600;
+}
+
 .active {
   margin-top: 20px;
 }
@@ -84,7 +90,6 @@ nav ul li a {
 .active ul{
   position: relative;
   top: 0px;
-  color: red;
 }
 
 .dropdown-button {
@@ -150,14 +155,17 @@ nav ul li a {
   */
 
 .dropdown-content.show {
-    display:block;
+    display: block;
     transition: all 0.3s;
     animation: slideDown 0.3s ease-out;
+    z-index: 99909;
+    width: auto;
+    position: fixed;
 }
 
 .dropdown-button.show + .dropdown-content {
   max-height: auto;
-  opacity: 1;
+  opacity: 99999;
 }
 /* Menu icon styles */
 .menu-icon {
@@ -334,44 +342,6 @@ footer {
 
 footer>section {
   margin-top: 46px;
-}
-
-/* Custom styles for messages tag */
-/*********************************/
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-/* Success messages */
-.alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-}
-
-/* Error messages */
-.alert-error {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
-}
-
-/* Info messages */
-.alert-info {
-  color: #0c5460;
-  background-color: #d1ecf1;
-  border-color: #bee5eb;
-}
-
-/* Warning messages */
-.alert-warning {
-  color: #856404;
-  border-color: #fff3cd;
-  border-color: #ffeeba;
 }
 /*
 *
@@ -594,7 +564,10 @@ footer>section {
     }
 
     header {
+      top: 0;
       position: fixed;
+      width: 100%;
+      z-index: 9999;
     }
 
     nav ul li {
@@ -725,7 +698,7 @@ of the footer section *********************************************/
 /* For small laptops */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     header {
-      width: auto;
+      width: 100%;
       overflow-x: hidden;
     }
 

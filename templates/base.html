@@ -42,10 +42,7 @@
 
 	{% include 'footer.html' %}
 	<script>
-        function loadContent() {
-            $('.nav-link').click(function(e){
-                e.preventDefault(); // Prevent default link behavior
-                let url = $(this).attr('data-url'); // Get the URL from the data attribute
+        function loadContent(url) {
 
                 // Make the AJAX call
                 $.ajax({
@@ -55,19 +52,18 @@
                         // Load the returned HTML into the content section
                         $('#content').html(response);
 
-                        // Update the page title dynamically
-                        // document.title = response.title;
-
-                        // loadContent();
-
                         // Extract the title dynamically from a <meta> or other custom tag
                         var newTitle = $('meta[name="page-title"]').attr('content');
 
                         // Dynamically set the new page title
                         document.title = newTitle;
 
-                        // Update the browser URL without reloading
-                        history.pushState(null, null, url);
+
+                        // Remove 'active-link' class from all links
+                        $('.nav-link').removeClass('active-link');
+                        
+                        // Add 'active-link' class to the link with matching data-url
+                        $(`.nav-link[data-url='${url}']`).addClass('active-link');
                     },
                     error: function(xhr, status, error){
                         console.log("Error Status: " + status);  // Log status
@@ -76,13 +72,32 @@
                         alert('Failed to load content.');
                     }
                 });
-            });
         }
-
+        
         // Call the function to initialize the event handlers on the first page load
         $(document).ready(function() {
-            loadContent();  // Initialize content loading via AJAX
+
+            // Handling navigation link clicks
+            $('.nav-link').click(function(e){
+                e.preventDefault(); // Prevent default link behavior
+                let url = $(this).attr('data-url'); // Get the URL from the data-url attribute
+
+                // Update the browser URL without reloading
+                history.pushState({path: url}, null, url);
+
+                loadContent(url)
+            });
+
+            // Handle the browser's back and forward buttons
+            window.addEventListener('popstate', function(event) {
+                if (event.state && event.state.path) {
+                    // Load content corresponding to the current history state
+                    loadContent(event.state.path)
+                }
+            })
         });
+
+        
     </script>
 
 	<script src="{% static 'js/index.js' %}"></script>

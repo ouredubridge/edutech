@@ -223,11 +223,12 @@ input[type="checkbox"] {
     font-size: 18px;
     font-weight: 400;*/
 
-    width: Hug (276px)px;
+    /*width: Hug (276px)px;
     height: Hug (41px)px;
     top: 580px;
-    left: 57px;
+    left: 57px;*/
     padding: 10px 113.5px 10px 113.5px;
+    width: 90%;
     gap: 10px;
     border-radius: 20px;
     opacity: 0px;
@@ -242,6 +243,7 @@ input[type="checkbox"] {
     font-weight: 400;
     line-height: 21px;
     cursor: pointer;
+    box-sizing: border-box;
 
 }
 
@@ -351,6 +353,7 @@ input[type="checkbox"] {
     padding: 0;
     background: none;
     color: black;
+    text-decoration: none;
 }
 
 .inbox-icon {
@@ -387,6 +390,20 @@ input[type="checkbox"] {
     font-size: 14px;
     font-weight: 400;
     line-height: 19.07px;
+}
+
+.nonfield {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nonfield li {
+    color: #721c24;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Styles for very small devices */
@@ -529,10 +546,6 @@ input[type="checkbox"] {
         text-align: center;
         margin-left: 40px;
         margin-right: 40px;
-    }
-
-    #buttons-div {
-    
     }
 
 

@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 main {
     margin-left: 30px;
     margin-right: 30px;
@@ -439,6 +444,12 @@ hr.bottom-line {
 /**Plans section styles****
 ***************************
 ***************************/
+.outer-plans-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .plans-section {
     margin-bottom: 100px;
 }
@@ -475,16 +486,17 @@ hr.bottom-line {
 }
 
 .plans-div {
-    display: flex;
-    justify-content: space-evenly;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
     margin-top: 5em;
-    white-space: nowrap;
+    flex-direction: column;
+    /*white-space: nowrap;
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;
-    margin-left: 5px;
-    margin-right: 5px;
+    overflow-y: hidden;*/
+    /*margin-left: 5px;
+    margin-right: 5px;*/
     scrollbar-width: none;
 }
 
@@ -507,7 +519,8 @@ hr.bottom-line {
     border-width: 3px;
     border-color: #B6B4B4;
     border-style: solid;
-    margin: 0 7px;
+    /*margin: 0 7px;*/
+    margin-bottom: 2em;
     padding: 0 10px;
 }
 
@@ -802,6 +815,7 @@ hr.bottom-line {
     line-height: 21px;
     width: 100%;
     cursor: pointer;
+    text-align: center;
 }
 
 textarea {
@@ -927,10 +941,11 @@ textarea:focus {
     }
 
     .plans-div {
-        display: flex;
+        /*display: flex;
         justify-content: space-evenly;
         flex-direction: column;
-        align-items: center;
+        align-items: center;*/
+        display: block;
         margin-top: 5em;
         margin-left: 30px;
         margin-right: 30px;
@@ -959,6 +974,7 @@ textarea:focus {
     main {
         /*padding-top: 100px;*/
         padding-top: 10px;
+        background-color: white;
     }
     
     .plans-div {
@@ -1281,8 +1297,20 @@ textarea:focus {
     }
 
     .plans-div {
-        justify-content: center;
-        /*overflow-x: hidden;*/
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5em;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        /*margin-left: 5px;
+        margin-right: 5px;*/
+        scrollbar-width: none;
+        flex-direction: row;
+        width: 100%;
+        justify-self: center;
     }
 
     .plan-div {
@@ -1334,7 +1362,7 @@ textarea:focus {
     }
 
     .why-choose-us-header h3 {
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: 36px;
         font-weight: 600;
         line-height: 54px;
@@ -1521,8 +1549,8 @@ textarea:focus {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     /* View all courses button */
@@ -1532,8 +1560,14 @@ textarea:focus {
 
     /* Top categories */
     .top-categories-scrollable-div {
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    /*Plans-section*/
+    .plans-section {
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     /* Why choose us section */
@@ -1581,6 +1615,10 @@ textarea:focus {
     }
 
     /* Plan section styles */
+    .plans-section {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
     .plans-div {
         overflow-x: hidden;
     }
@@ -1600,13 +1638,16 @@ textarea:focus {
 
     /* Why choose us styles */
 
-    .why-choose-us-image-div img {
-        width: 100%;
-        height: 521px;
-    }
-
 }
 
+
+@media only screen and (min-width: 1200px) {
+    .why-choose-us-image-div img {
+        /*width: 100%;*/
+        width: 521px;
+        height: 521px;
+    }
+}
 
 
 /** Other media queries **
@@ -1617,5 +1658,14 @@ textarea:focus {
     .stats-section {
         margin-left: 170px;
         margin-right: 170px;
+    }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1440px) {
+    .courses-section-with-arrows {
+        margin-left: 200px;
+        margin-right: 200px;
+        background-color: orangered;
     }
 }
