@@ -1209,7 +1209,7 @@ body
     .second-container
     {
         height: 582px;
-        width: 500px;
+        /*width: 500px;*/
         display: grid;
         margin-top: 50px;
         place-items: center;
@@ -2143,7 +2143,7 @@ body
         height: 394px;
         border-radius: 12px;
         position: sticky;
-        margin-left: -300px;
+        margin-left: -950px;
         background: linear-gradient(to right, #141E61, #A5DFFF);
         display: grid;
     }
