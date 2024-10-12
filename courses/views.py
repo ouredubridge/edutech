@@ -74,3 +74,22 @@ def create_lesson(request, module_id):
     else:
         form = LessonForm()
     return render(request, 'courses/create_lesson.html', {'form': form, 'module': module})
+
+"""Views for Editing:
+- Courses
+- Modules
+- Lessons
+"""
+def edit_course(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+
+    if request.method == 'POST':
+        form = CourseForm(request.POST, instance=course)
+        if form.is_valid():
+            form.save()
+            return redirect('course_detail', course_id=course.id)
+
+    else:
+        form = CourseForm(instance=course)
+
+    return render(request, 'courses/edit_course.html', {'form': form, 'course': course})
