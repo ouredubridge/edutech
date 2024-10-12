@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Course, Enrollment
 from django.http import HttpResponseForbidden
 
-from .forms import CourseForm
+from .forms import CourseForm, ModuleForm
 
 # Create your views here.
 def course_list(request):
@@ -33,3 +33,44 @@ def create_course(request):
     else:
         form = CourseForm()
     return render(request, 'courses/create_course.html', {'form': form})
+
+# View for creating a module for a course
+def create_module(request, course_id):
+    course = Course.objects.get(id=course_id)
+
+    if request.method == 'POST':
+        form = ModuleForm(request.POST)
+
+        if form.is_valid():
+            module = form.save(commit=False)
+            module.course = course # Link the module to the course
+            module.save()
+            return redirect('course_detail', course_id=course.id)
+
+    else:
+        form = ModuleForm()
+
+    return render(request, 'courses/create_module.html', {'form': form, 'course': course})
+
+
+# View for creating a lesson for a module
+def create_lesson(request, module_id):
+    module = Module.objects.get(id=module_id)
+
+    if request.method == 'POST':
+        form = LessonForm(request.POST)
+
+        if form.is_valid():
+            lesson = form.save(commit=False)
+
+            # Link the lesson to the module
+            lesson.module = module
+
+            # Save the lesson
+            lesson.save()
+
+            return redirect('module_detail', module_id=module.id)
+
+    else:
+        form = LessonForm()
+    return render(request, 'courses/create_lesson.html', {'form': form, 'module': module})
