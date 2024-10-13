@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Course, Enrollment
+from .models import Course, Module, Lesson, Enrollment
 from django.http import HttpResponseForbidden
 
-from .forms import CourseForm, ModuleForm
+from .forms import CourseForm, ModuleForm, LessonForm
 
 # Create your views here.
 def course_list(request):
@@ -93,3 +93,38 @@ def edit_course(request, course_id):
         form = CourseForm(instance=course)
 
     return render(request, 'courses/edit_course.html', {'form': form, 'course': course})
+
+
+# Edit Module
+def edit_module(request, module_id):
+    module = get_object_or_404(Module, id=module_id)
+
+    if request.method == 'POST':
+        form = ModuleForm(request.POST, instance=module)
+
+        if form.is_valid():
+            form.save()
+            return redirect('module_detail', module_id=module.id)
+
+    else:
+        form = ModuleForm(instance=module)
+
+    return render(request, 'courses/edit_module.html', {'form': form, 'module': module})
+
+# Edit Lesson
+def edit_lesson(request, lesson_id):
+    lesson = get_object_or_404(Lesson, id=lesson_id)
+
+    if request.method == 'POST':
+        form = LessonForm(request.POST, instance=lesson)
+
+        if form.is_valid():
+            form.save()
+
+            # Redirect to lesson detail page
+            return redirect('lesson_detail', lesson_id=lesson.id)
+
+    else:
+        form = LessonForm(instance=lesson)
+
+    return render(request, 'courses/edit_lesson.html', {'form': form, 'lesson': lesson})
