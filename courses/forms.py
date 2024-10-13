@@ -25,6 +25,6 @@ class LessonForm(forms.ModelForm):
         fields = ['title', 'content', 'order']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Lesson Title'}),
-            'content': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Lesson Content'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Lesson Content', 'id': 'tinymce-content'}),
             'order': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Lesson Order'}),
         }
