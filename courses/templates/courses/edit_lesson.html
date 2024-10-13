@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+  </form>
+
+  <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+  <script>
+    tinymce.init({
+      selector: '#tinymce-content',
+      plugins: 'lists link image table',
+      toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      menubar: false,
+      height: 900
+    });
+  </script>
+{% endblock %}
