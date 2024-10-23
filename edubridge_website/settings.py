@@ -304,3 +304,8 @@ LOGGING = {
         }
     }
 }
+
+#Paypal Settings
+PAYPAL_CLIENT_ID ='your-client-id'
+PAYPAL_CLIENT_SECRET ='your-client-secret'
+PAYMENT_MODE = 'sandbox' # 'live' for production
