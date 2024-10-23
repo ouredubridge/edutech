@@ -85,6 +85,10 @@
                 // Update the browser URL without reloading
                 history.pushState({path: url}, null, url);
 
+                // Scroll to the first div or to the top of the page
+                // $('html, body').animate({ scrollTop: $('div:first').offset().top }, 'slow');
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+
                 loadContent(url)
             });
 
