@@ -11,5 +11,17 @@ paypalrestsdk.configure({
 })
 
 # Create your views here.
+
+def is_ajax(request):
+    return request.headers.get('x-requested-with') == 'XMLHttpRequest'
+
 def pricing_page(request):
+<<<<<<< Updated upstream
     return render(request, 'payments/pricing.html') 
+=======
+
+    # Check if the request is an AJAX
+    if is_ajax(request):
+        return render(request, 'payments/partials/pricing_content.html')
+    return render(request, 'payments/pricing.html')
+>>>>>>> Stashed changes
