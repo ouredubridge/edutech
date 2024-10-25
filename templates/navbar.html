@@ -1,11 +1,13 @@
 {% load static %}
 <!--Navigation Structure-->
 <header>	
-	<a class="logo" href=""><img src="{% static 'img/logo/logo.png' %}" alt="logo"></a>
+	<a class="logo nav-link" href="{% url 'home' %}" data-url="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt="logo"></a>
+    <!--<li><a href="#" class="nav-link" data-url="{% url 'home' %}">Home</a></li>-->
     
     <nav>
         <ul>
-            <li><a href="">About</a></li>
+            <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active-link{% endif %} nav-link"
+                data-url="{% url 'about' %}">About</a></li>
             <li>
                 <!--Dropdown button-->
                 <button class="dropdown-button">
@@ -21,8 +23,10 @@
                     <hr>
                 </ul>
             </li>
-            <li><a href="">Pricing</a></li>
-            <li><a href="">Community</a></li>
+            <li><a href="{% url 'pricing_page' %}" class="{% if request.resolver_match.url_name == 'pricing_page' %}active-link{% endif %} nav-link"
+                data-url="{% url 'pricing_page' %}">Pricing</a></li>
+            <li><a href="{% url 'community' %}" class="{% if request.resolver_match.url_name == 'community' %}active-link{% endif %} nav-link" 
+                data-url="{% url 'community' %}">Community</a></li>
 
             {% if user.is_authenticated %}
             <li><a class="login" href="{% url 'logout' %}">Logout</a></li>
@@ -35,7 +39,7 @@
         </ul>
     </nav>
     
-    <div style="display: block;">
+    <div class="menu-button-div" style="display: block;">
         <button class="menu-icon">
             <span></span>
             <span></span>

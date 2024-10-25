@@ -1,0 +1,488 @@
+{% load static %}
+<meta name="page-title" content="Homepage">
+
+<div style="margin-top: 90px;" class="messages">
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+<!--
+******************
+******************
+Main section
+******************
+******************
+-->
+<main>
+    <div data-aos="fade-right" class="home-welcome-div">
+        <h1>Welcome To <span>EduBridge</span></h1>
+        <p>Develop your skills in a new and unique way.
+            Explore a transformative approach to skill development on our
+            online learning platform. Uncover a new realm of learning
+            experiences.
+        </p>
+        <div class="home-button-div">
+            <a class="home-enroll-button" href="">Enroll now</a>
+        </div>
+        
+    </div>
+    
+    <div data-aos="fade-left" class="home-welcome-image-div">
+        <img src="{% static 'core/img/pics/main-image.png' %}" alt="welcome image">
+    </div>
+</main>
+
+
+<!--
+******************
+******************
+Stats section
+******************
+******************
+-->
+<section data-aos="fade-right" class="stats-section">
+    <div class="stats-box">
+        <h3 class="stats-number">100</h3>
+        <p class="stats-description">Online Students</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">20</h3>
+        <p class="stats-description">Expert Mentors</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">20+</h3>
+        <p class="stats-description">Courses</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">10</h3>
+        <p class="stats-description">Online videos</p>
+    </div>
+
+    <div class="stats-box">
+        <h3 class="stats-number">20+</h3>
+        <p class="stats-description">Business tools</p>
+    </div>
+</section>
+
+
+<!--
+******************
+******************
+Our courses section
+******************
+******************
+-->
+<section data-aos="fade-up" class="our-courses-section">
+    <div class="our-courses-header">
+        <h3>Our Courses</h3>
+        <img src="{% static 'core/img/icons/horizontal_line.png' %}" alt="horizontal line">
+        <p>Discover our most sought-after courses, carefully curated
+            to meet the demands of today's learners.
+        </p>
+    </div>
+    
+    <!--****************
+    ********************
+    ((((((((NB: Only for screen sizes > 768px))))))))))))))
+    ((For lesser screen size, set the each arrow display
+    to none.
+    ))
+    This section will contain left and right arrows
+    for sliding the course section across the horizontal
+    x-axis.
+    -->
+    <div class="courses-section-with-arrows">
+        <!--Container for the chevron left arrow -->
+        <div>
+            <img class="arrow-left" alt="chevron left" src="{% static 'core/img/icons/chevron-left.png' %}">
+        </div>
+
+        <!--Container for the courses section -->
+        <div class="courses-section-div">
+
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+            <div class="course-section">
+                <div class="course-thumbnail">
+                    <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
+                </div>
+                <div class="course-title-rating">
+                    <p class="course-title">Web Design</p>
+                    <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                </div>
+                <h6>Web Design and Development</h6>
+                <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                <hr class="bottom-line">
+                <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                <div class="course-status-duration">
+                    <p>Free</p>
+                    <p>45hrs</p>
+                </div>
+            </div>
+            </a>
+            <!--END COURSE SECTION-->
+    
+    
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+            <div class="course-section">
+                <div class="course-thumbnail">
+                    <img src="{% static 'core/img/pics/course-thumbnail_2.png' %}">
+                </div>
+                <div class="course-title-rating">
+                    <p class="course-title">Business</p>
+                    <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                </div>
+                <h6>Business Development</h6>
+                <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                <hr class="bottom-line">
+                <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                <div class="course-status-duration">
+                    <p>Free</p>
+                    <p>45hrs</p>
+                </div>
+            </div>
+            </a>
+            <!--END COURSE SECTION-->
+    
+    
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+            <div class="course-section">
+                <div class="course-thumbnail">
+                    <img src="{% static 'core/img/pics/course-thumbnail_3.png' %}">
+                </div>
+                <div class="course-title-rating">
+                    <p class="course-title">Finance</p>
+                    <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                </div>
+                <h6>Finance</h6>
+                <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                <hr class="bottom-line">
+                <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                <div class="course-status-duration">
+                    <p>Free</p>
+                    <p>45hrs</p>
+                </div>
+            </div>
+            </a>
+            <!--END COURSE SECTION-->
+
+            <!--View link -->
+            <div class="view-courses-button-mobile-div">
+                <a class="view-courses-mobile-button" href="">View all</a>
+            </div>
+        </div>
+
+        <!--Container for the chevron right arrow -->
+        <div>
+            <img class="arrow-right" alt="chevron left" src="{% static 'core/img/icons/chevron-right.png' %}">
+        </div>
+    </div>
+    
+
+    <div class="view-courses-button-div">
+        <a class="view-courses-button" href="">View all</a>
+    </div>
+</section>
+
+<!--
+******************
+******************
+Top categories section
+******************
+******************
+-->
+<section data-aos="fade-up" class="top-categories-section">
+    <div class="top-categories-header">
+        <h3>Top Categories</h3>
+        <img src="{% static 'core/img/icons/blue-hr.png' %}" alt="horizontal line">
+    </div>
+
+    <div class="top-categories-scrollable-div">
+    <!--Categories section div-->
+    <div class="top-categories-div">
+
+
+        <!--Category section div-->
+        <div class="top-category-div" tabindex="0">
+            <div class="top-category-rec">
+                <p>Business</p>
+            </div>
+            <div class="top-category-ellipse-div">
+                <div class="top-category-ellipse">
+                    <img src="{% static 'core/img/icons/briefcase.png' %}">
+                </div>
+                
+            </div>
+        </div>
+        <!--End category section div-->
+
+        <!--Category section div-->
+        <div class="top-category-div" tabindex="0">
+            <div class="top-category-rec">
+                <p>Finance</p>
+            </div>
+            <div class="top-category-ellipse-div">
+                <div class="top-category-ellipse">
+                    <img src="{% static 'core/img/icons/library.png' %}">
+                </div>
+                
+            </div>
+        </div>
+        <!--End category section div-->
+
+        <!--Category section div-->
+        <div class="top-category-div" tabindex="0">
+            <div class="top-category-rec">
+                <p>Others</p>
+            </div>
+            <div class="top-category-ellipse-div">
+                <div class="top-category-ellipse">
+                    <img src="{% static 'core/img/icons/document-text.png' %}">
+                </div>
+                
+            </div>
+        </div>
+        <!--End category section div-->
+    </div>
+    </div>
+</section>
+
+<!--
+******************
+******************
+Plans section
+******************
+******************
+-->
+<section data-aos="fade-up" class="plans-section">
+    <div id="plans" class="plans-header">
+        <h3>Plans</h3>
+        <img src="{% static 'core/img/icons/plans-hr.png' %}" alt="horizontal line">
+        <p>
+            Choose a plan that is right for you, and start a free trial for two weeks.
+        </p>
+    </div>
+
+    <div class="outer-plans-div">
+        <div class="plans-div">
+            <!--Start Plan Section Div-->
+            <div class="plan-div">
+                <p class="plan-period">Daily</p>
+                <p class="plan-price">$5</p>
+                <span class="plan-per-period">/hour</span>
+                <br>
+                <br>
+                <ul class="plan-desc">
+                    <li>Business mailing address</li>
+                    <li>Limited access to meeting rooms</li>
+                    <li>Access to networking events</li>
+                    <li>Discounted rates on day passes</li>
+                </ul>
+                <br>
+                <br>
+                <a href="" class="plan-enroll-now-button">Enroll now</a>
+            </div>
+            <!--End Plan Section Div-->
+
+
+            <!--Start Plan Section Div-->
+            <div class="plan-div">
+                <p class="plan-period">Yearly</p>
+                <p class="plan-price">$150</p>
+                <span class="plan-per-period">/year</span>
+                <br>
+                <br>
+                <ul class="plan-desc">
+                    <li>Business mailing address</li>
+                    <li>Limited access to meeting rooms</li>
+                    <li>Access to networking events</li>
+                    <li>Discounted rates on day passes</li>
+                </ul>
+                <br>
+                <br>
+                <a href="" class="plan-enroll-now-button">Enroll now</a>
+            </div>
+            <!--End Plan Section Div-->
+
+
+            <!--Start Plan Section Div-->
+            <div class="plan-div">
+                <p class="plan-period">Monthly</p>
+                <p class="plan-price">$25</p>
+                <span class="plan-per-period">/month</span>
+                <br>
+                <br>
+                <ul class="plan-desc">
+                    <li>Business mailing address</li>
+                    <li>Limited access to meeting rooms</li>
+                    <li>Access to networking events</li>
+                    <li>Discounted rates on day passes</li>
+                </ul>
+                <br>
+                <br>
+                <a href="" class="plan-enroll-now-button">Enroll now</a>
+            </div>
+            <!--End Plan Section Div-->
+        </div>
+    </div>
+</section>
+
+
+<!--
+******************
+******************
+Why choose us section
+******************
+******************
+-->
+<section data-aos="fade-up" class="why-choose-us-section">
+    <div class="why-choose-us-header">
+        <h3>Why Choose us</h3>
+        <img alt="horizontal rule" src="{% static 'core/img/icons/blue-hr.png' %}">
+    </div>
+
+    <div class="why-choose-us-div">
+        <div class="why-choose-us-image-div">
+            <img alt="why choose us image" src="{% static 'core/img/pics/why-us-image.png' %}">
+        </div>
+
+        <div class="why-choose-us-contents-div">
+            <div>
+                <h6>Community</h6>
+                <p>Welcome to EdTech Community, where innovation
+                    in education meets the power of technology to
+                    enhance learning experiences.
+                </p>
+            </div>
+
+            <div>
+                <h6>Mentorship</h6>
+                <p>Mentorship in Edtech empowers educators and
+                    students with personalized guidance and support,
+                    fostering growth and innovation in the learning
+                    experience.
+                </p>
+            </div>
+
+            <div>
+                <h6>Video courses</h6>
+                <p>We make complex concepts simplified using interactive
+                    elements and mixed mode learning of courses on videos
+                    tailored to a user specific needs.
+                </p>
+            </div>
+
+            <div>
+                <h6>Short Courses</h6>
+                <p>A handful of our short courses are self paced and
+                    provide targeted learning experiences in a concise
+                    time frame and can be completed within a learners
+                    preferences.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--
+******************
+******************
+Contact us section
+******************
+******************
+-->
+<section data-aos="fade-up" class="contact-us-section">
+    <div class="contact-us-div">
+        <div class="header-form-div"><!--Div test-->
+        <div class="contact-us-header-div">
+            <span class="contact-us-heading">Contact Us</span>
+            <p>Feel free to reach out to us anytime.
+                We will get back to you as soon as we can!
+            </p>
+        </div>
+
+        <div class="contact-us-innerdiv">
+            <div>
+                <div class="email-div">
+                    <img class="icon" src="{% static 'core/img/icons/mail.png'%}">
+                    <p>ouredubridge@gmail.com</p>
+                </div>
+
+                <div class="phone-div">
+                    <img class="icon" src="{% static 'core/img/icons/phone.png'%}">
+                    <p>08065345545</p>
+                </div>
+                <div class="social-div">
+                    <a href="https://www.facebook.com/61563258416391/posts/122096715344441947/?substory_index=795397722797727"><img alt="facebook icon"class="icon" src="{% static 'img/icons/Facebook.png'%}"></a>
+                    <a href="https://www.instagram.com/ouredubridge?igsh=MWd3MndseTN3Nmo5MA=="><img alt="instagram icon" class="icon" src="{% static 'img/icons/Instagram.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static 'img/icons/LinkedIn.png'%}"></a>
+                    <a href="https://x.com/_edubridge">
+                        <img alt="X icon" class="icon" src="{% static 'img/icons/TwitterX.png'%}">
+                    </a><br>
+                </div>
+            </div>
+        </div>
+        <form class="form-div" method="post" action="">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+            <input type="text" name="name" value="{{ form.name.value|default_if_none:'' }}" placeholder="Full name" required>
+            <span style="color: red;">{{ form.name.errors }}</span>
+
+            <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email" required>
+            <span style="color: red;">{{ form.email.errors }}</span>
+            
+            <input type="text" name="subject" value="{{ form.subject.value|default_if_none:'' }}" placeholder="Subject" required>
+            <span style="color: red;">{{ form.message.errors }}</span>
+            
+            <textarea id="message" name="message" placeholder="Message" required>{{ form.message.value|default_if_none:'' }}</textarea>
+            <span style="color: red;">{{ form.message.errors }}</span>
+            
+            <br>
+            <input type="submit" name="submit" value="Send">
+        </form>
+        </div><!--End div test-->
+
+        <!--For laptops and Desktops-->
+        <div class="contact-us-innerdiv-desktop">
+            <div>
+                <p>Info</p>
+                <div class="email-div">
+                    <img class="icon" src="{% static 'core/img/icons/mail.png'%}">
+                    <p>ouredubridge@gmail.com</p>
+                </div>
+
+                <div class="phone-div">
+                    <img class="icon" src="{% static 'core/img/icons/phone.png'%}">
+                    <p style="color: #fff;">08065345545</p>
+                </div>
+                <div class="social-div">
+                    <a href="https://www.facebook.com/61563258416391/posts/122096715344441947/?substory_index=795397722797727"><img class="icon" src="{% static 'img/icons/Facebook.png'%}"></a>
+                    <a href="https://www.instagram.com/ouredubridge?igsh=MWd3MndseTN3Nmo5MA=="><img class="icon" src="{% static 'img/icons/Instagram.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static 'img/icons/LinkedIn.png'%}"></a>
+                    <a href="https://x.com/_edubridge"><img class="icon" src="{% static 'img/icons/TwitterX.png'%}"></a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--JavaScript Link-->
+<script src="{% static 'core/js/home.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!--Scroll reveal-->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="{% static 'js/index.js' %}"></script>

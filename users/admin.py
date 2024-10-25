@@ -13,7 +13,7 @@ class CustomerUserAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
 
     ordering = ['email']
-    list_display = ['email', 'fullname', 'is_staff', ]
+    list_display = ['email', 'fullname', 'is_staff', 'password' ]
 
     #list_display = ['email', 'fullname', 'is_staff', ] 
 

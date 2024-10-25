@@ -39,7 +39,8 @@ header {
     padding: 10px 20px;
     border: 1px solid #D8D7D7;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-    position: static;
+    position: fixed;
+    top: 0;
     width: auto;
     background-color: #FFF;
 }
@@ -75,6 +76,20 @@ nav ul li a {
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
+}
+
+.active-link {
+  color: #141E61;
+  font-weight: 600;
+}
+
+.active {
+  margin-top: 20px;
+}
+
+.active ul{
+  position: relative;
+  top: 0px;
 }
 
 .dropdown-button {
@@ -140,14 +155,17 @@ nav ul li a {
   */
 
 .dropdown-content.show {
-    display:block;
+    display: block;
     transition: all 0.3s;
     animation: slideDown 0.3s ease-out;
+    z-index: 99909;
+    width: auto;
+    position: fixed;
 }
 
 .dropdown-button.show + .dropdown-content {
   max-height: auto;
-  opacity: 1;
+  opacity: 99999;
 }
 /* Menu icon styles */
 .menu-icon {
@@ -220,7 +238,8 @@ footer>section {
 }
 
 .footer-enroll-button {
-  background: #141E61A6;
+  background: #141E61;
+  ;
   border-radius: 20px;
   color: #FFF;
   cursor: pointer;
@@ -386,13 +405,25 @@ footer>section {
 }
 /* For mobile devices */
 @media only screen and (max-width: 768px) {
-    body {
+  body {
 	    font-size: 14px;
-    }
+  }
 
   header {
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    background-color: white;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .menu-button-div {
+    padding-left: 5px;
+    padding-right: 10px;
   }
 
   /* Add an animation to the nav */
@@ -416,25 +447,25 @@ footer>section {
 
   nav {
 	  width: 50%;
-    /*margin: 0 100px;*/
     display: none;
     transition: opacity 1s;
-    position: absolute;
-    top: -70px;
+    top: 82px;
     right: 0px;
     background-color: white;
-    /*animation: slideOut 0.3s ease-in-out;*/
+    position: fixed;
   }
 	
   nav.active {
     display: block;
     transform: translateX(0);
     animation: slideIn 0.3s ease-in-out;
+    margin-top: 0;
   }
 
   nav.active ul{
     z-index: 9999;
     background-color: white;
+    margin: 0;
   }
 
   nav>ul {
@@ -530,6 +561,13 @@ footer>section {
     .logo {
       width: auto;
       /*height: 75px;*/
+    }
+
+    header {
+      top: 0;
+      position: fixed;
+      width: 100%;
+      z-index: 9999;
     }
 
     nav ul li {
@@ -660,7 +698,7 @@ of the footer section *********************************************/
 /* For small laptops */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     header {
-      width: auto;
+      width: 100%;
       overflow-x: hidden;
     }
 

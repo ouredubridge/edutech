@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserM
 
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, password, **extra_fields):
+    def create_user(self, email, password=None, **extra_fields):
         """
         Create and return a regular user with an email and password.
         """
@@ -12,7 +12,15 @@ class CustomUserManager(BaseUserManager):
                 
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-        user.set_password(password)
+
+        # Handle case where no password is provided (e.g., social auth)
+        if password:
+            user.set_password(password)
+
+        else:
+            # Set a dummy password for social auth
+            user.set_unusable_password()
+
         user.save(using=self._db)
         return user
 
@@ -38,6 +46,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # Other fields (e.g., first_name, last_name)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_instructor = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
 
     objects = CustomUserManager()

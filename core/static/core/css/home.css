@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 main {
     margin-left: 30px;
     margin-right: 30px;
@@ -174,8 +179,8 @@ main div p {
     align-items: center;
     flex-wrap: nowrap;
     white-space: nowrap;
-    margin-left: 42px;
-    margin-right: 42px;
+    padding-left: 44px;
+    padding-right: 44px;
     padding-left: 0;
     padding-right: 0;
 }
@@ -216,8 +221,14 @@ main div p {
     width: fit-content;
 }
 
+.course-thumbnail {
+    height: 45%;
+}
+
 .course-thumbnail img {
     width: 100%;
+    border-radius: 15px;
+    height: 100%;
 }
 .course-section h6 {
     font-size: 18px;
@@ -439,6 +450,12 @@ hr.bottom-line {
 /**Plans section styles****
 ***************************
 ***************************/
+.outer-plans-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .plans-section {
     margin-bottom: 100px;
 }
@@ -475,16 +492,17 @@ hr.bottom-line {
 }
 
 .plans-div {
-    display: flex;
-    justify-content: space-evenly;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
     margin-top: 5em;
-    white-space: nowrap;
+    flex-direction: column;
+    /*white-space: nowrap;
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;
-    margin-left: 5px;
-    margin-right: 5px;
+    overflow-y: hidden;*/
+    /*margin-left: 5px;
+    margin-right: 5px;*/
     scrollbar-width: none;
 }
 
@@ -507,7 +525,8 @@ hr.bottom-line {
     border-width: 3px;
     border-color: #B6B4B4;
     border-style: solid;
-    margin: 0 7px;
+    /*margin: 0 7px;*/
+    margin-bottom: 2em;
     padding: 0 10px;
 }
 
@@ -639,8 +658,9 @@ hr.bottom-line {
 }
 
 .why-choose-us-image-div img {
-    width: auto;
-    height: 330px;
+    width: 100%;
+    /*height: 330px;*/
+    height: auto;
     flex-grow: 6;
 }
 
@@ -691,7 +711,8 @@ hr.bottom-line {
     width: 70%;
     height: 151px;
     background: linear-gradient(270deg, #A5DFFF -49.43%, #141E61 104.33%);
-    border-radius: 20px 0 0 20px;
+    /*border-radius: 20px 0 0 20px;*/
+    border-radius: 0;
     text-align: left;
     color: #FFF;
     padding-left: 2em;
@@ -699,7 +720,8 @@ hr.bottom-line {
 
 .contact-us-div {
     width: 330px;
-    height: 632px;
+    /*height: 632px;*/
+    height: auto;
     box-shadow: 0px 2px 6px 3px #00000040;
     border-radius: 10px;
     margin: 0 6px;
@@ -747,6 +769,8 @@ hr.bottom-line {
 
 .social-div a {
     margin-right: 8px;
+    padding: 0;
+    width: auto;
 }
 
 .form-div {
@@ -767,15 +791,19 @@ hr.bottom-line {
     font-weight: 400;
     font-size: 14px;
     line-height: 19.07px;
-    color: #A0A2B2;
+    /*color: #A0A2B2;*/
+    color: black;
     background: none;
-    border-radius: none;
+    border-radius: 0;
 
 }
 
-.form-div input[type="text"],
+.form-div input[type="text"]:focus,
 .form-div input[type="email"]:focus {
     outline: none;
+    border-color: #141E61;
+    border-width: 2px;
+    transition: 0.1s;
 } 
 
 
@@ -793,13 +821,132 @@ hr.bottom-line {
     line-height: 21px;
     width: 100%;
     cursor: pointer;
+    text-align: center;
 }
+
+textarea {
+    width: 97%;
+    height: 130px;
+    resize: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.07px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    border-radius: 0;
+}
+
+textarea:focus {
+    border-color: #141E61;
+    outline-color: #141E61;
+    transition: 0.2s;
+}
+
+
+/* Custom styles for messages tag */
+/*********************************/
+.messages ul {
+    margin-bottom: 0;
+}
+
+.messages ul li {
+    margin-bottom: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-left: 15px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Success messages */
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  /* Error messages */
+  .alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  /* Info messages */
+  .alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+  
+  /* Warning messages */
+  .alert-warning {
+    color: #856404;
+    border-color: #fff3cd;
+    border-color: #ffeeba;
+  }
 /**
 * Media queries to handle responsiveness
 *
 */
 
 /* Styles for very small devices */
+@media only screen and (max-width: 400px) {
+    .course-section {
+        /*width: 250px;*/
+        width: 220px;
+        height: 417px;
+    }
+
+    .course-section h6 {
+        font-size: 14px;
+    }
+
+    .view-courses-button-mobile-div {
+        margin-right: 42px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .plan-div {
+        width: 250px;
+    }
+
+    .why-choose-us-image-div img {
+        width: 100%;
+    }
+
+    .contact-us-div {
+        width: 278px;
+    }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 768px) {
+    .course-section {
+        width: 280px;
+    }
+
+    .course-section h6 {
+        font-size: 16px;
+    }
+}
+
+/* Styles for small devices */
 @media only screen and (max-width: 480px) {
     .stats-section .stats-box{
         display: none;
@@ -811,10 +958,11 @@ hr.bottom-line {
     }
 
     .plans-div {
-        display: flex;
+        /*display: flex;
         justify-content: space-evenly;
         flex-direction: column;
-        align-items: center;
+        align-items: center;*/
+        display: block;
         margin-top: 5em;
         margin-left: 30px;
         margin-right: 30px;
@@ -840,6 +988,12 @@ hr.bottom-line {
 
 /* Styles for phones and tablets */
 @media only screen and (max-width: 768px) {
+    main {
+        /*padding-top: 100px;*/
+        padding-top: 10px;
+        background-color: white;
+    }
+    
     .plans-div {
         margin-left: 30px;
         margin-right: 30px;
@@ -955,7 +1109,7 @@ hr.bottom-line {
         box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
         width: 347px;
-        height: 459px;
+        /*height: 459px;*/
         background-color: #FFF;
         padding: 0.8em;
         margin-right: 50px;
@@ -1012,12 +1166,20 @@ hr.bottom-line {
     
     }
 
+    /* Additional styles for the course section */
+    /* Original above */
     .course-section {
-        width: 347px;
-        height: 459px;
+        /*width: 347px;
+        height: 459px;*/
+        max-width: 260px;
+        min-height: auto;
         border-radius: 20px;
-        white-space: nowrap; /* Prevent text wrapping */
+        white-space: wrap; /* Prevent text wrapping */
         margin-right: 10px;
+    }
+
+    .course-section h6{
+        font-size: 16px;
     }
 
     .course-section-link {
@@ -1152,8 +1314,20 @@ hr.bottom-line {
     }
 
     .plans-div {
-        justify-content: center;
-        /*overflow-x: hidden;*/
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5em;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        /*margin-left: 5px;
+        margin-right: 5px;*/
+        scrollbar-width: none;
+        flex-direction: row;
+        width: 100%;
+        justify-self: center;
     }
 
     .plan-div {
@@ -1205,7 +1379,7 @@ hr.bottom-line {
     }
 
     .why-choose-us-header h3 {
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: 36px;
         font-weight: 600;
         line-height: 54px;
@@ -1288,7 +1462,8 @@ hr.bottom-line {
         width: 30%;
         height: auto;
         background: linear-gradient(270deg, #A5DFFF -49.43%, #141E61 104.33%);
-        border-radius: 20px 0 0 20px;
+        /*border-radius: 20px 0 0 20px;*/
+        border-radius: 0;
         text-align: left;
         color: #FFF;
         padding-left: 2em;
@@ -1310,7 +1485,8 @@ hr.bottom-line {
 
     input[type="text"], input[type="email"] {
         font-family: 'Open Sans', sans-serif;
-        font-size: 18px;
+        /*font-size: 18px;*/
+        font-size: 36px;
         font-weight: 400;
         line-height: 24.51px;
         text-align: left;
@@ -1320,6 +1496,30 @@ hr.bottom-line {
         margin-top: 5em;
     }
 
+    /* Style of form inputs */
+    .form-div input[type="text"],
+    .form-div input[type="email"] {
+        margin-bottom: 2em;
+        border: none;
+        border-bottom: 1px solid #888;
+        width: 95%;
+        padding: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19.07px;
+        /*color: #A0A2B2;*/
+        color: black;
+        background: none;
+        border-radius: none;
+
+    }
+
+    textarea {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
 }
 
 /* For tablets */
@@ -1327,6 +1527,10 @@ hr.bottom-line {
     .why-choose-us-div img {
         width: 421px;
         height: 421px;
+    }
+
+    .contact-us-div {
+        width: 60%;
     }
 }
   
@@ -1362,8 +1566,8 @@ hr.bottom-line {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     /* View all courses button */
@@ -1373,8 +1577,14 @@ hr.bottom-line {
 
     /* Top categories */
     .top-categories-scrollable-div {
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    /*Plans-section*/
+    .plans-section {
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     /* Why choose us section */
@@ -1422,6 +1632,10 @@ hr.bottom-line {
     }
 
     /* Plan section styles */
+    .plans-section {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
     .plans-div {
         overflow-x: hidden;
     }
@@ -1441,13 +1655,16 @@ hr.bottom-line {
 
     /* Why choose us styles */
 
-    .why-choose-us-image-div img {
-        width: 100%;
-        height: 521px;
-    }
-
 }
 
+
+@media only screen and (min-width: 1200px) {
+    .why-choose-us-image-div img {
+        /*width: 100%;*/
+        width: 521px;
+        height: 521px;
+    }
+}
 
 
 /** Other media queries **
@@ -1458,5 +1675,14 @@ hr.bottom-line {
     .stats-section {
         margin-left: 170px;
         margin-right: 170px;
+    }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1440px) {
+    .courses-section-with-arrows {
+        margin-left: 200px;
+        margin-right: 200px;
+        background-color: orangered;
     }
 }

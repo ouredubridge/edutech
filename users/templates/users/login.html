@@ -30,8 +30,8 @@
                 <p id="welcome">Welcome back, select method to login</p>
                  
                  <div id="buttons-section"> 
-                    <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</button>
-                    <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</button>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}" class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</a>
+                    <a href="{% url 'social:begin' 'facebook' %}" class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</a>
                 </div>
 
                 <div class="continue-with">
@@ -41,8 +41,9 @@
                 </div>
                 
             
-                <form action="{% url 'login' %}" method="POST">
+                <form method="POST">
                     {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
 
                     <!--Non field errors -->
                     {{ form.non_field_errors }}
@@ -112,7 +113,7 @@
                             <span class="checkmark">Remember me</span>
                         </div>
                         <div>
-                            <a href="">Forgot password?</a>
+                            <a class="forgot-password" href="{% url 'password_reset' %}">Forgot password?</a>
                         </div>
                     </label>
     

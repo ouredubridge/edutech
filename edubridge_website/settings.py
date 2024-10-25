@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from the .env file
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-azj8xrhwe!ai8spi1dol+t_*nk93g(la^ugy7gt*qf%jo8%4^%'
+# SECRET_KEY = os.environ.get('EDUBRIGE_SECRET_KEY')
+SECRET_KEY = os.getenv('EDUBRIGE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,10 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
+    'tinymce',
     'core',
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig',
     'payments.apps.PaymentsConfig',
+    'community.apps.CommunityConfig',
+
+    # Other apps
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +65,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    # Other middleware
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # For social authentication
 ]
 
 ROOT_URLCONF = 'edubridge_website.urls'
@@ -133,6 +149,11 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+# File uploads config
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -140,4 +161,151 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_REDIRECT_URL = 'login'
+LOGIN_URL= 'login'
+LOGIN_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = '/'
+
+
+# Email configuration settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'kadelcode@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('EDUBRIGE_EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = 'kadelcode@gmail.com'  # Replace with your default from email address
+
+# CKEditor configuration
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+            ['Format'],
+            ['Image', 'Table'],
+        ],
+    },
+}
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': [
+            'heading', '|', 'bold', 'italic', 'link', '|',
+            'bulletedList', 'numberedList', 'blockQuote', '|',
+            'undo', 'redo', '|', 'imageUpload', 'mediaEmbed'
+        ],
+        'image': {
+            'toolbar': ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+        },
+        'mediaEmbed': {
+            'previewsInData': True,
+        },
+        'fontColor': {
+            'colors': [
+                {
+                    'color': 'rgb(0, 0, 0)',  # Black color
+                    'label': 'Black'
+                },
+                {
+                    'color': 'rgb(255, 0, 0)',
+                    'label': 'Red'
+                },
+                # Add more colors as needed
+            ],
+            'columns': 5
+        },
+    },
+    'custom_config': {
+        'toolbar': [
+            'heading', 'alignment', '|', 'bold', 'italic', 'underline', '|',
+            'link', 'imageUpload', 'mediaEmbed', 'insertTable', '|',
+            'bulletedList', 'numberedList', 'outdent', 'indent', '|',
+            'undo', 'redo'
+        ],
+        'image': {
+            'toolbar': ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+        },
+        'mediaEmbed': {
+            'previewsInData': True,
+        },
+        'table': {
+            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells'],
+        },
+        'fontColor': {
+            'colors': [
+                {
+                    'color': 'rgb(0, 0, 0)',  # Black color
+                    'label': 'Black'
+                },
+                {
+                    'color': 'rgb(255, 0, 0)',
+                    'label': 'Red'
+                },
+                # Add more colors as needed
+            ],
+            'columns': 5
+        },
+        'extraPlugins': ['MediaEmbed', 'ImageUpload'],
+        'contentCss': '/static/css/ckeditor_custom.css',
+
+    }
+}
+
+# TinyMCE config
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'silver',
+    'plugins': 'table,code,link,image,lists,charmap,preview,anchor,searchreplace,visualblocks,fullscreen,insertdatetime,media,nonbreaking,paste,directionality,emoticons,textcolor,colorpicker,print,save,advlist,autolink,autosave,blockquote,clipboard,contextmenu,counter,filemanager,formatpainter,hr,imagetools,importcss,inline,keyboard_shortcuts,lists,mediaembed,mergetags,powerpaste,quickbars,spellchecker,tabfocus,table,template,templates,textpattern,visualchars,wordcount,media',
+    'toolbar': 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | styleselect | formatpainter | link image | bullist numlist outdent indent | table | code | preview fullscreen',
+    'menubar': 'file edit view insert format tools table help',
+    'statusbar': True,
+    'height': '400px',
+    'width': '100%',
+    'file_browser_callback': 'tinymce_file_browser',
+}
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',  # For Facebook login
+    'social_core.backends.google.GoogleOAuth2',  # For Google login
+    'django.contrib.auth.backends.ModelBackend',  # Keep your default backend
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
+
+# Optional: Allow emails to be required
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        }
+    }
+}
+
+#Paypal Settings
+PAYPAL_CLIENT_ID ='your-client-id'
+PAYPAL_CLIENT_SECRET ='your-client-secret'
+PAYMENT_MODE = 'sandbox' # 'live' for production

@@ -19,18 +19,90 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+	<!--Homepage styles-->
+    <link rel="stylesheet" href="{% static 'core/css/home.css'%}">
+
+    <!--AOS (Animate on Scroll)-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">-->
+    
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
-	{% block nav %}
-	  {% include 'navbar.html' %}
-	{% endblock %}
+	{% include 'navbar.html' %}
+	
+	<!-- Content Section -->
+    <div id="content">
+        <!-- Dynamic content will be loaded here -->
+        {% block content %}
+        <!-- This block will be empty initially, as content will be loaded via AJAX -->
+        {% endblock %}
+    </div>
 
-	{% block content %}
-	{% endblock %}
+	{% include 'footer.html' %}
+	<script>
+        function loadContent(url) {
 
-	{% block footer %}
-	  {% include 'footer.html' %}
-	{% endblock %}
+                // Make the AJAX call
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function(response){
+                        // Load the returned HTML into the content section
+                        $('#content').html(response);
+
+                        // Extract the title dynamically from a <meta> or other custom tag
+                        var newTitle = $('meta[name="page-title"]').attr('content');
+
+                        // Dynamically set the new page title
+                        document.title = newTitle;
+
+
+                        // Remove 'active-link' class from all links
+                        $('.nav-link').removeClass('active-link');
+                        
+                        // Add 'active-link' class to the link with matching data-url
+                        $(`.nav-link[data-url='${url}']`).addClass('active-link');
+                    },
+                    error: function(xhr, status, error){
+                        console.log("Error Status: " + status);  // Log status
+                        console.log("Error: " + error);  // Log error details
+                        console.log("Response Text: " + xhr.responseText);  // Log response text
+                        alert('Failed to load content.');
+                    }
+                });
+        }
+        
+        // Call the function to initialize the event handlers on the first page load
+        $(document).ready(function() {
+
+            // Handling navigation link clicks
+            $('.nav-link').click(function(e){
+                e.preventDefault(); // Prevent default link behavior
+                let url = $(this).attr('data-url'); // Get the URL from the data-url attribute
+
+                // Update the browser URL without reloading
+                history.pushState({path: url}, null, url);
+
+                // Scroll to the first div or to the top of the page
+                // $('html, body').animate({ scrollTop: $('div:first').offset().top }, 'slow');
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+                loadContent(url)
+            });
+
+            // Handle the browser's back and forward buttons
+            window.addEventListener('popstate', function(event) {
+                if (event.state && event.state.path) {
+                    // Load content corresponding to the current history state
+                    loadContent(event.state.path)
+                }
+            })
+        });
+
+        
+    </script>
 
 	<script src="{% static 'js/index.js' %}"></script>
     </body>

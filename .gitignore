@@ -38,3 +38,6 @@ media/
 *.jshintrc
 *.tern-project
 *.sass-cache
+
+# Environment variables
+*.env

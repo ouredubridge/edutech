@@ -142,11 +142,11 @@
 
 
                     <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark">I agree to terms and conditions</span>
+                        <input type="checkbox" class="termsAndConditions" id="termsAndConditions" name="termsAndConditions">
+                        <label for="termsAndConditions" class="checkmark">I agree to terms and conditions</label>
                     </label>
     
-                    <input type="submit" value="Sign Up" id="signup-button">
+                    <input type="submit" class="submitButton" value="Sign Up" id="signup-button" disabled>
                 </form>
               
                  
@@ -157,8 +157,8 @@
                 </div>
                  
                  <div id="buttons-section"> 
-                    <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</button>
-                    <button class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</button>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}" class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/google_logo.png' %}" alt=""> Google</a>
+                    <a href="{% url 'social:begin' 'facebook' %}" class="acc-button"> <img class="inbox-icon" src="{% static 'users/img/assets/facebook_icon.png' %}" alt=""> Facebook</a>
                 </div>
                  <p id="continue">Do you have an account? <a href="{% url 'login' %}" id="login-span">Login</a></p>
             </div>

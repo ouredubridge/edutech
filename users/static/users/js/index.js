@@ -21,4 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
         this.classList.toggle('fa-eye');
         this.classList.toggle('fa-eye-slash');
     })
+
+    // Check terms and conditions functionality
+    document.querySelector('.termsAndConditions').addEventListener('change', function() {
+        document.querySelector('.submitButton').disabled = !this.checked;
+    });
+
 })

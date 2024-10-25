@@ -13,12 +13,18 @@ Welcome to EduBridge
 {% endblock %}
 
 {% block content %}
-{% for message in messages %}
-    
-    <div>
-        {{ message }}
-    </div>
-{% endfor %}
+<div style="margin-top: 90px;" class="messages">
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
 <!--
 ******************
 ******************
@@ -116,28 +122,56 @@ Our courses section
         <!--Container for the courses section -->
         <div class="courses-section-div">
 
+            <!--Testing course for the database***********************-->
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+                <div class="course-section">
+                    <div class="course-thumbnail">
+                        <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
+                    </div>
+                    <div class="course-title-rating">
+                        <p class="course-title">Web Design</p>
+                        <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                    </div>
+                    <h6>Web Design and Development</h6>
+                    <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                    <hr class="bottom-line">
+                    <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                    <div class="course-status-duration">
+                        <p>Free</p>
+                        <p>45hrs</p>
+                    </div>
+                </div>
+                </a>
+                <!--END COURSE SECTION-->
+            
+            {% for course in course%}
             <!--START COURSE SECTION-->
             <a class="course-section-link" href="#">
             <div class="course-section">
                 <div class="course-thumbnail">
-                    <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}">
+                    {% else %}
+                        <img src="{% static 'img/default_course_image.jpeg' %}" alt="Default course image">
+                    {% endif %}
                 </div>
                 <div class="course-title-rating">
-                    <p class="course-title">Web Design</p>
+                    <p class="course-title">{{course.category}}</p>
                     <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
                 </div>
-                <h6>Web Design and Development</h6>
+                <h6>{{course.title}}</h6>
                 <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
                 <hr class="bottom-line">
                 <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
                 <div class="course-status-duration">
-                    <p>Free</p>
+                    <p>{{course.status}}</p>
                     <p>45hrs</p>
                 </div>
             </div>
             </a>
             <!--END COURSE SECTION-->
-    
+            {% endfor %}
     
             <!--START COURSE SECTION-->
             <a class="course-section-link" href="#">
@@ -195,7 +229,6 @@ Our courses section
             <img class="arrow-right" alt="chevron left" src="{% static 'core/img/icons/chevron-right.png' %}">
         </div>
     </div>
-    
 
     <div class="view-courses-button-div">
         <a class="view-courses-button" href="">View all</a>
@@ -273,7 +306,7 @@ Plans section
 ******************
 -->
 <section data-aos="fade-up" class="plans-section">
-    <div class="plans-header">
+    <div id="plans" class="plans-header">
         <h3>Plans</h3>
         <img src="{% static 'core/img/icons/plans-hr.png' %}" alt="horizontal line">
         <p>
@@ -281,65 +314,67 @@ Plans section
         </p>
     </div>
 
-    <div class="plans-div">
-        <!--Start Plan Section Div-->
-        <div class="plan-div">
-            <p class="plan-period">Daily</p>
-            <p class="plan-price">$5</p>
-            <span class="plan-per-period">/hour</span>
-            <br>
-            <br>
-            <ul class="plan-desc">
-                <li>Business mailing address</li>
-                <li>Limited access to meeting rooms</li>
-                <li>Access to networking events</li>
-                <li>Discounted rates on day passes</li>
-            </ul>
-            <br>
-            <br>
-            <a href="" class="plan-enroll-now-button">Enroll now</a>
+    <div class="outer-plans-div">
+        <div class="plans-div">
+            <!--Start Plan Section Div-->
+            <div class="plan-div">
+                <p class="plan-period">Daily</p>
+                <p class="plan-price">$5</p>
+                <span class="plan-per-period">/hour</span>
+                <br>
+                <br>
+                <ul class="plan-desc">
+                    <li>Business mailing address</li>
+                    <li>Limited access to meeting rooms</li>
+                    <li>Access to networking events</li>
+                    <li>Discounted rates on day passes</li>
+                </ul>
+                <br>
+                <br>
+                <a href="" class="plan-enroll-now-button">Enroll now</a>
+            </div>
+            <!--End Plan Section Div-->
+
+
+            <!--Start Plan Section Div-->
+            <div class="plan-div">
+                <p class="plan-period">Yearly</p>
+                <p class="plan-price">$150</p>
+                <span class="plan-per-period">/year</span>
+                <br>
+                <br>
+                <ul class="plan-desc">
+                    <li>Business mailing address</li>
+                    <li>Limited access to meeting rooms</li>
+                    <li>Access to networking events</li>
+                    <li>Discounted rates on day passes</li>
+                </ul>
+                <br>
+                <br>
+                <a href="" class="plan-enroll-now-button">Enroll now</a>
+            </div>
+            <!--End Plan Section Div-->
+
+
+            <!--Start Plan Section Div-->
+            <div class="plan-div">
+                <p class="plan-period">Monthly</p>
+                <p class="plan-price">$25</p>
+                <span class="plan-per-period">/month</span>
+                <br>
+                <br>
+                <ul class="plan-desc">
+                    <li>Business mailing address</li>
+                    <li>Limited access to meeting rooms</li>
+                    <li>Access to networking events</li>
+                    <li>Discounted rates on day passes</li>
+                </ul>
+                <br>
+                <br>
+                <a href="" class="plan-enroll-now-button">Enroll now</a>
+            </div>
+            <!--End Plan Section Div-->
         </div>
-        <!--End Plan Section Div-->
-
-
-        <!--Start Plan Section Div-->
-        <div class="plan-div">
-            <p class="plan-period">Yearly</p>
-            <p class="plan-price">$150</p>
-            <span class="plan-per-period">/year</span>
-            <br>
-            <br>
-            <ul class="plan-desc">
-                <li>Business mailing address</li>
-                <li>Limited access to meeting rooms</li>
-                <li>Access to networking events</li>
-                <li>Discounted rates on day passes</li>
-            </ul>
-            <br>
-            <br>
-            <a href="" class="plan-enroll-now-button">Enroll now</a>
-        </div>
-        <!--End Plan Section Div-->
-
-
-        <!--Start Plan Section Div-->
-        <div class="plan-div">
-            <p class="plan-period">Monthly</p>
-            <p class="plan-price">$25</p>
-            <span class="plan-per-period">/month</span>
-            <br>
-            <br>
-            <ul class="plan-desc">
-                <li>Business mailing address</li>
-                <li>Limited access to meeting rooms</li>
-                <li>Access to networking events</li>
-                <li>Discounted rates on day passes</li>
-            </ul>
-            <br>
-            <br>
-            <a href="" class="plan-enroll-now-button">Enroll now</a>
-        </div>
-        <!--End Plan Section Div-->
     </div>
 </section>
 
@@ -427,27 +462,31 @@ Contact us section
 
                 <div class="phone-div">
                     <img class="icon" src="{% static 'core/img/icons/phone.png'%}">
-                    <p>08065345545</p>
+                    <p style="color: #FFF;">08065345545</p>
                 </div>
                 <div class="social-div">
-                    <a href="https://www.facebook.com/61563258416391/posts/122096715344441947/?substory_index=795397722797727">
-                        <img alt="facebook icon"class="icon" src="{% static 'img/icons/Facebook.png'%}">
-                    </a>
-                    <a href="https://www.instagram.com/ouredubridge?igsh=MWd3MndseTN3Nmo5MA==">
-                        <img alt="instagram icon" class="icon" src="{% static 'img/icons/Instagram.png'%}">
-                    </a>
+                    <a href="https://www.facebook.com/61563258416391/posts/122096715344441947/?substory_index=795397722797727"><img alt="facebook icon"class="icon" src="{% static 'img/icons/Facebook.png'%}"></a>
+                    <a href="https://www.instagram.com/ouredubridge?igsh=MWd3MndseTN3Nmo5MA=="><img alt="instagram icon" class="icon" src="{% static 'img/icons/Instagram.png'%}"></a>
                     <a href=""><img class="icon" src="{% static 'img/icons/LinkedIn.png'%}"></a>
-                    <a href="https://x.com/_edubridge">
-                        <img alt="X icon" class="icon" src="{% static 'img/icons/TwitterX.png'%}">
-                    </a><br>
+                    <a href="https://x.com/_edubridge"><img alt="X icon" class="icon" src="{% static 'img/icons/TwitterX.png'%}"></a><br>
                 </div>
             </div>
         </div>
-        <form class="form-div" method="post">
+        <form class="form-div" method="post" action="">
             {% csrf_token %}
-            <input type="text" name="full-name" placeholder="Full name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="message" placeholder="Message">
+            <p>{{ form.non_field_errors }}</p>
+            <input type="text" name="name" value="{{ form.name.value|default_if_none:'' }}" placeholder="Full name" required>
+            <span style="color: red;">{{ form.name.errors }}</span>
+
+            <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email" required>
+            <span style="color: red;">{{ form.email.errors }}</span>
+            
+            <input type="text" name="subject" value="{{ form.subject.value|default_if_none:'' }}" placeholder="Subject" required>
+            <span style="color: red;">{{ form.message.errors }}</span>
+            
+            <textarea id="message" name="message" placeholder="Message" required>{{ form.message.value|default_if_none:'' }}</textarea>
+            <span style="color: red;">{{ form.message.errors }}</span>
+            
             <br>
             <input type="submit" name="submit" value="Send">
         </form>
@@ -464,18 +503,24 @@ Contact us section
 
                 <div class="phone-div">
                     <img class="icon" src="{% static 'core/img/icons/phone.png'%}">
-                    <p>08065345545</p>
+                    <p style="color: #FFF;">08065345545</p>
                 </div>
                 <div class="social-div">
                     <a href="https://www.facebook.com/61563258416391/posts/122096715344441947/?substory_index=795397722797727">
-                        <img class="icon" src="{% static 'img/icons/Facebook.png'%}">
+                    <!--<img class="icon" src="{% static 'img/icons/Facebook.svg'%}">-->
+                    <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="33.75" height="30" fill="url(#pattern0_519_1795)"/>
+                        <defs>
+                        <pattern id="pattern0_519_1795" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_519_1795" transform="matrix(0.0166667 0 0 0.01875 0 -0.0625)"/>
+                        </pattern>
+                        <image id="image0_519_1795" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAADzklEQVRoBe2aS48NQRTHZ8GIxMYjhhCrGSMSEh+EEI8JKxExgmEhQqx8AGNY2dtY2hG2FuMRj6VkWFsI4hnvnz5SMrfn1umuOlW37xVdyU26T506//M/Xbf6VJ0eGmpbG4E2Am0E2gj8pxEA1gAHgCvAbWAOeAN8cz+5Fpn0ic5+GfNPhQtYWZA6CTzE3h4AU2JrYMkD64HLwCc7z66RH4EZYN3AEAcWA6eAD13u5hNIEC8AS/pKHBgHnubjVWvpCbCxL6SB3T1+qhr798CuRkkDB4HvmkcNyH8ARxshDUw2QCgUYqqnpN00lugOShNfdvaENDAKvBsUph1+yNthU1bSwHDm1fgzcBXYLu9YYKk4XGRby13istllXx28Ki8fy+sxG2ngXCVcXOddYG2dc8C1OLOcqbMZ1O+egGQ8OZqkjEHJg4GwTO3aQNaSduliDrKywIzVAjoFA2HxcTrUvlfP/Z9y5cY3vCCK0EhYZqJ9w+F2PTmertg4pHDzio2EBee412CIMHGLtzBQW3yYwAbgTrEBebtwgPH+vg+nViYLAPDLCOobtsoHWmxArvuUE2Ti82ofVqXMnT4k4HYN9b4ni1T1ZZdmumCikpyv0x25pEM7Cz4MkQE/s4HMG5rR8FR5ZKYzD6VcaUCKeqr4poanyoEXqaid4zWgTp2M13ManiovDtFeWxxQDUZ2AJKCWturSLg//62vFrRoIGVA4mL2RTGri4G+EQaWJb4STYT7NqWBbZbZ1THGNKWfdxgIvtTnTHgPsDcY0K9oWrSk/BHdwmnpmkUZ5nw0cHmA6bUktZ5sTaOXDaBsyJR4SGErW2uY8D4NT5UXZ04jiStlKVgaUEkpz41sHkY0vEo5IEcyWZoGlMV42cishlUrdyXLsjnjnQZmNFc17JiGVSt3RzxZDvA0sCrPDX1pRzzipKvPGrDLQxoifFHDCZbnOqbVAMthSbqTqmKezyWAs0muFNXsBgif1jCi5a7KL+UMc9NAzQbLAx9lLbWIs6nFtB4SlorDuGY/SS6Vd8BULtWAyw8q+k582aHZziIHjkS71Zv/sGRUh7OQqjNi+eRBs2kJnptlk5rNnsil8g7IqyCoaU4EDS4rSVG+t9O4wtmxAjx09d4DbAVWuAK7FNnlOqbJajyq+dOIHFjkPkwLftoxDJ3u3w/ThhshFQLialGXgCy5tyMqtqazZVAhRGJ13IbjBHDPuJ+W1XdWyp4y5WPx+6ovVTxgwm1AbgHP3AG/HAHLT05GRSZ98hGp6MZX/vrKsgVvI9BGoI1AG4F8EfgNQ0GfSFW4DfEAAAAASUVORK5CYII="/>
+                        </defs>
+                        </svg>
+                        
                     </a>
-                    <a href="https://www.instagram.com/ouredubridge?igsh=MWd3MndseTN3Nmo5MA==">
-                        <img class="icon" src="{% static 'img/icons/Instagram.png'%}">
-                    </a>
-                    <a href="">
-                        <img class="icon" src="{% static 'img/icons/LinkedIn.png'%}">
-                    </a>
+                    <a href="https://www.instagram.com/ouredubridge?igsh=MWd3MndseTN3Nmo5MA=="><img class="icon" src="{% static 'img/icons/Instagram.png'%}"></a>
+                    <a href=""><img class="icon" src="{% static 'img/icons/LinkedIn.png'%}"></a>
                     <a href="https://x.com/_edubridge">
                         <img class="icon" src="{% static 'img/icons/TwitterX.png'%}"></a><br>
                 </div>
