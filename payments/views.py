@@ -16,7 +16,6 @@ def is_ajax(request):
     return request.headers.get('x-requested-with') == 'XMLHttpRequest'
 
 def pricing_page(request):
-    return render(request, 'payments/pricing.html') 
 
     # Check if the request is an AJAX
     if is_ajax(request):
