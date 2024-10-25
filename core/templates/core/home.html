@@ -122,28 +122,56 @@ Our courses section
         <!--Container for the courses section -->
         <div class="courses-section-div">
 
+            <!--Testing course for the database***********************-->
+            <!--START COURSE SECTION-->
+            <a class="course-section-link" href="#">
+                <div class="course-section">
+                    <div class="course-thumbnail">
+                        <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
+                    </div>
+                    <div class="course-title-rating">
+                        <p class="course-title">Web Design</p>
+                        <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
+                    </div>
+                    <h6>Web Design and Development</h6>
+                    <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
+                    <hr class="bottom-line">
+                    <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
+                    <div class="course-status-duration">
+                        <p>Free</p>
+                        <p>45hrs</p>
+                    </div>
+                </div>
+                </a>
+                <!--END COURSE SECTION-->
+            
+            {% for course in course%}
             <!--START COURSE SECTION-->
             <a class="course-section-link" href="#">
             <div class="course-section">
                 <div class="course-thumbnail">
-                    <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}">
+                    {% else %}
+                        <img src="{% static 'img/default_course_image.jpeg' %}" alt="Default course image">
+                    {% endif %}
                 </div>
                 <div class="course-title-rating">
-                    <p class="course-title">Web Design</p>
+                    <p class="course-title">{{course.category}}</p>
                     <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
                 </div>
-                <h6>Web Design and Development</h6>
+                <h6>{{course.title}}</h6>
                 <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
                 <hr class="bottom-line">
                 <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
                 <div class="course-status-duration">
-                    <p>Free</p>
+                    <p>{{course.status}}</p>
                     <p>45hrs</p>
                 </div>
             </div>
             </a>
             <!--END COURSE SECTION-->
-    
+            {% endfor %}
     
             <!--START COURSE SECTION-->
             <a class="course-section-link" href="#">
@@ -201,7 +229,6 @@ Our courses section
             <img class="arrow-right" alt="chevron left" src="{% static 'core/img/icons/chevron-right.png' %}">
         </div>
     </div>
-    
 
     <div class="view-courses-button-div">
         <a class="view-courses-button" href="">View all</a>
