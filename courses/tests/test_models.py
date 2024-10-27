@@ -19,7 +19,8 @@ class CourseModelTests(TestCase):
             title="Learn Python",
             category=Category.objects.create(name="Programming", description="Learn how to program"),
             description="Learn the basics of Python",
-            instructor=CustomUser.objects.create(fullname="Test User", email="testuser@gmail.com")
+            instructor=CustomUser.objects.create(fullname="Test User", email="testuser@gmail.com"),
+            duration=5
         )
 
     def test_course_creation(self):
@@ -34,7 +35,8 @@ class ModuleModelTests(TestCase):
                 title="Learn Python",
                 category=Category.objects.create(name="Programming", description="Learn how to program"),
                 description="Learn the basics of Python",
-                instructor=CustomUser.objects.create(fullname="Test User", email="testuser@gmail.com")
+                instructor=CustomUser.objects.create(fullname="Test User", email="testuser@gmail.com"),
+                duration=5,
             ),
             title="Introduction to Python",
             description="Have an overview of what Python is all about",
