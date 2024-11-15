@@ -51,9 +51,12 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'payments.apps.PaymentsConfig',
     'community.apps.CommunityConfig',
+    'legal.apps.LegalConfig',
 
     # Other apps
     'social_django',
+    
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -306,6 +309,7 @@ LOGGING = {
 }
 
 #Paypal Settings
-PAYPAL_CLIENT_ID ='your-client-id'
-PAYPAL_CLIENT_SECRET ='your-client-secret'
-PAYMENT_MODE = 'sandbox' # 'live' for production
+PAYPAL_RECEIVER_EMAIL = "sb-9ugxh33579241@business.example.com" #where the money will be recieved
+PAYPAL_TEST = True
+
+#PAYPAL_BUY_BUTTON_IMAGE =

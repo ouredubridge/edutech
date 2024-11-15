@@ -1,3 +1,6 @@
+{%load static%}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../payments/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
@@ -19,57 +22,23 @@
             <img class="logo" src="../staticfiles/img/logo/logo_sq.png" alt="logo">
             <input class="cart-search" type="search" name="cart-search" placeholder="search a course">
             <div class="profile-icons">
-                <img class="ikon" src="../core/static/core/img/icons/heart.png" alt="heart">
+                <img class="ikon" src="/core/static/core/img/icons/heart.png" alt="heart">
                 <img class="ikon" src="../core/static/core/img/icons/shopping-cart.png" alt="cart">
                 <img class="ikon" src="../core/static/core/img/icons/bell.png" alt="bell">
                 <img class="ikon" src="../core/static/core/img/icons/profile_image.png" alt="profile_image">
             </div>
         </div>
 
-        <div class="checkout-title">
-            <div class="title1">
-                <h1>Checkout</h1>
-                <h6>Payment Method</h6>
-            </div>
-
-            <div class="title2">
-                <h1>Summary</h1>
-            </div>
-        </div>
-        
+        <div class="cart-title">
+            <h1>Shopping Cart</h1>
+            <h6>2 Courses in Cart</h6>
+        </div>        
 
         <!-- Entire body of the webpage -->
         <div class= "cart-content">
 
             <!--The individual list of items-->
             <div class="shopping-list">
-
-                <div class="payment_option">
-                    <div class="credit_card_div">
-                        <div class="credit_card_left">
-                            <label class="radio-inline">
-                                <input type="radio" class="radio_opt">
-                            </label>
-                            <img src="../core/static/core/img/icons/ph_credit-card-light.png" alt="card_image">
-                            <p>credit/debit card</p>
-                        </div>
-        
-                        <div class="credit_card_right">
-                            <img src="../core/static/core/img/icons/mastercard.png" alt="mastercard logo">
-                            <img src="../core/static/core/img/icons/visa.png" alt="visa logo">
-                        </div>
-                    </div>
-        
-                    <img class="line_6" src="../core/static/core/img/icons/Line_6.png" alt="horizontal line" style="margin: 0px;">
-        
-                    <div class="paypal_opt">
-                        <label class="radio-inline">
-                            <input type="radio" class="radio_opt">
-                        </label>
-                        <img src="../core/static/core/img/icons/logos_paypal.png" alt="paypal logo">
-                        <p>Paypal</p>
-                    </div>
-                </div>
             
                 <!-- The chosen course or item -->
                 <div class="cart-left">
@@ -117,7 +86,6 @@
        
 
             <div class="cart-right">
-                
                 <div class="price-details">
                     <p class="price-text"> Subtotal</p>
                     <p class="price-text"> N5000.00</p>
@@ -138,7 +106,7 @@
                 </div> 
                 <img class="line_6" src="../core/static/core/img/icons/Line_6.png" alt="horizontal line">
 
-                <button class="checkout-btn">Complete Checkout</button>
+                <button class="checkout-btn">Proceed to Checkout</button>
                 
             </div>
 
