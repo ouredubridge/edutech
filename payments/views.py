@@ -9,7 +9,12 @@ from django.urls import reverse
 from .models import Course, Payment
 
 # Create your views here.
+
+def is_ajax(request):
+    return request.headers.get('x-requested-with') == 'XMLHttpRequest'
+
 def pricing_page(request):
+
     return render(request, 'payments/pricing.html') 
 
 def cart_page(request):
@@ -49,3 +54,8 @@ def payment_done(request):
 
 def payment_cancel(request):
   return render(request, 'payments/payment_cancel.html')
+
+    # Check if the request is an AJAX
+    if is_ajax(request):
+        return render(request, 'payments/partials/pricing_content.html')
+    return render(request, 'payments/pricing.html')

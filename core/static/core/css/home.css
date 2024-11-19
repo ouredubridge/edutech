@@ -211,7 +211,7 @@ main div p {
 .course-section {
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    max-width:305px;
+    width:305px;
     height: 417px;
     background-color: #FFF;
     padding: 0.8em;
@@ -221,8 +221,14 @@ main div p {
     width: fit-content;
 }
 
+.course-thumbnail {
+    height: 45%;
+}
+
 .course-thumbnail img {
     width: 100%;
+    border-radius: 15px;
+    height: 100%;
 }
 .course-section h6 {
     font-size: 18px;
@@ -902,8 +908,9 @@ textarea:focus {
 /* Styles for very small devices */
 @media only screen and (max-width: 400px) {
     .course-section {
-        width: 250px;
-        height: auto;
+        /*width: 250px;*/
+        width: 220px;
+        height: 417px;
     }
 
     .course-section h6 {
@@ -926,6 +933,16 @@ textarea:focus {
 
     .contact-us-div {
         width: 278px;
+    }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 768px) {
+    .course-section {
+        width: 280px;
+    }
+
+    .course-section h6 {
+        font-size: 16px;
     }
 }
 

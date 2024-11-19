@@ -4,6 +4,9 @@ from django.conf import settings
 
 from .forms import ContactUsForm
 
+# Import Course model
+from courses.models import Course
+
 
 from django.http import JsonResponse
 
@@ -46,11 +49,12 @@ def homepage(request):
     
     else:
         form = ContactUsForm()
+        course = Course.objects.all()
 
         if is_ajax(request):
                 return render(request, 'core/partials/home_content.html', {'form': form })
 
-    return render(request, 'core/home.html', {'form': form})
+    return render(request, 'core/home.html', {'form': form, 'course': course})
 
 def about_us(request):
     # Check if it is an AJAX request

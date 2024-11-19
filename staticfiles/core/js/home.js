@@ -66,3 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });*/
 
 })
+
+// JQuery
+document.ready(function() {
+  $('.messages').slideDown();
+});

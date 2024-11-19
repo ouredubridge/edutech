@@ -4,11 +4,13 @@ from .models import Course, Module, Lesson
 class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = ['title', 'description', 'category', 'instructor', 'price']
+        fields = ['title', 'slug', 'description', 'category', 'image', 'instructor', 'level', 'duration', 'price']
 
-        """widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder: 'Course Title'})
-        }"""
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Course Title'}),
+            'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'A short label used in URLs'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Course Description'}),
+        }
 
 class ModuleForm(forms.ModelForm):
     class Meta:
