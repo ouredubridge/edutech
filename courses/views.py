@@ -11,8 +11,8 @@ def course_list(request):
     return render(request, 'courses/course_list.html', {'courses': courses})
 
 @login_required(login_url="/login/")
-def course_detail(request, course_id):
-    course = get_object_or_404(Course, id=course_id)
+def course_detail(request, course_slug):
+    course = get_object_or_404(Course, slug=course_slug)
 
     if course.status == Course.PAID:
         # Check if the user has paid for the course
@@ -35,8 +35,8 @@ def create_course(request):
     return render(request, 'courses/create_course.html', {'form': form})
 
 # View for creating a module for a course
-def create_module(request, course_id):
-    course = Course.objects.get(id=course_id)
+def create_module(request, course_slug):
+    course = Course.objects.get(slug=course_slug)
 
     if request.method == 'POST':
         form = ModuleForm(request.POST)
@@ -80,14 +80,14 @@ def create_lesson(request, module_id):
 - Modules
 - Lessons
 """
-def edit_course(request, course_id):
-    course = get_object_or_404(Course, id=course_id)
+def edit_course(request, course_slug):
+    course = get_object_or_404(Course, slug=course_slug)
 
     if request.method == 'POST':
         form = CourseForm(request.POST, instance=course)
         if form.is_valid():
             form.save()
-            return redirect('course_detail', course_id=course.id)
+            return redirect('course_detail', course_slug=course.slug)
 
     else:
         form = CourseForm(instance=course)
