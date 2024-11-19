@@ -31,6 +31,8 @@ urlpatterns = [
     path('', include('courses.urls')),
     path('', include('payments.urls')),
     path('', include('community.urls')),
+    path('', include('legal.urls')),
+    
     
     path('ckeditor5/', include('django_ckeditor_5.urls')),
     path('tinymce/', include('tinymce.urls')),
@@ -43,7 +45,13 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('password-reset/complete', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    #url for paypal
+    path('paypal', include('paypal.standard.ipn.urls')),
+    
+
+
+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
