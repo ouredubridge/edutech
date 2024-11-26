@@ -11,6 +11,8 @@ from django.contrib.auth.views import PasswordResetView
 from django.contrib.auth.forms import PasswordResetForm
 from django.views import View
 
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
@@ -120,3 +122,14 @@ class ResendPasswordResetEmailView(View):
                 messages.error(request, 'There was a problem resending the email.')
 
         return redirect(reverse_lazy('password_reset_done'))
+
+# Delete Account View
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        # Delete the users's account
+        user = request.user
+        user.delete()
+        messages.success(request, "Your account has been successfully deleted.")
+
+    return render(request, 'users/delete_account.html')
