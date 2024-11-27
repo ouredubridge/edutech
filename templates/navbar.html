@@ -32,9 +32,10 @@
             <li><a class="login" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
             <li><a class="login" href="{% url 'login' %}">Login</a></li>
+            <li><a class="signup" href="{% url 'signup' %}">Signup</a></li>
             {% endif %}
 
-            <li><a class="signup" href="{% url 'signup' %}">Signup</a></li>
+            
         
         </ul>
     </nav>
