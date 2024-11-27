@@ -30,6 +30,7 @@ def signup(request):
             user.backend = 'email'
             login(request, user)
             # form.save()
+            messages.success(request, 'Registration successfull!')
             return redirect('home')
 
         else:
@@ -130,6 +131,10 @@ def delete_account(request):
         # Delete the users's account
         user = request.user
         user.delete()
-        messages.success(request, "Your account has been successfully deleted.")
 
+        messages.success(request, "Your account has been successfully deleted.")
+        # Log the user out after deletion
+        logout(request)
+        return redirect('home')
+    
     return render(request, 'users/delete_account.html')
