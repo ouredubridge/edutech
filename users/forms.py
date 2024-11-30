@@ -5,70 +5,46 @@ from django.contrib.auth.password_validation import validate_password
 
 from .models import CustomUser
 
-class CustomUserCreationForm(forms.ModelForm):
-    fullname = forms.CharField(max_length=200, required=True)
+class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
-    password1 = forms.CharField(widget=forms.PasswordInput, required=True)
-
+    fullname = forms.CharField(
+        max_length=100,
+        required=True,
+        label="Full Name"
+    )
+    
     class Meta:
         model = CustomUser
-        fields = ['fullname', 'email', 'password']
+        fields = ('email', 'fullname', 'password1', 'password2')
 
-    """def clean_username(self):
-        username = self.cleaned_data.get('username')
-        if CustomUser.objects.filter(username=username).exists():
-            raise ValidationError('This username is already taken.')
-        return username"""
+    def clean(self):
+        cleaned_data = super().clean() # Get the data from the parent class
+        fullname = cleaned_data.get('fullname')
 
-    """def clean(self):
-        cleaned_data = super().clean()
+        # Perform custom validation on fullname
+        if fullname:
+            if len(fullname.strip()) < 4:
+                self.add_error('fullname', "Full name must be at least 4 characters long.")
+            if not fullname.replace(" ", "").isalpha():
+                self.add_error('fullname', "Full name can only contain alphabetic characters")
 
-        #email = self.cleaned_data['email']
-        email = cleaned_data.get("email")
-        password1 = cleaned_data.get("password1")
-        password2 = cleaned_data.get("password2")
+        else:
+            self.add_error('fullname', "Full name is required.")
 
-        if CustomUser.objects.filter(email=email).exists():
-            raise forms.ValidationError('Email already exists.')
-
-        if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Passwords don't match")
-
-        return cleaned_data"""
+        # Return the cleaned_data dictionary
+        return cleaned_data
 
     def clean_email(self):
-        email = self.cleaned_data.get("email")
-
+        email = self.cleaned_data.get('email')
         if CustomUser.objects.filter(email=email).exists():
-            raise forms.ValidationError('Email already in use.')
-
+            raise forms.ValidationError("A user with this email already exists.")
         return email
-
-    def clean_password(self):
-        password = self.cleaned_data.get('password')
-
-        # Validate the password using Django's built-in validators
-        validate_password(password, self.instance)
-
-        return password
-
-    def clean_password1(self):
-        password = self.cleaned_data.get("password")
-        password1 = self.cleaned_data.get("password1")
-
-        if password and password1 and password != password1:
-            raise forms.ValidationError("Passwords don't match")
-
-        return password1
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.set_password(self.cleaned_data['password'])
-
+        user.email = self.cleaned_data['email']
         if commit:
             user.save()
-
         return user
 
 class CustomUserLoginForm(forms.Form):
