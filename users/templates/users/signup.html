@@ -99,9 +99,9 @@
                         <input class="{% if form.email.errors %}error{% endif %} form-input" type="text" placeholder="Email" name="{{ form.email.name}}" value="{{ form.email.value|default:''}}" id="{{ form.email.id_for_label}}" autocomplete="email"  required/>
                         <i class="eye-icon-text fa fa-envelope-o" aria-hidden="true"></i>
                     </div>
-                    {% if form_errors.email %}
+                    {% if form.email.errors %}
                     <ul class="form-errors">
-                    {% for error in form_errors.email %}
+                    {% for error in form.email.errors %}
                         <li>{{ error }}</li>
                     {% endfor %}
                     </ul>
@@ -118,9 +118,9 @@
                         <input id="password" class="{% if form.password1.errors %}error{% endif %} form-input" type="password" placeholder="Password" name="{{ form.password1.name }}" value="{{ form.password1.value|default:'' }}" id="{{ form.password.id_for_label }}" required/>
                         <i class="togglePassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
-                    {% if form_errors.password1 %}
+                    {% if form.password1.errors %}
                     <ul class="form-errors">
-                    {% for error in form_errors.password1 %}
+                    {% for error in form.password1.errors %}
                         <li>{{ error }}</li>
                     {% endfor %}
                     </ul>
@@ -132,9 +132,9 @@
                         <input id="confirmPassword" class="{% if form.password2.errors %}error{% endif %} form-input" type="password" placeholder="Confirm Password" name="{{ form.password2.name }}" value="{{ form.password2.value|default:'' }}" id="{{ form.password1.id_for_label }}" required/>
                         <i class="toggleConfirmPassword eye-icon fa-regular fa-eye" aria-hidden="true"></i>
                     </div>
-                    {% if form_errors.password2 %}
+                    {% if form.password2.errors %}
                     <ul class="form-errors">
-                    {% for error in form_errors.password2 %}
+                    {% for error in form.password2.errors %}
                         <li>{{ error }}</li>
                     {% endfor %}
                     </ul>
