@@ -18,29 +18,20 @@ def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            """
-            fullname = form.cleaned_data.get('fullname')
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password1')
-
-            user = CustomUser.objects.create_user(fullname=fullname, email=email, password=password)
-            """
-
+            # Save the user instance
             user = form.save()
-            user.backend = 'email'
-            login(request, user)
-            # form.save()
-            messages.success(request, 'Registration successfull!')
-            return redirect('home')
-
-        else:
-            # Handle form errors here
-            form_errors = form.errors
+            # Authenticate the user explicitly
+            user = authenticate(email=user.email, password=form.cleaned_data.get('password1'))
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Registration successful!')
+                return redirect('home')
+            else:
+                messages.error(request, 'There was an issue logging you in. Please try again.')
     else:
         form = CustomUserCreationForm()
-        form_errors = None
 
-    return render(request, 'users/signup.html', {'form': form, 'form_errors': form_errors})
+    return render(request, 'users/signup.html', {'form': form})
 
 
 """The login view function
