@@ -27,4 +27,29 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.submitButton').disabled = !this.checked;
     });
 
+    // Elements for `terms and conditions` popup functionality
+    const openPopupBtn = document.getElementById('openTermsPopup');
+    const termsPopup = document.getElementById('termsPopup');
+    const acceptTermsBtn = document.getElementById('acceptTerms');
+    const declineTermsBtn = document.getElementById('declineTerms');
+    const termsCheckbox = document.getElementById('termsAndConditions')
+    const submitButton = document.getElementById('signup-button');
+
+    // Open the popup
+    openPopupBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        termsPopup.style.display = 'flex';
+    })
+
+    // Accept terms
+    acceptTermsBtn.addEventListener('click', () => {
+        termsCheckbox.checked =  true; // Check the checkbox
+        termsPopup.style.display = 'none'; // Close the popup
+        submitButton.disabled = false // Enable the submit button
+    })
+
+    // Decline terms
+    declineTermsBtn.addEventListener('click', () => {
+        termsPopup.style.display = 'none'; // Close the popup
+    })
 })
