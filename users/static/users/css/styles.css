@@ -450,7 +450,8 @@ input[type="checkbox"] {
 }
 
 #acceptTerms {
-    background-color: #28a745;
+    /*background-color: #28a745;*/
+    background-color: #141E61;
     color: #fff;
 }
 
