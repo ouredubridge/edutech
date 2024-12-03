@@ -13,6 +13,9 @@ from django.views import View
 
 from django.contrib.auth.decorators import login_required
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
@@ -129,3 +132,28 @@ def delete_account(request):
         return redirect('home')
     
     return render(request, 'users/delete_account.html')
+
+@csrf_exempt
+def facebook_data_deletion(request):
+    """
+    Facebook Data Deletion Callback.
+    Returns instructions for users to delete their data or processes deletion requests.
+    """
+     
+    
+    if request.method == "POST":
+        # Facebook sends a POST request with a signed request
+        signed_request = request.POST.get("signed_request")
+
+        if signed_request:
+            # You may process the signed_request if needed.
+            # For now, simply acknowledge the deletion process.
+            return JsonResponse({
+                "url": "https://localhost/delete-account",
+                "confirmation_code": "unique_confirmation_code"
+            })
+
+    # Instructions for manual deletion
+    return JsonResponse({
+        "instructions": "To delete your data, please email us at support@ouredubridge.com."
+    })
