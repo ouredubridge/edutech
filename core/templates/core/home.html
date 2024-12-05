@@ -152,7 +152,7 @@ Our courses section
             <a class="course-section-link" href="#">
             <div class="course-section">
                 <div class="course-thumbnail">
-                    {% if course.image is not null %}
+                    {% if course.image %}
                         <img src="{{ course.image.url }}" alt="{{ course.title }}">
                     {% else %}
                         <img src="{{ MEDIA_URL }}course_images/default_course_image.jpg" alt="Default course image">
