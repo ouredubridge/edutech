@@ -152,7 +152,7 @@ Our courses section
             <a class="course-section-link" href="#">
             <div class="course-section">
                 <div class="course-thumbnail">
-                    {% if course.image %}
+                    {% if course.image is not null %}
                         <img src="{{ course.image.url }}" alt="{{ course.title }}">
                     {% else %}
                         <img src="{% static 'core/img/pics/course-thumbnail_2.png' %}" alt="Default course image">
@@ -168,7 +168,7 @@ Our courses section
                 <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
                 <div class="course-status-duration">
                     <p>{{course.status}}</p>
-                    <p>{{course.duration}}</p>
+                    <p>{{course.duration}}hrs</p>
                 </div>
             </div>
             </a>
