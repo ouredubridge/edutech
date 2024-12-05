@@ -155,7 +155,7 @@ Our courses section
                     {% if course.image is not null %}
                         <img src="{{ course.image.url }}" alt="{{ course.title }}">
                     {% else %}
-                        <img src="{% static 'core/img/pics/course-thumbnail_2.png' %}" alt="Default course image">
+                        <img src="{{ MEDIA_URL }}course_images/default_course_image.jpg" alt="Default course image">
                     {% endif %}
                 </div>
                 <div class="course-title-rating">
