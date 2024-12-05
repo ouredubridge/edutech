@@ -114,6 +114,7 @@ Our courses section
     x-axis.
     -->
     <div class="courses-section-with-arrows">
+        {% if courses %}
         <!--Container for the chevron left arrow -->
         <div>
             <img class="arrow-left" alt="chevron left" src="{% static 'core/img/icons/chevron-left.png' %}">
@@ -124,7 +125,7 @@ Our courses section
 
             <!--Testing course for the database***********************-->
             <!--START COURSE SECTION-->
-            <a class="course-section-link" href="#">
+            <!--<a class="course-section-link" href="#">
                 <div class="course-section">
                     <div class="course-thumbnail">
                         <img src="{% static 'core/img/pics/course-thumbnail_1.png' %}">
@@ -136,16 +137,17 @@ Our courses section
                     <h6>Web Design and Development</h6>
                     <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
                     <hr class="bottom-line">
+                -->
                     <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
-                    <div class="course-status-duration">
+                    <!--<div class="course-status-duration">
                         <p>Free</p>
                         <p>45hrs</p>
                     </div>
                 </div>
-                </a>
+                </a>-->
                 <!--END COURSE SECTION-->
             
-            {% for course in course%}
+            {% for course in courses%}
             <!--START COURSE SECTION-->
             <a class="course-section-link" href="#">
             <div class="course-section">
@@ -174,7 +176,7 @@ Our courses section
             {% endfor %}
     
             <!--START COURSE SECTION-->
-            <a class="course-section-link" href="#">
+            <!--<a class="course-section-link" href="#">
             <div class="course-section">
                 <div class="course-thumbnail">
                     <img src="{% static 'core/img/pics/course-thumbnail_2.png' %}">
@@ -186,18 +188,20 @@ Our courses section
                 <h6>Business Development</h6>
                 <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
                 <hr class="bottom-line">
+            -->
                 <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
-                <div class="course-status-duration">
+                <!--<div class="course-status-duration">
                     <p>Free</p>
                     <p>45hrs</p>
                 </div>
             </div>
             </a>
+        -->
             <!--END COURSE SECTION-->
     
     
             <!--START COURSE SECTION-->
-            <a class="course-section-link" href="#">
+            <!--<a class="course-section-link" href="#">
             <div class="course-section">
                 <div class="course-thumbnail">
                     <img src="{% static 'core/img/pics/course-thumbnail_3.png' %}">
@@ -209,13 +213,15 @@ Our courses section
                 <h6>Finance</h6>
                 <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
                 <hr class="bottom-line">
+            -->
                 <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
-                <div class="course-status-duration">
+                <!--<div class="course-status-duration">
                     <p>Free</p>
                     <p>45hrs</p>
                 </div>
             </div>
             </a>
+        -->
             <!--END COURSE SECTION-->
 
             <!--View link -->
@@ -233,6 +239,13 @@ Our courses section
     <div class="view-courses-button-div">
         <a class="view-courses-button" href="">View all</a>
     </div>
+
+    {% else %}
+    <div style="width: 80%; margin-left: auto; margin-right: auto;">
+        <h5 style="text-align: center;">Sorry, no available course at the moment</h5>
+    </div>
+    
+    {% endif %}
 </section>
 
 <!--
