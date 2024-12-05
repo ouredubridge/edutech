@@ -162,7 +162,7 @@ Our courses section
                     <p class="course-title">{{course.category}}</p>
                     <p class="course-rating"><img src="{% static 'core/img/icons/Star.png' %}"><span>4.9</span></p>
                 </div>
-                <h6>{{course.title}}</h6>
+                <h6>{{course.title|truncatewords:3}}</h6>
                 <p class="lessons-number"><img src="{% static 'core/img/icons/book-open.png' %}"><span>14 lessons</span></p>
                 <hr class="bottom-line">
                 <!--<img class="bottom-line" alt="bottom line" src="{% static 'core/img/icons/bottom_line.png' %}">-->
