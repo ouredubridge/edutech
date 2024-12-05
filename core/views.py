@@ -49,12 +49,12 @@ def homepage(request):
     
     else:
         form = ContactUsForm()
-        course = Course.objects.all()
+        courses = Course.objects.all()
 
         if is_ajax(request):
                 return render(request, 'core/partials/home_content.html', {'form': form })
 
-    return render(request, 'core/home.html', {'form': form, 'course': course})
+    return render(request, 'core/home.html', {'form': form, 'courses': courses})
 
 def about_us(request):
     # Check if it is an AJAX request
