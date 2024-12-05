@@ -100,6 +100,7 @@ WSGI_APPLICATION = 'edubridge_website.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
+        #default=f"sqlite:///db.sqlite3"
         default=os.getenv('DATABASE_URL')
     )
 }
