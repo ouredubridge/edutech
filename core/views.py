@@ -52,7 +52,7 @@ def homepage(request):
         courses = Course.objects.all()
 
         if is_ajax(request):
-                return render(request, 'core/partials/home_content.html', {'form': form })
+                return render(request, 'core/partials/home_content.html', {'form': form, 'courses': courses})
 
     return render(request, 'core/home.html', {'form': form, 'courses': courses})
 
