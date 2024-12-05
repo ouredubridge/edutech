@@ -44,13 +44,13 @@ class Course(models.Model):
 
     instructor = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='courses')
     published_date = models.DateTimeField(auto_now_add=True)
-    students = models.ManyToManyField(CustomUser, related_name='enrolled_courses')
+    students = models.ManyToManyField(CustomUser, related_name='enrolled_courses', blank=True)
 
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES, default='beginner')
     duration = models.PositiveIntegerField(help_text="Duration in hours")
 
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default=FREE)
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, help_text="Price in naria")
 
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
