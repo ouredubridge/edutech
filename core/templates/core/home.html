@@ -149,7 +149,7 @@ Our courses section
             
             {% for course in courses%}
             <!--START COURSE SECTION-->
-            <a class="course-section-link" href="#">
+            <a class="course-section-link" href="{% url 'course_detail' course.slug %}">
             <div class="course-section">
                 <div class="course-thumbnail">
                     {% if course.image %}
