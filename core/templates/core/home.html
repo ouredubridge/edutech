@@ -153,9 +153,9 @@ Our courses section
             <div class="course-section">
                 <div class="course-thumbnail">
                     {% if course.image %}
-                        <img src="{{ course.image.url }}" alt="{{ course.title }}">
+                        <img src="{{ course.image.url }}" alt="{{ course.title|truncatewords:2 }}">
                     {% else %}
-                        <img src="{{ MEDIA_URL }}course_images/default_course_image.jpg" alt="Default course image">
+                        <img src="{% static 'core/img/default_course_image.jpeg' %}" alt="Default course image">
                     {% endif %}
                 </div>
                 <div class="course-title-rating">
