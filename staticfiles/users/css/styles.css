@@ -417,6 +417,7 @@ input[type="checkbox"] {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 99999;
 }
 
 #openTermsPopup {
@@ -431,8 +432,13 @@ input[type="checkbox"] {
     text-align: left;
     width: 400px;
     max-height: 600px;
-    margin: auto;
+    margin: auto 10px;
     overflow-y: scroll;
+    z-index: 9999;
+}
+
+.popup-buttons {
+    margin-top: 10px;
 }
 
 .popup-buttons button {
@@ -444,7 +450,8 @@ input[type="checkbox"] {
 }
 
 #acceptTerms {
-    background-color: #28a745;
+    /*background-color: #28a745;*/
+    background-color: #141E61;
     color: #fff;
 }
 
