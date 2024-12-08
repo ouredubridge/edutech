@@ -405,6 +405,16 @@ hr.bottom-line {
     flex: 0 0 auto;
 }
 
+.top-category-link {
+    text-decoration: none;
+    color: black;
+}
+
+.top-category-link:hover {
+    opacity: 0.8;
+}
+
+
 /*.top-category-div:focus {
     background-color: pink;
 }*/
