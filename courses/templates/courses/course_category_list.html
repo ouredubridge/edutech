@@ -1,0 +1,11 @@
+{% if courses %}
+<h1>Courses in {{ category.name }}</h1>
+
+<ul>
+    {% for course in courses %}
+        <li>{{ course.title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No course available in this category</p>
+{% endif %}
