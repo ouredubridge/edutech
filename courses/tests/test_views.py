@@ -7,6 +7,16 @@ from courses.views import course_list, course_detail
 
 
 class CourseViewTests(TestCase):
+    def setUp(self):
+        """
+        Set up a test user and log them in before each test.
+        """
+        self.user = CustomUser.objects.create_user(
+            fullname='testuser newuser',
+            email='testuser@example.com',
+            password='password123'
+        )
+        self.client.login(email='testuser@example.com', password='password123')
 
     def test_course_list_view(self):
 
@@ -38,7 +48,8 @@ class CourseViewTests(TestCase):
             title="Introduction to Django",
             description="Learn the basics of django",
             category=Category.objects.create(name="Programming", description="Learn how to program"),
-            instructor=CustomUser.objects.create(fullname="Test User", email="testuser123")
+            instructor=CustomUser.objects.create(fullname="Test User", email="testuser123"),
+            duration=24,
         )
 
         # Make a GET request to the course detail view
