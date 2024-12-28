@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Course, Module, Lesson, Enrollment
+from .models import Course, Module, Lesson, Enrollment, Category
 from django.http import HttpResponseForbidden
 
 from .forms import CourseForm, ModuleForm, LessonForm
@@ -128,3 +128,10 @@ def edit_lesson(request, lesson_id):
         form = LessonForm(instance=lesson)
 
     return render(request, 'courses/edit_lesson.html', {'form': form, 'lesson': lesson})
+
+
+# filter courses by category
+def filter_courses_by_category(request, category_id):
+    courses = Course.objects.filter(category_id=category_id)
+    category = Category.objects.get(id=category_id)
+    return render(request, 'courses/course_category_list.html', {'courses': courses, 'category': category})
