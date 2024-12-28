@@ -10,4 +10,5 @@ urlpatterns = [
     path('course/<slug:course_slug>/edit/', views.edit_course, name='edit_course'),
     path('module/<int:module_id>/edit/', views.edit_module, name='edit_module'),
     path('lesson/<int:lesson_id>/edit/', views.edit_lesson, name='edit_lesson'),
+    path('category/<int:category_id>/', views.filter_courses_by_category, name='filter_courses_by_category'),
 ]
