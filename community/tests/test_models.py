@@ -22,3 +22,7 @@ class CommunityModelTest(TestCase):
 
         # Create a comment
         self.comment = Comment.objects.create(post=self.post, author=self.user, content="Test comment")
+
+    def test_group_creation(self):
+        self.assertEqual(self.group.name, "Test Group")
+        self.assertEqual(self.group.description, "A test group")
