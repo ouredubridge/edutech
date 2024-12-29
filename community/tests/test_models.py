@@ -26,3 +26,12 @@ class CommunityModelTest(TestCase):
     def test_group_creation(self):
         self.assertEqual(self.group.name, "Test Group")
         self.assertEqual(self.group.description, "A test group")
+
+    def test_membership_creation(self):
+        self.assertEqual(self.membership.user, self.user)
+        self.assertEqual(self.membership.group, self.group)
+
+    def test_post_creation(self):
+        self.assertEqual(self.post.content, "Test post content")
+        self.assertEqual(self.post.group, self.group)
+        self.assertEqual(self.post.author, self.user)
