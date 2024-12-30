@@ -35,3 +35,8 @@ class CommunityModelTest(TestCase):
         self.assertEqual(self.post.content, "Test post content")
         self.assertEqual(self.post.group, self.group)
         self.assertEqual(self.post.author, self.user)
+
+    def test_comment_creation(self):
+        self.assertEqual(self.comment.content, "Test comment")
+        self.assertEqual(self.comment.post, self.post)
+        self.assertEqual(self.comment.author, self.user)
