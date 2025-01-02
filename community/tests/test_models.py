@@ -1,6 +1,6 @@
 from django.test import TestCase
 from users.models import CustomUser
-from community.models import Group, Membership, Post, CommunityPageTests
+from community.models import Group, Membership, Post, Comment
 
 class CommunityModelTest(TestCase):
     def setUp(self):
