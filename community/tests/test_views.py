@@ -1,9 +1,19 @@
 from django.test import TestCase
+from users.models import CustomUser
 from django.urls import reverse
+from community.models import Group, Membership, Post
 
 
-class CommunityPageTests(TestCase):
+class CommunityViewTest(TestCase):
+    # Create a user and log them in
+    self.user = CustomUser.objects.create_user(
+        fullname = 'Test Newuser',
+        username='testuser',
+        password='testpassword'
+    )
 
-    # Ensures the community page returns the correct status code 200(OK)
-    def test_community_status_code(self):
-        response = self.client.get(reverse('community'))
+    # Create a group for the user
+    self.group = Group.objects.create(
+        name="Test Group",
+        description="A test group"
+    )
