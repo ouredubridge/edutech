@@ -19,5 +19,8 @@ class CommunityViewTest(TestCase):
             description="A test group"
         )
 
-#def test_group_list_view(self):
-    #response = self.client.get(reverse('group_list'))
+    def test_group_list_view(self):
+        response = self.client.get(reverse('group_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'community/group_list.html')
+        self.assertContains(response, "Test Group")
