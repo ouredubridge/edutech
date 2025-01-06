@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Group, Membership, Post
 
 # Create your views here.
 
@@ -10,3 +12,8 @@ def community(request):
     if is_ajax(request):
         return render(request, 'community/partials/community_content.html')
     return render(request, 'community/community.html')
+
+@login_required
+def group_list(request):
+    groups = Group.objects.all()
+    return render(request, 'community/group_list.html', {'groups': groups})
