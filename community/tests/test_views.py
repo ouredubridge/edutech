@@ -13,6 +13,8 @@ class CommunityViewTest(TestCase):
             password='testpassword'
         )
 
+        self.client.login(email='testuser@gmail.com', password='testpassword')
+
         # Create a group for the user
         self.group = Group.objects.create(
             name="Test Group",
