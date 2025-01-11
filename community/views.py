@@ -17,3 +17,8 @@ def community(request):
 def group_list(request):
     groups = Group.objects.all()
     return render(request, 'community/group_list.html', {'groups': groups})
+
+@login_required
+def group_detail(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+    return render(request, 'community/group_detail.html', {'group': group})
