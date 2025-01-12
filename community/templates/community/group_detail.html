@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ group.name }}</h1>
+    <p>{{ group.description }}</p>
+    <a href="{% url 'join_group' group.id %}">Join Group</a>
+
+    <h2>Posts</h2>
+    <ul>
+        {% for post in group.posts.all %}
+        <li>{{ post.content }} - by {{ post.author }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST" action="{% url 'create_post' group.id %}">
+        {% csrf_token %}
+        <textarea name="content" placeholder="Write your post..."></textarea>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>
