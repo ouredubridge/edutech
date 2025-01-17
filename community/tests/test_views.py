@@ -32,3 +32,11 @@ class CommunityViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'community/group_detail.html')
         self.assertContains(response, "Test Group")
+
+    def test_join_group(self):
+        response = self.client.post(reverse('join_group', args=[self.group.id]))
+        self.assertEqual(response.status_code, 302) # Redirect after joining
+        self.assertTrue(Membership.objects.filter(
+            user=self.user,
+            group=self.group).exists()
+        )
