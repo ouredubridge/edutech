@@ -40,3 +40,14 @@ class CommunityViewTest(TestCase):
             user=self.user,
             group=self.group).exists()
         )
+
+    def test_create_post(self):
+        post_data = {'content': 'This is a test post'}
+        response = self.client.post(reverse('create_post', args=[self.group.id]), post_data)
+        # Redirect after creating a post
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Post.objects.filter(
+            content='This is a test post',
+            group=self.group,
+            author=self.user
+        ).exists())
