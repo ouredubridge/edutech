@@ -29,3 +29,13 @@ def join_group(request, group_id):
     group = get_object_or_404(Group, id=group_id)
     Membership.objects.get_or_create(user=request.user, group=group)
     return redirect('group_detail', group_id=group.id)
+
+@login_required
+def create_post(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        Post.objects.create(group=group, author=request.user, content=content)
+        return redirect('group_detail', group_id=group.id)
+    return render(request, 'community/create_post.html', {'group': group})
