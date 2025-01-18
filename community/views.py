@@ -22,3 +22,10 @@ def group_list(request):
 def group_detail(request, group_id):
     group = get_object_or_404(Group, id=group_id)
     return render(request, 'community/group_detail.html', {'group': group})
+
+
+@login_required
+def join_group(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+    Membership.objects.get_or_create(user=request.user, group=group)
+    return redirect('group_detail', group_id=group.id)
