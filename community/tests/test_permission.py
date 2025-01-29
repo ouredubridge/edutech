@@ -1,3 +1,4 @@
+from django.test import TestCase
 from community.models import Group
 
 class CommunityPermissionTest(TestCase):
